@@ -1,0 +1,9 @@
+[submodule "modules-src/securesocial"]
+	path = modules-src/securesocial
+	url = https://github.com/sim51/securesocial.git
+[submodule "modules-src/less"]
+	path = modules-src/less
+	url = https://github.com/lunatech-labs/play-module-less.git
+[submodule "modules-src/cms"]
+	path = modules-src/cms
+	url = https://code.google.com/p/play-cms/
