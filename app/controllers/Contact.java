@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 public class Contact extends AbstractController {
 
-    public static void contact() {
+    public static void index() {
         String randomID = Codec.UUID();
         SocialUser user = SecureSocial.getCurrentUser();
         if (user != null) {
@@ -23,18 +23,17 @@ public class Contact extends AbstractController {
         render(randomID, user);
     }
 
-    public static void sendContact(@Required String author, @Required String message, @Required @Email String email,
+    public static void send(@Required String author, @Required String message, @Required @Email String email,
                                    @Required String code, String randomID) throws InterruptedException, ExecutionException {
         if (validation.hasErrors()) {
             params.flash();
             validation.keep();
             randomID = Codec.UUID();
-            String menu = "contact";
-            render("@contact", menu, randomID);
+            render("@index",  randomID);
         }
         Mails.contact(author, message, email);
         flash.success("Merci pour votre intéret %s", author);
-        contact();
+        index();
     }
 
     public static void captcha(String id) {

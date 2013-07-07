@@ -3,9 +3,7 @@
 
 <div class="row">
     <div class="span12">
-        &{'page.contact.txt'}
-        <br/>
-        #{form @Application.sendContact(), class:"form-horizontal"}
+        #{form @Contact.send(), class:"form-horizontal"}
  
             #{ifErrors}
         	    <div class="alert alert-error">
@@ -60,7 +58,7 @@
                 </div>
             </div>
             <div class="control-group captcha">
-                <img src="@{Application.captcha(randomID)}" />
+                <img src="@{Contact.captcha(randomID)}" />
             </div>
             
             <div class="form-actions">
