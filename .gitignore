@@ -4,3 +4,5 @@ libertic-annuaire.ipr
 libertic-annuaire.iws
 modules/
 tmp/
+test-result/
+data/
