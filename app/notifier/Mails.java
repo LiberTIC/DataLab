@@ -47,15 +47,10 @@ public class Mails extends Mailer {
         setFrom(Play.configuration.getProperty("application.mail.noreply"));
         setReplyTo(email);
         List<User> admins = User.find("SELECT u FROM User u WHERE isAdmin = true").fetch();
-        if(admins.size() > 0) {
         for (User admin : admins) {
             if (admin.email != null && admin.email.contains("@")) {
                 addRecipient(admin.email);
             }
-        }
-        }
-        else{
-            addRecipient(Play.configuration.getProperty("application.mail.admin"));
         }
         send(author, message);
     }

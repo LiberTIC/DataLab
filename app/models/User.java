@@ -76,6 +76,11 @@ public class User extends Model {
     @OneToMany
     public List<UserAccount> accounts = new ArrayList<UserAccount>();
 
+    /**
+     * Convert a user to a SocialUser.
+     *
+     * @return
+     */
     public SocialUser toUserSocial() {
         SocialUser socialUser = new SocialUser();
         socialUser.accessToken = this.accessToken;
@@ -96,6 +101,12 @@ public class User extends Model {
         return socialUser;
     }
 
+    /**
+     * Create a not saved user from a SocialUser.
+     *
+     * @param socialUser
+     * @return
+     */
     public static User fromUserSocial(SocialUser socialUser) {
         User user = new User();
         user.accessToken = socialUser.accessToken;
