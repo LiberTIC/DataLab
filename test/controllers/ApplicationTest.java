@@ -13,7 +13,6 @@ public class ApplicationTest extends FunctionalTest {
         Response response = GET("/");
         assertIsOk(response);
         assertContentType("text/html", response);
-        assertCharset(play.Play.defaultWebEncoding, response);
     }
     
 }

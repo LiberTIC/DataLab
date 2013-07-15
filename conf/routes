@@ -11,8 +11,8 @@ GET     /contact/captcha                        Contact.captcha
 # Modules routes
 GET     /page                                   module:cms
 GET		/user/{<[0-9]+>userId}                  User.view
-GET		/user/myprofile                         User.myProfile
-GET		/user/edit/myprofile                    User.edit
+GET		/user/me                                User.myProfile
+GET		/user/edit/me                           User.edit
 *		/										module:securesocial
 
 # Ignore favicon requests
