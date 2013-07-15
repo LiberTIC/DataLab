@@ -8,7 +8,7 @@ import play.db.jpa.Model;
 public class UserAccount extends Model {
 
     /**
-     * The id the user has in a external service.
+     * The user id of external service.
      */
     public String userId;
 

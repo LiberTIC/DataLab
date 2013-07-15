@@ -1,10 +1,10 @@
-import org.junit.*;
-import play.test.*;
-import play.mvc.*;
-import play.mvc.Http.*;
-import models.*;
+package controllers;
 
-public class ApplicationTest extends FunctionalTest {
+import org.junit.Test;
+import play.mvc.Http.Response;
+import play.test.FunctionalTest;
+
+public class OrganismeTest extends FunctionalTest {
 
     @Test
     public void testThatIndexPageWorks() {

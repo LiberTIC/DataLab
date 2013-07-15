@@ -16,43 +16,46 @@
  */
 package notifier;
 
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-
 import models.User;
 import play.Logger;
 import play.Play;
 import play.mvc.Mailer;
 
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 /**
  * Mailer class.
- * 
+ *
  * @author bsimard
- * 
  */
 public class Mails extends Mailer {
 
     /**
      * Method that send a mail for the contact form.
-     * 
+     *
      * @param author
      * @param message
      * @param email
      * @throws java.util.concurrent.ExecutionException
+     *
      * @throws InterruptedException
      */
-    public static void contact(String author, String message, String email) throws InterruptedException,
-            ExecutionException {
+    public static void contact(String author, String message, String email) throws InterruptedException, ExecutionException {
         Logger.debug("A mail is about to be sent by " + author + "(" + email + ")");
-        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase()
-                + "] %s souhaite vous contacter", author);
-        setFrom(Play.configuration.getProperty("mail.noreply"));
+        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] %s souhaite vous contacter", author);
+        setFrom(Play.configuration.getProperty("application.mail.noreply"));
         setReplyTo(email);
         List<User> admins = User.find("SELECT u FROM User u WHERE isAdmin = true").fetch();
+        if(admins.size() > 0) {
         for (User admin : admins) {
             if (admin.email != null && admin.email.contains("@")) {
                 addRecipient(admin.email);
             }
+        }
+        }
+        else{
+            addRecipient(Play.configuration.getProperty("application.mail.admin"));
         }
         send(author, message);
     }

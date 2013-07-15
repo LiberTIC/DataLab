@@ -5,6 +5,8 @@
 # Home page
 GET     /                                       Application.index
 GET     /contact                                Contact.index
+POST    /contact                                Contact.send
+GET     /contact/captcha                        Contact.captcha
 
 # Modules routes
 GET     /page                                   module:cms

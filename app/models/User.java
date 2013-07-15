@@ -70,6 +70,9 @@ public class User extends Model {
      */
     public boolean           isEmailVerified;
 
+    /**
+     * Account list of the user.
+     */
     @OneToMany
     public List<UserAccount> accounts = new ArrayList<UserAccount>();
 
