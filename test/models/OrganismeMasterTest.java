@@ -3,6 +3,9 @@ package models;
 import org.junit.Test;
 import play.test.UnitTest;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * Test case for organismemaster & organisme model.
  */
@@ -27,6 +30,20 @@ public class OrganismeMasterTest extends UnitTest {
         assertEquals("Independant", orga.type);
         assertNotNull(orga.wsg_x);
         assertNotNull(orga.wsg_y);
+    }
+
+    /**
+     * testing getter for version.
+     */
+    @Test
+    public void getVersionTest(){
+        OrganismeMaster master = OrganismeMaster.findById(Long.valueOf(1));
+        List<Organisme> organismes = master.versions;
+        Date lastdate = new Date();
+        for (Organisme orga : organismes){
+            assertTrue(lastdate.compareTo(orga.created) >0);
+            lastdate = orga.created;
+        }
     }
 
 }
