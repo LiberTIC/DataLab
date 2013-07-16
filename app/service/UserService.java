@@ -10,18 +10,10 @@ import play.mvc.Scope.Session;
 import securesocial.provider.SocialUser;
 import securesocial.provider.UserId;
 
+/**
+ * UserService class for SecureSocial plugin.
+ */
 public class UserService implements securesocial.provider.UserServiceDelegate {
-
-    public static User findUser(UserId id) {
-        List<User> users = User.find("SELECT u FROM User u JOIN u.accounts a WHERE a.userId = ? AND a.provider = ?",
-                id.id, id.provider.toString()).fetch(1);
-        if (users.size() > 0) {
-            return users.get(0);
-        }
-        else {
-            return null;
-        }
-    }
 
     @Override
     public SocialUser find(UserId id) {
@@ -100,6 +92,23 @@ public class UserService implements securesocial.provider.UserServiceDelegate {
     @Override
     public void disableResetCode(String username, String uuid) {
         //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    /**
+     * Find a user by its social Id.
+     *
+     * @param id
+     * @return
+     */
+    public static User findUser(UserId id) {
+        List<User> users = User.find("SELECT u FROM User u JOIN u.accounts a WHERE a.userId = ? AND a.provider = ?",
+                id.id, id.provider.toString()).fetch(1);
+        if (users.size() > 0) {
+            return users.get(0);
+        }
+        else {
+            return null;
+        }
     }
 
 }

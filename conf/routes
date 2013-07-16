@@ -12,7 +12,7 @@ GET     /contact/captcha                        Contact.captcha
 GET     /page                                   module:cms
 GET		/user/{<[0-9]+>userId}                  User.view
 GET		/user/me                                User.myProfile
-GET		/user/edit/me                           User.edit
+GET		/user/me/edit                           User.edit
 *		/										module:securesocial
 
 # Ignore favicon requests

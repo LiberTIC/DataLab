@@ -4,7 +4,7 @@ import org.junit.Test;
 import play.mvc.Http.Response;
 import play.test.FunctionalTest;
 
-public class OrganismeTest extends FunctionalTest {
+public class OrganismeMasterTest extends FunctionalTest {
 
     @Test
     public void testThatIndexPageWorks() {

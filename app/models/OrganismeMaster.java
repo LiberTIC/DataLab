@@ -2,12 +2,16 @@ package models;
 
 import play.db.jpa.Model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+@Entity
 public class OrganismeMaster extends Model {
 
-    @OneToMany
+    @OneToMany(mappedBy="master", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     public List<Organisme> versions;
 
     /**
@@ -15,7 +19,7 @@ public class OrganismeMaster extends Model {
      * @return
      */
     public List<Organisme> getVersions() {
-        return Organisme.find("SELECT o FROM OrganismeMaster m INNER JOIN m.Organisme o WHERE m.id=? ORDER BY o.created DESC", id).fetch();
+        return Organisme.find("SELECT o FROM OrganismeMaster m JOIN m.versions o WHERE m.id=? ORDER BY o.created DESC", id).fetch();
     }
 
     /**
