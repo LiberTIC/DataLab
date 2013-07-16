@@ -4,4 +4,3 @@
 [submodule "modules-src/less"]
 	path = modules-src/less
 	url = https://github.com/lunatech-labs/play-module-less.git
-
