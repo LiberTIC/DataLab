@@ -17,7 +17,8 @@ INSERT INTO themeactivite VALUES (5, 'Activity 5');
 -- Organisme data
 INSERT INTO organismemaster VALUES (1);
 INSERT INTO organisme VALUES (1, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'IT', NULL, '+33000000000', NULL, 'Nantes', NULL, NULL, 1);
-INSERT INTO organisme VALUES (2, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'Site Web', NULL, '+33000000000', 'Independant', 'Nantes', 0.0, 1.1, 1);
+INSERT INTO organisme VALUES (2, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'Site Web', NULL, '+33000000000', 'Independant', 'Nantes', NULL, NULL, 1);
+INSERT INTO organisme VALUES (3, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'Site Web', NULL, '+33000000000', 'Independant', 'Nantes', 0.0, 1.1, 1);
 
 # --- !Downs
 DELETE FROM member_useraccount;

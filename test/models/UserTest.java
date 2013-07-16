@@ -1,10 +1,12 @@
 package models;
 
-import com.google.gson.Gson;
 import org.junit.Test;
 import play.test.UnitTest;
 import securesocial.provider.SocialUser;
 
+/**
+ * Test case for user model.
+ */
 public class UserTest extends UnitTest {
 
     /**

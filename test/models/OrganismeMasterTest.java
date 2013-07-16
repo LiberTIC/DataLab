@@ -1,18 +1,22 @@
 package models;
 
-import com.google.gson.Gson;
 import org.junit.Test;
-import play.Logger;
 import play.test.UnitTest;
 
+/**
+ * Test case for organismemaster & organisme model.
+ */
 public class OrganismeMasterTest extends UnitTest {
 
+    /**
+     * Testing getLast organismemaster method.
+     */
     @Test
     public void getLastTest() {
         OrganismeMaster master = OrganismeMaster.findById(Long.valueOf(1));
         Organisme orga = master.getLastVersion();
         assertNotNull(orga);
-        assertEquals(Long.valueOf(2), orga.id);
+        assertEquals(Long.valueOf(3), orga.id);
         assertEquals("LogiSima", orga.nom);
         assertEquals("21 rue d'escalibur", orga.adresse);
         assertEquals("Nantes", orga.ville);
