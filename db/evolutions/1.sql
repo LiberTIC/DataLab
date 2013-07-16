@@ -14,7 +14,7 @@ INSERT INTO themeactivite VALUES (3, 'Activity 3');
 INSERT INTO themeactivite VALUES (4, 'Activity 4');
 INSERT INTO themeactivite VALUES (5, 'Activity 5');
 
--- Organisme data
+-- Organismes data
 INSERT INTO organismemaster VALUES (1);
 INSERT INTO organisme VALUES (1, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'IT', NULL, '+33000000000', NULL, 'Nantes', NULL, NULL, 1);
 INSERT INTO organisme VALUES (2, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'Site Web', NULL, '+33000000000', 'Independant', 'Nantes', NULL, NULL, 1);

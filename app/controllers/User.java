@@ -10,9 +10,15 @@ import service.UserService;
 import controllers.securesocial.SecureSocial;
 import controllers.securesocial.SecureSocialPublic;
 
+/**
+ * Controller that manage user pages.
+ */
 @With(SecureSocialPublic.class)
 public class User extends AbstractController {
 
+    /**
+     * See my profile.
+     */
     public static void myProfile() {
         isValidUser();
         SocialUser user = SecureSocial.getCurrentUser();
@@ -21,6 +27,11 @@ public class User extends AbstractController {
         render("@view", member, mine);
     }
 
+    /**
+     * See a dedicated profile.
+     *
+     * @param userId
+     */
     public static void view(Long userId) {
         models.User member = models.User.findById(userId);
         if (member != null) {
@@ -32,6 +43,9 @@ public class User extends AbstractController {
         }
     }
 
+    /**
+     * Edit the current profile.
+     */
     public static void edit() {
         isValidUser();
         Collection providers = ProviderRegistry.all();
@@ -41,6 +55,11 @@ public class User extends AbstractController {
         render(providers, member);
     }
 
+    /**
+     * Save the user.
+     *
+     * @param member
+     */
     public static void save(@Valid models.User member) {
         isValidUser();
         if (!validation.valid(member).ok) {
