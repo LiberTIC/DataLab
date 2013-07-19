@@ -1,13 +1,12 @@
 package controllers;
 
-import models.*;
 import org.junit.Test;
-import play.Play;
 import play.mvc.Http.Response;
-import play.mvc.Scope;
 import play.test.FunctionalTest;
-import securesocial.provider.SocialUser;
 
+/**
+ * Functional test for User controller.
+ */
 public class UserTest extends FunctionalTest {
 
     /**

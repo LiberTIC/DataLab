@@ -4,6 +4,7 @@ import models.Organisme;
 import models.OrganismeMaster;
 import play.data.validation.Valid;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 
 /**
@@ -12,30 +13,39 @@ import java.util.List;
 public class Organismes extends AbstractController {
 
     /**
+     * Search organismes
+     */
+    public static void search() {
+        render();
+    }
+
+    /**
      * Display the last version of an organisme.
+     *
      * @param id
      */
-    public static void show(Long id){
+    public static void show(Long id) {
         OrganismeMaster master = OrganismeMaster.findById(id);
-        if (master == null) {
-            notFound();
-        }
-        render(master);
+        notFoundIfNull(master);
+        Organisme organisme = master.getLastVersion();
+        render(id, organisme);
     }
 
     /**
      * Display the organisme form for edition (or creation).
+     *
      * @param id
      */
-    public static void edit(Long id){
+    public static void edit(Long id) {
         // only authenticated user can edit
         isValidUser();
 
         // retrieve object
-        OrganismeMaster master = OrganismeMaster.findById(id);
-        Organisme organisme = master.getLastVersion();
-        if (master == null) {
-            notFound();
+        Organisme organisme = null;
+        if (id != null) {
+            OrganismeMaster master = OrganismeMaster.findById(id);
+            notFoundIfNull(master);
+            organisme = master.getLastVersion();
         }
 
         // render
@@ -48,26 +58,27 @@ public class Organismes extends AbstractController {
      * @param id
      * @param organisme
      */
-    public static void save(Long id, @Valid Organisme organisme){
+    public static void save(Long id, @Valid Organisme organisme) {
         // only authenticated user can save
         isValidUser();
 
         // is it valid ?
-        if(validation.hasErrors()) {
+        if (validation.hasErrors()) {
             render("@edit", id, organisme);
         }
         organisme.save();
 
         // retrieve organisme master or create it
         OrganismeMaster master = new OrganismeMaster();
-        if (id != null ) {
+        if (id != null) {
             master = OrganismeMaster.findById(id);
         }
-        master.versions.add(organisme);
         master.save();
+        organisme.master = master;
+        organisme.save();
 
         // redirect user to show
-        show(id);
+        show(master.id);
     }
 
     /**
@@ -75,27 +86,44 @@ public class Organismes extends AbstractController {
      *
      * @param id
      */
-    public static void history(Long id){
+    public static void history(Long id) {
         // retrieve organisme master or create it
         OrganismeMaster master = new OrganismeMaster();
-        if (master == null) {
-            notFound();
-        }
+        notFoundIfNull(master);
         render(master);
     }
 
     /**
      * Produce a RSS of last ten updated/created organisation.
      */
-    public static void rss(){
-        render();
+    public static void rss() {
+        List<Organisme> organismes = null;
+        response.contentType = "application/rss+xml";
+        render(organismes);
     }
 
     /**
      * Produce a CSV of all organisation items.
      */
-    public static void csv(){
+    public static void csv() {
         List<OrganismeMaster> masters = OrganismeMaster.findAll();
-        render(masters);
+        response.contentType = "text/csv";
+        response.setHeader("Content-Disposition", "attachment;filename=organismes.csv");
+        renderText(masters);
+    }
+
+    /**
+     * Render the logo of an organisme.
+     *
+     * @param id
+     */
+    public static void logo(Long id) {
+        // retrieve organisme master or create it
+        OrganismeMaster master = new OrganismeMaster();
+        notFoundIfNull(master);
+
+        Organisme organisme = master.getLastVersion();
+        notFoundIfNull(organisme.logo);
+        renderBinary(organisme.logo.getFile());
     }
 }

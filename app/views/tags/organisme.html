@@ -1,19 +1,185 @@
-*{ ~~~ Mode full ~~~ }*
+*{ ~~~ Mode full ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
 #{if _as == 'full'}
+    <ul>
+        <li>${_organisme?.nom}</li>
+        <li><img src="@{Organismes.logo(_id)}" /></li>
+    </ul>
 #{/if}
 
-*{ ~~~ Mode list ~~~ }*
+*{ ~~~ Mode list ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
 #{if _as == 'list'}
 #{/if}
 
-*{ ~~~ Mode edit/form ~~~ }*
+*{ ~~~ Mode edit/form ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
 #{if _as == 'form'}
+    #{form @Organismes.save(_id), class:"form-horizontal"}
+
+        #{ifErrors}
+            <div class="alert alert-error">
+                <strong>&{'error'}</strong>&{'error.checkform'}
+            </div>
+        #{/ifErrors}
+        #{if flash.success}
+            <div class="alert alert-success">
+                 ${flash.success}
+            </div>
+        #{/if}
+
+        <!-- Field nom -->
+        <div class="control-group #{ifError 'organisme.nom'}error#{/ifError}">
+            <label class="control-label" for="nom">&{'organisme.nom'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="name" name="organisme.nom" placeholder="&{'organisme.nom.placeholder'}" value="${_organisme?.nom}"/>
+                #{if errors?.forKey('organisme?.nom')}
+                    <span class="help-inline">#{error 'organisme.nom' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field type -->
+        <div class="control-group #{ifError 'organisme.type'}error#{/ifError}">
+            <label class="control-label" for="type">&{'organisme.type'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="type" name="organisme.type" placeholder="&{'organisme.type.placeholder'}" value="${_organisme?.type}"/>
+                #{if errors?.forKey('organisme.type')}
+                    <span class="help-inline">#{error 'organisme.type' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field logo -->
+        <div class="control-group #{ifError 'organisme.logo'}error#{/ifError}">
+            <label class="control-label" for="logo">&{'organisme.logo'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="logo" name="organisme.logo" placeholder="&{'organisme.logo.placeholder'}" value="${_organisme?.logo}"/>
+                #{if errors?.forKey('organisme.logo')}
+                    <span class="help-inline">#{error 'organisme.logo' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field siret -->
+        <div class="control-group #{ifError 'organisme.siret'}error#{/ifError}">
+            <label class="control-label" for="siret">&{'organisme.siret'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="siret" name="organisme.siret" placeholder="&{'organisme.siret.placeholder'}" value="${_organisme?.siret}"/>
+                #{if errors?.forKey('organisme.siret')}
+                    <span class="help-inline">#{error 'organisme.siret' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field nbSalarie -->
+        <div class="control-group #{ifError 'organisme.nbSalarie'}error#{/ifError}">
+            <label class="control-label" for="nbSalarie">&{'organisme.nbSalarie'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="nbSalarie" name="organisme.nbSalarie" placeholder="&{'organisme.nbSalarie.placeholder'}" value="${_organisme?.nbSalarie}"/>
+                #{if errors?.forKey('organisme.nbSalarie')}
+                    <span class="help-inline">#{error 'organisme.nbSalarie' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field telephone -->
+        <div class="control-group #{ifError 'organisme.telephone'}error#{/ifError}">
+            <label class="control-label" for="telephone">&{'organisme.telephone'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="telephone" name="organisme.telephone" placeholder="&{'organisme.telephone.placeholder'}" value="${_organisme?.telephone}"/>
+                #{if errors?.forKey('organisme.telephone')}
+                    <span class="help-inline">#{error 'organisme.telephone' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field email -->
+        <div class="control-group #{ifError 'organisme.email'}error#{/ifError}">
+            <label class="control-label" for="email">&{'organisme.email'}</label>
+            <div class="controls">
+                <input class="span6" type="email" id="email" name="organisme.email" placeholder="&{'organisme.email.placeholder'}" value="${_organisme?.email}"/>
+                #{if errors?.forKey('organisme.email')}
+                    <span class="help-inline">#{error 'organisme.email' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field adresse -->
+        <div class="control-group #{ifError 'organisme.adresse'}error#{/ifError}">
+            <label class="control-label" for="adresse">&{'organisme.adresse'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="adresse" name="organisme.adresse" placeholder="&{'organisme.adresse.placeholder'}" value="${_organisme?.adresse}"/>
+                #{if errors?.forKey('organisme.adresse')}
+                    <span class="help-inline">#{error 'organisme.adresse' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field ville -->
+        <div class="control-group #{ifError 'organisme.ville'}error#{/ifError}">
+            <label class="control-label" for="ville">&{'organisme.ville'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="ville" name="organisme.ville" placeholder="&{'organisme.ville.placeholder'}" value="${_organisme?.ville}"/>
+                #{if errors?.forKey('organisme.ville')}
+                    <span class="help-inline">#{error 'organisme.ville' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field codePostal -->
+        <div class="control-group #{ifError 'organisme.codePostal'}error#{/ifError}">
+            <label class="control-label" for="codePostal">&{'organisme.codePostal'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="codePostal" name="organisme.codePostal" placeholder="&{'organisme.codePostal.placeholder'}" value="${_organisme?.codePostal}"/>
+                #{if errors?.forKey('organisme.codePostal')}
+                    <span class="help-inline">#{error 'organisme.codePostal' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field produit -->
+        <div class="control-group #{ifError 'organisme.produit'}error#{/ifError}">
+            <label class="control-label" for="produit">&{'organisme.produit'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="produit" name="organisme.produit" placeholder="&{'organisme.produit.placeholder'}" value="${_organisme?.produit}"/>
+                #{if errors?.forKey('organisme.produit')}
+                    <span class="help-inline">#{error 'organisme.produit' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+        <!-- Field description -->
+        <div class="control-group #{ifError 'organisme.description'}error#{/ifError}">
+            <label class="control-label" for="description">&{'organisme.description'}</label>
+            <div class="controls">
+                <input class="span6" type="text" id="description" name="organisme.description" placeholder="&{'organisme.description.placeholder'}" value="${_organisme?.description}"/>
+                #{if errors?.forKey('organisme.description')}
+                    <span class="help-inline">#{error 'organisme.description' /}</span>
+                #{/if}
+            </div>
+        </div>
+
+    <!-- Form button -->
+    <div class="form-actions">
+        <button class="btn btn-primary" type="submit">&{'organisme.save'}</button>
+    </div>
+
+    #{/form}
 #{/if}
 
-*{ ~~~ Mode RSS ~~~ }*
+*{ ~~~ Mode RSS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
 #{if _as == 'rss'}
+    <item>
+        <title>${_master.organisme.nom}</title>
+        <link>@@{Organismes.show(_organisme.id)}</link>
+        <guid>@@{Organismes.show(_organisme.id)}</guid>
+        <pubDate>${_organisme.created.format('E, dd MMM yyyy HH:mm:ss Z')}</pubDate>
+        <description>
+            <![CDATA[
+                ${_organisme.description}
+            ]]>
+        </description>
+    </item>
 #{/if}
 
-*{ ~~~ Mode CSV ~~~ }*
-#{if _as == 'csv'}
-#{/if}
+*{ ~~~ Mode CSV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
+#{if _as == 'csvtitle'}&{'organisme.nom'};&{'organisme.type'};&{'organisme.siret'}#{/if}
+#{if _as == 'csv'}${_organisme.nom};${_organisme.type};${_organisme.siret}#{/if}
