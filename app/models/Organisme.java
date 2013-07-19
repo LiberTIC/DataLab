@@ -43,7 +43,7 @@ public class Organisme extends Model {
 
     public String description;
 
-    public Date created;
+    public Date created = new Date();
 
     public Double wsg_x;
 
