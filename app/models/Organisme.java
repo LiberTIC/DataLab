@@ -19,9 +19,6 @@ public class Organisme extends Model {
     @Required
     public String nom;
 
-    @Required
-    public String type;
-
     public Blob logo;
 
     public String siret;
@@ -52,7 +49,11 @@ public class Organisme extends Model {
     @ManyToOne
     public User user;
 
+    @Required
+    @ManyToOne
+    public OrganismeType type;
+
     @OneToMany
-    public List<ThemeActivite> themes;
+    public List<OrganismeActivite> themes;
 
 }

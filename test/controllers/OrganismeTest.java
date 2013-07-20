@@ -1,5 +1,7 @@
 package controllers;
 
+import models.Organisme;
+import models.OrganismeMaster;
 import org.junit.Test;
 import play.mvc.Http.Response;
 import play.test.FunctionalTest;
@@ -30,13 +32,15 @@ public class OrganismeTest extends FunctionalTest {
     }
 
     /**
-     * Testing CSV.
+     * Testing logo generation.
      */
     @Test
     public void testLogo() {
         Response response = GET("/organisme/logo/1");
         assertIsOk(response);
-        assertContentType("image/png", response);
+        OrganismeMaster master = Organisme.findById(1);
+        Organisme organisme = master.getLastVersion();
+        assertContentType(organisme.logo.type(), response);
     }
     
 }

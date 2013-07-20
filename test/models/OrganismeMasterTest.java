@@ -27,7 +27,7 @@ public class OrganismeMasterTest extends UnitTest {
         assertEquals("bsimard@yopmail.com", orga.email);
         assertEquals("Site Web", orga.produit);
         assertEquals("+33000000000", orga.telephone);
-        assertEquals("Independant", orga.type);
+        assertEquals("Type 2", orga.type.libelle);
         assertNotNull(orga.wsg_x);
         assertNotNull(orga.wsg_y);
     }
@@ -36,7 +36,7 @@ public class OrganismeMasterTest extends UnitTest {
      * testing getter for version.
      */
     @Test
-    public void getVersionTest(){
+    public void getOrderVersionTest(){
         OrganismeMaster master = OrganismeMaster.findById(Long.valueOf(1));
         List<Organisme> organismes = master.versions;
         Date lastdate = new Date();

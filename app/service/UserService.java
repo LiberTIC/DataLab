@@ -101,10 +101,11 @@ public class UserService implements securesocial.provider.UserServiceDelegate {
      * @return
      */
     public static User findUser(UserId id) {
-        List<User> users = User.find("SELECT u FROM User u JOIN u.accounts a WHERE a.userId = ? AND a.provider = ?",
+        List<models.User> users = User.find("SELECT u FROM User u JOIN u.accounts a WHERE a.userId = ? AND a.provider = ?",
                 id.id, id.provider.toString()).fetch(1);
         if (users.size() > 0) {
-            return users.get(0);
+            models.User user = users.get(0);
+            return user;
         }
         else {
             return null;
