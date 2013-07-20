@@ -106,10 +106,9 @@ public class Organismes extends AbstractController {
      * Produce a CSV of all organisation items.
      */
     public static void csv() {
-        List<OrganismeMaster> masters = OrganismeMaster.findAll();
         response.contentType = "text/csv";
         response.setHeader("Content-Disposition", "attachment;filename=organismes.csv");
-        renderText(masters);
+        renderText(OrganismeMaster.toCsv());
     }
 
     /**
