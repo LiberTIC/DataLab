@@ -97,9 +97,9 @@ public class Organismes extends AbstractController {
      * Produce a RSS of last ten updated/created organisation.
      */
     public static void rss() {
-        List<Organisme> organismes = null;
+        List<OrganismeMaster> masters = OrganismeMaster.findAll();
         response.contentType = "application/rss+xml";
-        render(organismes);
+        render(masters);
     }
 
     /**

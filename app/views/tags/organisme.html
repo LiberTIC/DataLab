@@ -168,7 +168,7 @@
 *{ ~~~ Mode RSS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
 #{if _as == 'rss'}
     <item>
-        <title>${_master.organisme.nom}</title>
+        <title>${_organisme.nom}</title>
         <link>@@{Organismes.show(_organisme.id)}</link>
         <guid>@@{Organismes.show(_organisme.id)}</guid>
         <pubDate>${_organisme.created.format('E, dd MMM yyyy HH:mm:ss Z')}</pubDate>

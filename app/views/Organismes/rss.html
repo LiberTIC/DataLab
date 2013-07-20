@@ -8,10 +8,10 @@
                 TODO : Write a description for organisme RSS
             #{/cms.display}
         </description>
-        <lastBuildDate>${today.format('E, dd MMM yyyy HH:mm:ss Z')}</lastBuildDate>
+        <lastBuildDate>${new Date().format('E, dd MMM yyyy HH:mm:ss Z')}</lastBuildDate>
 
-        #{list items:organisme, as:'organisme'}
-            #{organisme organisme:organisme, as:'rss'/}
+        #{list items:masters, as:'master'}
+            #{organisme organisme:master.getLastVersion(), as:'rss'/}
         #{/list}
 
     </channel>
