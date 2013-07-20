@@ -124,6 +124,8 @@ public class Organismes extends AbstractController {
 
         Organisme organisme = master.getLastVersion();
         notFoundIfNull(organisme.logo);
-        renderBinary(organisme.logo.getFile());
+
+        response.setContentTypeIfNotSet(organisme.logo.type());
+        renderBinary(organisme.logo.get());
     }
 }

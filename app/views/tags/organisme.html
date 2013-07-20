@@ -12,7 +12,7 @@
 
 *{ ~~~ Mode edit/form ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
 #{if _as == 'form'}
-    #{form @Organismes.save(_id), class:"form-horizontal"}
+    #{form @Organismes.save(_id), class:"form-horizontal", enctype:'multipart/form-data'}
 
         #{ifErrors}
             <div class="alert alert-error">
