@@ -54,6 +54,6 @@ public class Organisme extends Model {
     public OrganismeType type;
 
     @OneToMany
-    public List<OrganismeActivite> themes;
+    public List<OrganismeActivite> activites;
 
 }

@@ -11,4 +11,8 @@ public class OrganismeActivite extends Model {
 
     @Required
     public String libelle;
+
+    public String toString(){
+        return libelle;
+    }
 }

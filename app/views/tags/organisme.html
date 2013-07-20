@@ -16,7 +16,7 @@
 
         #{ifErrors}
             <div class="alert alert-error">
-                <strong>&{'error'}</strong>&{'error.checkform'}
+                <strong>&{'error'}</strong> &{'error.checkform'}
             </div>
         #{/ifErrors}
         #{if flash.success}
@@ -30,7 +30,7 @@
             <label class="control-label" for="nom">&{'organisme.nom'}</label>
             <div class="controls">
                 <input class="span6" type="text" id="name" name="organisme.nom" placeholder="&{'organisme.nom.placeholder'}" value="${_organisme?.nom}"/>
-                #{if errors?.forKey('organisme?.nom')}
+                #{if errors?.forKey('organisme.nom')}
                     <span class="help-inline">#{error 'organisme.nom' /}</span>
                 #{/if}
             </div>
@@ -40,7 +40,7 @@
         <div class="control-group #{ifError 'organisme.type'}error#{/ifError}">
             <label class="control-label" for="type">&{'organisme.type'}</label>
             <div class="controls">
-                <input class="span6" type="text" id="type" name="organisme.type" placeholder="&{'organisme.type.placeholder'}" value="${_organisme?.type}"/>
+                #{select 'organisme.type.id', items:_types, value:_organisme?.type?.id, id:'type', class:'medium' /}
                 #{if errors?.forKey('organisme.type')}
                     <span class="help-inline">#{error 'organisme.type' /}</span>
                 #{/if}
@@ -51,7 +51,10 @@
         <div class="control-group #{ifError 'organisme.logo'}error#{/ifError}">
             <label class="control-label" for="logo">&{'organisme.logo'}</label>
             <div class="controls">
-                <input class="span6" type="text" id="logo" name="organisme.logo" placeholder="&{'organisme.logo.placeholder'}" value="${_organisme?.logo}"/>
+                #{if _organisme?.logo != null}
+                    <img src="@{Organismes.logo(_id)}" /> <br/>
+                #{/if}
+                <input class="span6" type="file" id="logo" name="organisme.logo" placeholder="&{'organisme.logo.placeholder'}" value="${_organisme?.logo}"/>
                 #{if errors?.forKey('organisme.logo')}
                     <span class="help-inline">#{error 'organisme.logo' /}</span>
                 #{/if}
@@ -139,7 +142,7 @@
         <div class="control-group #{ifError 'organisme.produit'}error#{/ifError}">
             <label class="control-label" for="produit">&{'organisme.produit'}</label>
             <div class="controls">
-                <input class="span6" type="text" id="produit" name="organisme.produit" placeholder="&{'organisme.produit.placeholder'}" value="${_organisme?.produit}"/>
+                <textarea id="produit" name="organisme.produit" placeholder="&{'organisme.produit.placeholder'}" class="span6" rows="3">${_organisme?.produit}</textarea>
                 #{if errors?.forKey('organisme.produit')}
                     <span class="help-inline">#{error 'organisme.produit' /}</span>
                 #{/if}
@@ -150,7 +153,7 @@
         <div class="control-group #{ifError 'organisme.description'}error#{/ifError}">
             <label class="control-label" for="description">&{'organisme.description'}</label>
             <div class="controls">
-                <input class="span6" type="text" id="description" name="organisme.description" placeholder="&{'organisme.description.placeholder'}" value="${_organisme?.description}"/>
+                <textarea id="description" name="organisme.description" placeholder="&{'organisme.description.placeholder'}" class="span6" rows="3">${_organisme?.description}</textarea>
                 #{if errors?.forKey('organisme.description')}
                     <span class="help-inline">#{error 'organisme.description' /}</span>
                 #{/if}

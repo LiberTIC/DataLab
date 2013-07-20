@@ -10,4 +10,8 @@ public class OrganismeType extends Model {
 
     @Required
     public String libelle;
+
+    public String toString(){
+        return libelle;
+    }
 }

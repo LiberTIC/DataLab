@@ -1,7 +1,9 @@
 package controllers;
 
 import models.Organisme;
+import models.OrganismeActivite;
 import models.OrganismeMaster;
+import models.OrganismeType;
 import play.data.validation.Valid;
 
 import java.io.ByteArrayInputStream;
@@ -48,8 +50,12 @@ public class Organismes extends AbstractController {
             organisme = master.getLastVersion();
         }
 
+        // depends objects
+        List<OrganismeType> types = OrganismeType.findAll();
+        List<OrganismeActivite> activites = OrganismeActivite.findAll();
+
         // render
-        render(id, organisme);
+        render(id, organisme, types, activites);
     }
 
     /**
@@ -64,7 +70,10 @@ public class Organismes extends AbstractController {
 
         // is it valid ?
         if (validation.hasErrors()) {
-            render("@edit", id, organisme);
+            // depends objects
+            List<OrganismeType> types = OrganismeType.findAll();
+            List<OrganismeActivite> activites = OrganismeActivite.findAll();
+            render("@edit", id, organisme, types, activites);
         }
         organisme.save();
 
@@ -118,7 +127,7 @@ public class Organismes extends AbstractController {
      */
     public static void logo(Long id) {
         // retrieve organisme master or create it
-        OrganismeMaster master = new OrganismeMaster();
+        OrganismeMaster master = OrganismeMaster.findById(id);
         notFoundIfNull(master);
 
         Organisme organisme = master.getLastVersion();
