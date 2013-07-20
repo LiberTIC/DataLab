@@ -9,11 +9,14 @@ import play.db.jpa.GenericModel;
 
 @Entity
 public class CMSImage extends GenericModel {
-	@Required
-	@Id
+
+    @Id
+    @Required
 	public String name;
+
 	@Required
 	public String title;
+
 	@Required
 	public Blob data;
 
