@@ -179,7 +179,3 @@
         </description>
     </item>
 #{/if}
-
-*{ ~~~ Mode CSV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
-#{if _as == 'csvtitle'}&{'organisme.nom'};&{'organisme.type'};&{'organisme.siret'}#{/if}
-#{if _as == 'csv'}${_organisme.nom};${_organisme.type};${_organisme.siret}#{/if}

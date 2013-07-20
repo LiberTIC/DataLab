@@ -1,2 +1,0 @@
-#{organisme as:'csvtitle'/}
-#{list items:masters, as:'master'}#{organisme organisme:master.getLastVersion(), as:'csv'/}#{/list}
