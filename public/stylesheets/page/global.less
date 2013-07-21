@@ -3,9 +3,6 @@
   .container {
     // Style for the logo
     .brand {
-      img {
-        vertical-align: baseline;
-      }
       h1 {
         display: inline;
         margin: 0;
@@ -26,7 +23,7 @@
       margin: 0;
 
       li > a {
-        padding: 12px;
+        padding: 12px 0 12px 12px;
         color : @white;
         font-size: 12px;
         text-transform: uppercase;
@@ -34,7 +31,20 @@
     }
   }
 }
+
+// footer
 footer {
-  background-color: @secondary;
-  color: @white;
+  padding: 15px;
+  ul {
+    margin-bottom: 0;
+
+    &.right {
+      li {
+        a {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
 }
+

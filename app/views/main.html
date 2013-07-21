@@ -21,7 +21,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="brand" href="/">
-                        <img src="@{'/public/images/pictos/home.png'}" />
+                        <img class="baseline" src="@{'/public/images/pictos/home.png'}" />
                         <h1>Data<span>Lab</span></h1>
                     </a>
                     <div class="nav-collapse collapse">
@@ -51,22 +51,227 @@
         </div>
 
         <!-- header-->
-        <header class="jumbotron subhead" id="overview">
+        <header id="overview" class="blockDefault">
             <div class="container">
-                #{cms.display 'header' }
-                    TODO : Write a header
+                #{cms.display 'home_header' }
+
+                    <!-- title -->
+                    <div id="title" class="row-fluid">
+                        <h2>
+                            <img src="@{'public/images/datalab.png'}" alt="Logo DataLab" />
+                        </h2>
+                        <p>Développer la culture et les valeurs économiques et social des données en région Pays de la Loire</p>
+                    </div>
+
+                    <!-- Les axes -->
+                    <div id="axes" class="row-fluid">
+                        <ul class="inline span12">
+                            <li class="odd span3">
+                                <img src="@{'public/images/axes/former.png'}" alt=""/>
+                                <h3>Former</h3>
+                                <p>A la culture, aux outils, aux traitements, aux techniques</p>
+                            </li>
+                            <li class="even span3">
+                                <img src="@{'public/images/axes/experimenter.png'}" alt=""/>
+                                <h3>Expérimenter</h3>
+                                <p>Des projets innovants en lien avec des experts</p>
+                            </li>
+                            <li class="odd span3">
+                                <img src="@{'public/images/axes/developper.png'}" alt=""/>
+                                <h3>Développer</h3>
+                                <p>Des services, des usages, des recherchers, des animations</p>
+                            </li>
+                            <li class="even span3">
+                                <img src="@{'public/images/axes/valoriser.png'}" alt=""/>
+                                <h3>Valoriser</h3>
+                                <p>Les acteurs, les compétences, les initiatives</p>
+                            </li>
+                        </ul>
+                    </div>
                 #{/cms.display}
             </div>
         </header>
 
-        <div class="container">
-            #{doLayout /}
+         <!-- Communauté -->
+        <div id="communaute" class="row-fluid blockEven">
+            <div class="container">
+                <h2>Une communauté d'acteurs</h2>
+                <ul class="inline row-fluid">
+                    <li class="first">
+                        <div class="circle">
+                            <span>Médias</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="circle">
+                            <span>Collectivités</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="circle">
+                            <span>Associations</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="circle">
+                            <span>Enseignement</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="circle">
+                            <span>Entreprises</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="circle">
+                            <span>Recherche</span>
+                        </div>
+                    </li>
+                    <li class="last">
+                        <div class="circle">
+                            <span>Startups</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <footer class="footer">
+        <!-- Projet participatif -->
+        <div class="row-fluid blockDefault">
+            <div class="container">
+                <h2>Un projet participatif</h2>
+                <div id="projetBaseLine">
+                    <h3>Co-conception du programme DataLab</h3>
+                    <p>de septembre à décembre 2013</p>
+                </div>
+
+                <div>
+                     <div class="oddBlock appelTitle">
+                        <h3>Appel à co-conception</h3>
+                        <p>
+                            Exprimez vos besoins en formations, projets, méthodes ou proposez vos compétences, outils, études et projets à mener
+                        </p>
+                     </div>
+                    <div class="oddBlock annuaireTitle">
+                        <h3>Renseignez l'annuaire</h3>
+                        <p>
+                            Des structures du territoire travaillant sur le thème des données
+                        </p>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+        <!-- Agenda -->
+        <div class="blockEven">
+            <div class="container">
+                <h2>Agenda</h2>
+            </div>
+        </div>
+
+        <div id="partenaires" class="blockDefault">
+            <div class="container">
+                <h2>Partenaire</h2>
+                <ul class="inline row-fluid">
+                    <li>
+                        <a href="#" title="Site internet de la région Pays de la Loire">
+                            <!-- Image de 179 de large -->
+                            <img src="@{'public/images/partenaires/region_pdl.png'}" alt="Logo de la région Pays de la Loire" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Site internet de la ville de Nantes">
+                            <img src="@{'public/images/partenaires/nantes.png'}" alt="Logo de la ville de Nantes" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Site internet du web2day">
+                            <img src="@{'public/images/partenaires/web2day.png'}" alt="Logo du web2day" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Site internet opendata de la ville de Nantes">
+                            <img src="@{'public/images/partenaires/nod.png'}" alt="Logo de Nantes Opendata" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Site internet de Stéréolux">
+                            <img src="@{'public/images/partenaires/stereolux.png'}" alt="Logo de Stéréolux" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Site internet de l'Open Knowledge Foundation France">
+                            <img src="@{'public/images/partenaires/okf-fr.png'}" alt="Logo de l'Open Knowledge Foundation France" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Site internet de Ouest medialab">
+                            <img src="@{'public/images/partenaires/ouestmedialab.png'}" alt="Logo de Ouest Medialab" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Site internet de Regards Citoyens">
+                            <img src="@{'public/images/partenaires/regards_citoyens.png'}" alt="Logo de Regards citoyens" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        #{doLayout /}
+
+        <footer class="blockOdd">
             <div class="container">
                 #{cms.display 'footer' }
-                    TODO : Write a footer
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <ul class="left inline">
+                                <li>
+                                    <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="License Creative commons : BY-SA">
+                                        <img class="middle" src="@{'public/images/cc-by-sa.png'}" alt="" />
+                                        DataLab 2013
+                                    </a>
+                                </li>
+                                <li>|</li>
+                                <li>
+                                    <a href="#" title="Mentions Légales">
+                                        Mentions légales
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="span8">
+                            <ul class="right inline">
+                                <li class="first">
+                                    <a href="@{Contact.index()}" title="Nous contacter">
+                                        Nous contacter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Particper">
+                                        Participer
+                                    </a>
+                                </li>
+                                <li>|</li>
+                                <li>
+                                    <a href="#" title="Nos documents">
+                                        Nos documents
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Nos images">
+                                        Nos images
+                                    </a>
+                                </li>
+                                <li class="last">
+                                    <a href="#" title="Nos vidéos">
+                                        Nos vidéos
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 #{/cms.display}
             </div>
         </footer>
