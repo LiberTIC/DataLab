@@ -7,3 +7,4 @@ modules/
 tmp/
 test-result/
 data/
+modules-src/cms/commands.pyc

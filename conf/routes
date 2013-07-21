@@ -20,7 +20,7 @@ POST    /contact                                Contact.send
 GET     /contact/captcha                        Contact.captcha
 
 # Modules routes
-GET     /page                                   module:cms
+GET     /                                   module:cms
 GET		/user/{<[0-9]+>userId}                  User.view
 GET		/user/me                                User.myProfile
 GET		/user/me/edit                           User.edit

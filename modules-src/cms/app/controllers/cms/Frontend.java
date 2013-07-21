@@ -18,7 +18,7 @@ public class Frontend extends Controller {
 	public static void show(String template, String pageName) {
 		CMSPage page = CMSPage.findById(pageName);
 		notFoundIfNull(page);
-		renderTemplate("/" + template + ".html", page);
+		renderTemplate("/cms/" + template + ".html", page);
 	}
 
     /**
