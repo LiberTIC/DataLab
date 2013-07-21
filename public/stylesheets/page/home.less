@@ -1,40 +1,42 @@
 #overview {
   margin-top: 50px;
-
+  color: @grey;
   .container {
     text-align: center;
 
     #title {
       max-width: 388px;
-      margin: 40px auto;
+      margin: 25px auto 45px;
+
+      p {
+        font-size: 16px;
+        font-weight: bold;
+      }
     }
 
-    p {
-      color: @grey;
-    }
   }
 }
 
 #communaute {
   ul {
-    margin-left: 0px;
+    margin: 40px 0 60px;
 
     li {
       width: 112px;
-      padding : 0 11px;
-       div {
-         span {
-           display: block;
-           padding-top: 80px;
-           font-size: 13px;
-         }
-       }
+      padding: 0 11px;
+      div {
+        span {
+          display: block;
+          padding-top: 80px;
+          font-size: 13px;
+        }
+      }
     }
   }
   #medias {
     .acteur('/public/images/acteurs/medias.png');
   }
-  #collectivites{
+  #collectivites {
     .acteur('/public/images/acteurs/collectivites.png');
   }
   #associations {
@@ -43,15 +45,62 @@
   #enseignement {
     .acteur('/public/images/acteurs/enseignements.png');
   }
-  #entreprises{
+  #entreprises {
     .acteur('/public/images/acteurs/entreprises.png');
   }
   #recherche {
     .acteur('/public/images/acteurs/recherche.png');
   }
-  #startups{
+  #startups {
     .acteur('/public/images/acteurs/startups.png');
   }
+}
+
+#projet {
+  h2 {
+    margin-bottom: 0px;
+  }
+  .container >  div {
+    padding: 0 45px;
+    position: relative;
+    top: -40px;
+
+    #projetBaseLine {
+      text-align: right;
+      color: @secondary;
+      h3 {
+        margin: 0;
+        font-weight: normal;
+      }
+    }
+    .row-fluid {
+      margin: 40px 0;
+      .span6 {
+        div {
+          width: 80%;
+          margin: 0 auto;
+          h3 {
+            margin: 0px;
+            padding-left: 15px;
+          }
+          p {
+            text-align: center;
+            padding: 35px;
+          }
+        }
+        .appelTitle {
+          background: url('/public/images/pictos/appel.png') no-repeat 100% 2% @secondary;
+        }
+        .annuaireTitle {
+          background: url('/public/images/pictos/annuaire.png') no-repeat 100% 8% @secondary;
+        }
+      }
+    }
+  }
+}
+
+#agenda {
+
 }
 
 #partenaires {
