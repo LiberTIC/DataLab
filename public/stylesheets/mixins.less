@@ -1,6 +1,9 @@
 // acteur mixin
-.acteur (@url) {
+.circle{
   border-radius: 70px 70px 70px 70px;
+}
+.acteur (@url) {
+  .circle;
   background: url(@url) no-repeat 50% 25% @white;
   color: @black;
   height: 115px;
@@ -8,6 +11,9 @@
 }
 
 // Different blocks
+.container {
+  padding : 20px 0;
+}
 .block {
   border-bottom: 1px solid @grey;
 }
