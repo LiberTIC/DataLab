@@ -1,15 +1,18 @@
+// some default style
 body {
   background-color: @background;
+  font-family: @ftPrimary;
 }
-
-//tile
+h1, h2, h3, h4, h5 {
+  font-family: @ftSecondary;
+}
 h2 {
   text-transform: uppercase;
   margin-top: 20px;
+  font-weight: normal;
 }
-
 h3 {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 // Header
@@ -28,7 +31,8 @@ h3 {
         display: inline;
         margin: 0;
         color: @white;
-        font-size: 22px;
+        font-size: 26px;
+        font-weight: normal;
         line-height: 20px;
 
         span {
@@ -46,7 +50,7 @@ h3 {
       li > a {
         padding: 12px 0 12px 12px;
         color: @white;
-        font-size: 12px;
+        font-size: 14px;
         text-transform: uppercase;
       }
     }
