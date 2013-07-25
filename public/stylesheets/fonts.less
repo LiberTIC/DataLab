@@ -2,9 +2,8 @@
 
 .fontface(@fontname) {
   font-family: '@{fontname}';
-  src: url('@{fontsRoot}/@{fontname}.eot');
-  src: url('@{fontsRoot}/@{fontname}.eot?#iefix') format('embedded-opentype')
-       url('@{fontsRoot}/@{fontname}.woff') format('woff'),
+  src: url('@{fontsRoot}/@{fontname}.eot') format("opentype"),
+       url('@{fontsRoot}/@{fontname}.otf') format("opentype"),
        url('@{fontsRoot}/@{fontname}.ttf') format('truetype'),
        url('@{fontsRoot}/@{fontname}.svg#@{fontname}') format('svg');
   font-style: normal;

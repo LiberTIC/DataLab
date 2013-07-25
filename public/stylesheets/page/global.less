@@ -65,10 +65,19 @@ footer {
   }
   ul {
     margin-bottom: 0;
-
+    &.left {
+      li {
+        font-family: @ftSecondary;
+        font-style: 11px;
+        &#mentions {
+          font-style: italic;
+        }
+      }
+    }
     &.right {
       li {
         a {
+          font-size: 12px;
           text-transform: uppercase;
         }
       }
