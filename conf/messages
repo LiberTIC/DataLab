@@ -1,4 +1,26 @@
+# page organisme search
+page.organisme.search.title=Recherchez un organisme
+
+# page organisme show
+page.organisme.show.title=%s
+
+# organisme
+organisme.nom = Nom
+organisme.type = Type
+organisme.logo = Logo
+organisme.siret = Numéro Siret
+organisme.nbSalarie = Nombre de salarié
+organisme.telephone = Téléphone
+organisme.email = Email
+organisme.adresse = Adresse
+organisme.codePostal = Code postal
+organisme.ville = Ville
+organisme.produit = Produit
+organisme.description = Description
+organisme.save = Enregistrer
+
 # page contact
+page.contact.title=Nous contacter
 page.contact.author=Votre nom
 page.contact.email=Votre email
 page.contact.message=Votre message
