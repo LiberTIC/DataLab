@@ -7,7 +7,7 @@
 
             #{ifErrors}
                 <div class="alert alert-error">
-                    <strong>&{'error'}</strong>&{'error.checkform'}
+                    <strong>&{'error'}</strong> &{'error.checkform'}
                 </div>
             #{/ifErrors}
             #{if flash.success}
@@ -52,13 +52,13 @@
                 <div class="controls">
                     <input type="text" name="code" id="code" size="18" value="" />
                     #{if errors.forKey('code')}
-                    <span class="help-inline">#{error 'code' /}</span>
+                        <span class="help-inline">#{error 'code' /}</span>
                     #{/if}
+                    <div class="captcha">
+                        <img src="@{Contact.captcha(randomID)}" />
+                    </div>
                     <input type="hidden" name="randomID" value="${randomID}" />
                 </div>
-            </div>
-            <div class="control-group captcha">
-                <img src="@{Contact.captcha(randomID)}" />
             </div>
 
             <div class="form-actions">

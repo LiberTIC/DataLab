@@ -1,3 +1,43 @@
-# You can specialize this file for each language.
-# For example, for French create a messages.fr file
-#
+# page contact
+page.contact.author=Votre nom
+page.contact.email=Votre email
+page.contact.message=Votre message
+page.contact.security=Code de sécurité
+page.contact.send=Envoyer
+
+# Error
+error=Erreur!
+error.checkform=Des erreurs de validation sont survenue. Veuillez vérifier votre saisie.
+
+# For use in JavaExtensions.since tag
+since.seconds = il y a %s second%s
+since.minutes = il y a %s minute%s ago
+since.hours   = il y a  %s heure%s ago
+since.days    = il y a %s jour%s ago
+since.months  = il y a %s moi%s ago
+since.years   = il y a %s année%s ago
+since.format  = MMM d, yyyy
+
+# Validation messages
+validation.required=Obligatoire
+validation.minSize=La taille minimum est de %2$d
+validation.maxSize=La taille maximum est de %2$d
+validation.email=Adresse mail incorrecte
+validation.range=N'est pas compris entre %2$d et %3$d
+validation.min=Ne doit être plus petit que %2$d
+validation.max=Ne doit pas être plus grand que %2$d
+validation.match=Doit vérifier %2$s
+validation.isTrue=Doit être coché
+validation.equals=DOit être égal à &{%2$s}
+validation.invalid=Valeur incorrecte
+validation.future=Doit être une date future
+validation.after=Doit être une date supérieur à %2$s
+validation.past=Doit être une date passée
+validation.before=Doit être une date avant %2$s
+validation.object=Erreur de validation
+validation.notFound=Objet non trouvé pour l'identifiant %2$s
+validation.url=N'est pas une url valide
+validation.phone=N'est pas un numéro de téléphone valide
+validation.ipv4=N'est pas une adresse IP valide
+validation.ipv6=N'est pas une adresse IP v6 valide
+validation.unique=Doit être unique
