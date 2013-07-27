@@ -1,12 +1,12 @@
-#{extends 'main.html' /} 
+#{extends 'page.html' /}
 #{set title: messages.get('page.contact') /}
 
 <div class="row">
     <div class="span12">
         #{form @Contact.send(), class:"form-horizontal"}
- 
+
             #{ifErrors}
-        	    <div class="alert alert-error">
+                <div class="alert alert-error">
                     <strong>&{'error'}</strong>&{'error.checkform'}
                 </div>
             #{/ifErrors}
@@ -16,7 +16,7 @@
                     ${flash.success}
                 </div>
             #{/if}
-         
+
             <div class="control-group #{ifError 'author'}error#{/ifError}">
                 <label class="control-label" for="author">&{'page.contact.author'}<span class="required">*</span></label>
                 <div class="controls">
@@ -26,7 +26,7 @@
                     #{/if}
                 </div>
             </div>
-            
+
             <div class="control-group #{ifError 'email'}error#{/ifError}">
                 <label class="control-label" for="email">&{'page.contact.email'}<span class="required">*</span></label>
                 <div class="controls">
@@ -36,7 +36,7 @@
                     #{/if}
                 </div>
             </div>
-            
+
             <div class="control-group #{ifError 'message'}error#{/ifError}">
                 <label class="control-label" for="message">&{'page.contact.message'}<span class="required">*</span></label>
                 <div class="controls">
@@ -46,13 +46,13 @@
                     #{/if}
                 </div>
             </div>
-            
+
             <div class="control-group #{ifError 'code'}error#{/ifError}">
                 <label class="control-label" for="code">&{'page.contact.security'}<span class="required">*</span></label>
                 <div class="controls">
-        	        <input type="text" name="code" id="code" size="18" value="" />
+                    <input type="text" name="code" id="code" size="18" value="" />
                     #{if errors.forKey('code')}
-        	        <span class="help-inline">#{error 'code' /}</span>
+                    <span class="help-inline">#{error 'code' /}</span>
                     #{/if}
                     <input type="hidden" name="randomID" value="${randomID}" />
                 </div>
@@ -60,7 +60,7 @@
             <div class="control-group captcha">
                 <img src="@{Contact.captcha(randomID)}" />
             </div>
-            
+
             <div class="form-actions">
                 <button class="btn btn-primary" type="submit">&{'page.contact.send'}</button>
             </div>
