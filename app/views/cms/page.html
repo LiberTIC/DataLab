@@ -1,8 +1,6 @@
-#{extends 'main.html' /}
+#{extends 'page.html' /}
 #{set title:page.title /}
 
-<div class="normal">
 ${page.body.raw()}
-</div>
 
-#{cms.editPage tmpl:'std',pageName:page.name /}
+#{cms.editPage tmpl:'page',pageName:page.name /}
