@@ -1,21 +1,27 @@
 package models.cms;
 
+import play.Logger;
 import play.data.validation.Required;
 import play.db.jpa.GenericModel;
+import play.templates.Template;
+import play.templates.TemplateLoader;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 public class CMSPage extends GenericModel {
 
-	@Id
+    @Id
     @Required
-	public String name;
+    public String name;
 
-	@Required
-	public String title;
+    @Required
+    public String title;
 
     @Lob
     @Required
@@ -26,6 +32,39 @@ public class CMSPage extends GenericModel {
     public String body;
 
     @Required
-    public String type; // could be fragment, page, blog
+    public String template;
+
+    public Date created = new Date();
+
+    public Date updated = new Date();
+
+    /**
+     * Find all cms template available (list all file into the cms views directory).
+     *
+     * @return
+     */
+    public static List<String> getAllTemplate() {
+        List<String> res = new ArrayList<String>();
+        List<Template> templates = TemplateLoader.getAllTemplate();
+        for (Template template : templates) {
+            if (template.getName().contains("/app/views/cms/") && !template.getName().contains("{module:cms}")) {
+                Logger.debug("Find CMS template :" + template.getName());
+                String name = template.getName().split("/")[template.getName().split("/").length -1].replace(".html", "");
+                Logger.debug("CMS Template name is " + name);
+                res.add(name);
+            }
+        }
+        return res;
+    }
+
+    /**
+     * Find all page by template.
+     *
+     * @param tempate
+     * @return
+     */
+    public static List<CMSPage> getAllByTemplate(String tempate){
+       return CMSPage.find("template = ?1", tempate).fetch();
+    }
 
 }

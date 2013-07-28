@@ -3,6 +3,7 @@ package controllers.cms;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Date;
 import java.util.List;
 
 import models.cms.CMSImage;
@@ -28,45 +29,55 @@ public class Admin extends Controller {
     /**
      * Display all CMS pages.
      */
-    public static void index() {
-		List<CMSPage> pages = CMSPage.all().fetch();
-		render(pages);
+    public static void index(String template) {
+        if(template == null) {
+            if(CMSPage.getAllTemplate().size() > 0) {
+                template = CMSPage.getAllTemplate().get(0);
+            }
+            else{
+                template = "Fragment";
+            }
+        }
+		List<CMSPage> pages = CMSPage.getAllByTemplate(template);
+		render(pages, template);
 	}
 
     /**
      * Display edit form for a CMS page.
      *
-     * @param tmpl
      * @param pageName
      */
-	public static void editPage(String tmpl, String pageName) {
+	public static void editPage(String pageName) {
 		CMSPage page = CMSPage.findById(pageName);
-		renderTemplate("@edit", page, tmpl);
+		renderTemplate("@edit", page);
 	}
 
     /**
      * Display form to add a CMS page.
      */
-	public static void addPage() {
+	public static void addPage(String template) {
 		CMSPage page = new CMSPage();
+        page.template = template;
 		renderTemplate("@edit", page);
 	}
 
     /**
-     * SAving a CMS page.
+     * Saving a CMS page.
      *
      * @param page
-     * @param tmpl
+     * @param template
      */
-	public static void savePage(@Valid CMSPage page, String tmpl) {
+	public static void savePage(@Valid CMSPage page) {
+        String template = page.template;
 		if (request.params.get("delete") != null) {
 			page.delete();
-			index();
+			index(template);
 		}
+        page.updated = new Date();
 		page.save();
 		if (request.params.get("savePage") != null)
-			Frontend.show(tmpl, page.name);
-		index();
+			Frontend.show(page.name);
+		index(template);
 	}
 
     /**

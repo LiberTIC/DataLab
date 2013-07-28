@@ -1,14 +1,43 @@
 #{extends 'cms/cms.html' /}
 
-<table>
-    #{list items:pages, as:'page' }
+<h1>Administration des ${template}s</h1>
+
+<table class="table table-hover table-striped sortable">
+    <caption>${pages.size()} ${template}s found.</caption>
+    <thead>
         <tr>
-            <td><a href="@{cms.Admin.editPage(null, page.name)}">${page.name}</a></td>
-            <td>${page.title}</td>
+            <th  data-defaultsort="asc" >Name</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th data-dateformat="DD/MM/YYYY">Created</th>
+            <th data-dateformat="DD/MM/YYYY">Updated</th>
+            <th>Action</th>
         </tr>
-    #{/list}
+    </thead>
+    <tbody>
+        #{list items:pages, as:'page' }
+            <tr>
+                <td>${page.name}</td>
+                <td>${page.title}</td>
+                <td>${page.description}</td>
+                <td>${page.created.format("dd/MM/yyyy")}</td>
+                <td>${page.updated.format("dd/MM/yyyy")}</td>
+                <td>
+                    #{if page.template != "Fragment"}
+                        <a href="@{cms.Frontend.show(page.name)}" title="Show">
+                            <i class="icon-eye-open"></i>
+                        </a>
+                    #{/if}
+                    <a href="@{cms.Admin.editPage(page.name)}" title="Edit">
+                        <i class="icon-pencil"></i>
+                    </a>
+                    <a href="@{cms.Admin.savePage(page)}&delete=true" title="Delete">
+                        <i class="icon-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        #{/list}
+    </tbody>
 </table>
 
-<a href="@{cms.Admin.addPage()}">New Page</a><br/>
-
-${pages.size()} Pages found.
+<a href="@{cms.Admin.addPage("")}">New Page</a><br/>

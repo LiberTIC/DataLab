@@ -15,5 +15,5 @@ GET      /admin/cms/{pageName}             cms.Admin.editPage
 
 #Frontend
 GET     /image/{name}                      cms.Frontend.image
-GET     /{template}/{pageName}             cms.Frontend.show
+GET     /{pageName}                        cms.Frontend.show
 

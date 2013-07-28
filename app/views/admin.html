@@ -9,9 +9,10 @@
 #{get 'moreStyles' /}
     <script src="@{'/public/javascripts/jquery.min.js'}" type="text/javascript"></script>
     <script src="@{'/public/javascripts/bootstrap.min.js'}" type="text/javascript"></script>
+    <script src="@{'/public/javascripts/bootstrap-sortable.js'}" type="text/javascript"></script>
 #{get 'moreScripts' /}
 </head>
-<body >
+<body class="admin">
 <!-- Navbar -->
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
@@ -39,7 +40,11 @@
     </div>
 </div>
 
-#{doLayout /}
+<div class="blockDefault mainCOntainer">
+    <div class="container">
+    #{doLayout /}
+    </div>
+</div>
 
 <footer class="blockOdd">
 </footer>

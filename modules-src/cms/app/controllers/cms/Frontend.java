@@ -12,13 +12,12 @@ public class Frontend extends Controller {
     /**
      * Dsiplay a CMS page.
      *
-     * @param template
      * @param pageName
      */
-	public static void show(String template, String pageName) {
+	public static void show(String pageName) {
 		CMSPage page = CMSPage.findById(pageName);
 		notFoundIfNull(page);
-		renderTemplate("/cms/" + template + ".html", page);
+		renderTemplate("/cms/" + page.template + ".html", page);
 	}
 
     /**
