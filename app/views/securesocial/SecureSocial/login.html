@@ -1,4 +1,4 @@
-#{extends 'main.html'/}
+#{extends 'page.html' /}
 #{set title: messages.get('securesocial.loginTitle') /}
 
 <script language="javascript" type="text/javascript" charset="utf-8">
@@ -11,7 +11,7 @@
     }
 </script>
 
-<div class="row">
+<div class="row-fluid">
     <div class="span12">
         #{if flash.error}
             <div class="alert alert-error">

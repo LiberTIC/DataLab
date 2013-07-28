@@ -1,7 +1,7 @@
-#{extends 'main.html' /} 
-#{set title:messages.get('page.user') /}
+#{extends 'page.html' /}
+#{set title:messages.get('page.user')  /}
 
-<div class="row">
+<div class="row-fluid">
     <div class="span1">
         #{if member.avatarUrl != null}
             <img src="${member.avatarUrl}" alt="avatar"/>
@@ -44,11 +44,14 @@
          #{/list}
     </div>
 </div>
-<br/><br/>
-<div class="row">
 
+<br/><br/>
+
+<div class="row-fluid">
     <div class="span6">
+
         <h2>&{'page.user.edit'}</h2>
+
         #{form @User.save(), class:"form-horizontal"}
         
             #{ifErrors}
