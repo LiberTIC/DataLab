@@ -27,7 +27,10 @@
 
         <!-- Field nom -->
         <div class="control-group #{ifError 'organisme.nom'}error#{/ifError}">
-            <label class="control-label" for="nom">&{'organisme.nom'}</label>
+            <label class="control-label" for="nom">
+                &{'organisme.nom'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.nom.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <input class="span6" type="text" id="name" name="organisme.nom" placeholder="&{'organisme.nom.placeholder'}" value="${_organisme?.nom}"/>
                 #{if errors?.forKey('organisme.nom')}
@@ -38,7 +41,10 @@
 
         <!-- Field type -->
         <div class="control-group #{ifError 'organisme.type'}error#{/ifError}">
-            <label class="control-label" for="type">&{'organisme.type'}</label>
+            <label class="control-label" for="type">
+                &{'organisme.type'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.type.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 #{select 'organisme.type.id', items:_types, value:_organisme?.type?.id, id:'type', class:'medium' /}
                 #{if errors?.forKey('organisme.type')}
@@ -49,7 +55,10 @@
 
         <!-- Field logo -->
         <div class="control-group #{ifError 'organisme.logo'}error#{/ifError}">
-            <label class="control-label" for="logo">&{'organisme.logo'}</label>
+            <label class="control-label" for="logo">
+                &{'organisme.logo'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.logo.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 #{if _organisme?.logo != null}
                     <img src="@{Organismes.logo(_id)}" /> <br/>
@@ -63,7 +72,10 @@
 
         <!-- Field siret -->
         <div class="control-group #{ifError 'organisme.siret'}error#{/ifError}">
-            <label class="control-label" for="siret">&{'organisme.siret'}</label>
+            <label class="control-label" for="siret">
+                &{'organisme.siret'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.siret.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <input class="span6" type="text" id="siret" name="organisme.siret" placeholder="&{'organisme.siret.placeholder'}" value="${_organisme?.siret}"/>
                 #{if errors?.forKey('organisme.siret')}
@@ -74,7 +86,10 @@
 
         <!-- Field nbSalarie -->
         <div class="control-group #{ifError 'organisme.nbSalarie'}error#{/ifError}">
-            <label class="control-label" for="nbSalarie">&{'organisme.nbSalarie'}</label>
+            <label class="control-label" for="nbSalarie">
+                &{'organisme.nbSalarie'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.nbSalarie.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <input class="span6" type="text" id="nbSalarie" name="organisme.nbSalarie" placeholder="&{'organisme.nbSalarie.placeholder'}" value="${_organisme?.nbSalarie}"/>
                 #{if errors?.forKey('organisme.nbSalarie')}
@@ -85,7 +100,10 @@
 
         <!-- Field telephone -->
         <div class="control-group #{ifError 'organisme.telephone'}error#{/ifError}">
-            <label class="control-label" for="telephone">&{'organisme.telephone'}</label>
+            <label class="control-label" for="telephone">
+                &{'organisme.telephone'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.telephone.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <input class="span6" type="text" id="telephone" name="organisme.telephone" placeholder="&{'organisme.telephone.placeholder'}" value="${_organisme?.telephone}"/>
                 #{if errors?.forKey('organisme.telephone')}
@@ -96,7 +114,10 @@
 
         <!-- Field email -->
         <div class="control-group #{ifError 'organisme.email'}error#{/ifError}">
-            <label class="control-label" for="email">&{'organisme.email'}</label>
+            <label class="control-label" for="email">
+                &{'organisme.email'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.email.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <input class="span6" type="email" id="email" name="organisme.email" placeholder="&{'organisme.email.placeholder'}" value="${_organisme?.email}"/>
                 #{if errors?.forKey('organisme.email')}
@@ -107,7 +128,10 @@
 
         <!-- Field adresse -->
         <div class="control-group #{ifError 'organisme.adresse'}error#{/ifError}">
-            <label class="control-label" for="adresse">&{'organisme.adresse'}</label>
+            <label class="control-label" for="adresse">
+                &{'organisme.adresse'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.adresse.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <input class="span6" type="text" id="adresse" name="organisme.adresse" placeholder="&{'organisme.adresse.placeholder'}" value="${_organisme?.adresse}"/>
                 #{if errors?.forKey('organisme.adresse')}
@@ -118,7 +142,10 @@
 
         <!-- Field ville -->
         <div class="control-group #{ifError 'organisme.ville'}error#{/ifError}">
-            <label class="control-label" for="ville">&{'organisme.ville'}</label>
+            <label class="control-label" for="ville">
+                &{'organisme.ville'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.ville.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <input class="span6" type="text" id="ville" name="organisme.ville" placeholder="&{'organisme.ville.placeholder'}" value="${_organisme?.ville}"/>
                 #{if errors?.forKey('organisme.ville')}
@@ -129,7 +156,10 @@
 
         <!-- Field codePostal -->
         <div class="control-group #{ifError 'organisme.codePostal'}error#{/ifError}">
-            <label class="control-label" for="codePostal">&{'organisme.codePostal'}</label>
+            <label class="control-label" for="codePostal">
+                &{'organisme.codePostal'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.codePostal.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <input class="span6" type="text" id="codePostal" name="organisme.codePostal" placeholder="&{'organisme.codePostal.placeholder'}" value="${_organisme?.codePostal}"/>
                 #{if errors?.forKey('organisme.codePostal')}
@@ -140,7 +170,10 @@
 
         <!-- Field produit -->
         <div class="control-group #{ifError 'organisme.produit'}error#{/ifError}">
-            <label class="control-label" for="produit">&{'organisme.produit'}</label>
+            <label class="control-label" for="produit">
+                &{'organisme.produit'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.produit.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <textarea id="produit" name="organisme.produit" placeholder="&{'organisme.produit.placeholder'}" class="span6" rows="3">${_organisme?.produit}</textarea>
                 #{if errors?.forKey('organisme.produit')}
@@ -151,7 +184,10 @@
 
         <!-- Field description -->
         <div class="control-group #{ifError 'organisme.description'}error#{/ifError}">
-            <label class="control-label" for="description">&{'organisme.description'}</label>
+            <label class="control-label" for="description">
+                &{'organisme.description'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.description.help'}"><i class="icon-info-sign"></i></a>
+            </label>
             <div class="controls">
                 <textarea id="description" name="organisme.description" placeholder="&{'organisme.description.placeholder'}" class="span6" rows="3">${_organisme?.description}</textarea>
                 #{if errors?.forKey('organisme.description')}
@@ -160,12 +196,18 @@
             </div>
         </div>
 
-    <!-- Form button -->
-    <div class="form-actions">
-        <button class="btn btn-primary" type="submit">&{'organisme.save'}</button>
-    </div>
+        <!-- Form button -->
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit">&{'organisme.save'}</button>
+        </div>
 
     #{/form}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.form-tooltip').tooltip();
+        });
+    </script>
 #{/if}
 
 *{ ~~~ Mode RSS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
