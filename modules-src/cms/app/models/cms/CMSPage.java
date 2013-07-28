@@ -25,4 +25,7 @@ public class CMSPage extends GenericModel {
     @Required
     public String body;
 
+    @Required
+    public String type; // could be fragment, page, blog
+
 }

@@ -6,4 +6,11 @@ public class Application extends AbstractController {
         render();
     }
 
+    public static void admin(){
+        // check if it's an admin user
+        isAdminUser();
+
+        render();
+    }
+
 }

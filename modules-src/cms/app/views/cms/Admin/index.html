@@ -1,12 +1,12 @@
 #{extends 'cms/cms.html' /}
 
 <table>
-#{list items:pages, as:'page' }
-	<tr>
-		<td><a href="@{cms.Admin.editPage(null, page.name)}">${page.name}</a></td>
-		<td>${page.title}</td>
-	</tr>
-#{/list}
+    #{list items:pages, as:'page' }
+        <tr>
+            <td><a href="@{cms.Admin.editPage(null, page.name)}">${page.name}</a></td>
+            <td>${page.title}</td>
+        </tr>
+    #{/list}
 </table>
 
 <a href="@{cms.Admin.addPage()}">New Page</a><br/>
