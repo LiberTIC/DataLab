@@ -5,8 +5,8 @@ import play.db.jpa.Blob;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import java.util.Date;
 import java.util.List;
 
@@ -53,7 +53,7 @@ public class Organisme extends Model {
     @ManyToOne
     public OrganismeType type;
 
-    @OneToMany
+    @ManyToMany
     public List<OrganismeActivite> activites;
 
 }

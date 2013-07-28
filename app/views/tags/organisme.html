@@ -53,6 +53,20 @@
             </div>
         </div>
 
+        <!-- Field activites -->
+        <div class="control-group #{ifError 'organisme.activites'}error#{/ifError}">
+            <label class="control-label" for="activites">
+            &{'organisme.activites'}
+                <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.activites.help'}"><i class="icon-info-sign"></i></a>
+            </label>
+            <div class="controls">
+                #{select 'organisme.activites.id', items:_activites, value:_organisme?.activites?.id, id:'activites', class:'medium' /}
+                #{if errors?.forKey('organisme.activites')}
+                    <span class="help-inline">#{error 'organisme.activites' /}</span>
+                #{/if}
+            </div>
+        </div>
+
         <!-- Field logo -->
         <div class="control-group #{ifError 'organisme.logo'}error#{/ifError}">
             <label class="control-label" for="logo">
