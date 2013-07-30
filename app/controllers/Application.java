@@ -1,5 +1,6 @@
 package controllers;
 
+import controllers.cms.Admin;
 import models.cms.CMSPage;
 
 /**
@@ -29,7 +30,7 @@ public class Application extends AbstractController {
         // check if it's an admin user
         isAdminUser();
 
-        render();
+        Admin.index("page");
     }
 
 }
