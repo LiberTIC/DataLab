@@ -15,7 +15,7 @@ public class Security extends Secure.Security {
      * @return
      */
     static boolean check(String profile) {
-        return true;
+        return AbstractController.hasAdminRight();
     }
 
     /**
