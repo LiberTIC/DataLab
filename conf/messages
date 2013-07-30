@@ -103,6 +103,7 @@ securesocial.accountNotActive     = Votre compte n'est pas activé. Si vous pens
 securesocial.CreateAccount        = S'enregistrer
 securesocial.accountCreated       = Votre compte vient d'être créé. Vous allez recevoir un mail pour son activation.
 securesocial.invalidLink          = Le lien d'activiation que vous avez suivi est invalide.
+securesocial.createAccount        = S'enregistrer
 
 #
 # Welcome email
