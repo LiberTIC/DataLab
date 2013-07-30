@@ -2,7 +2,10 @@ package controllers.cms;
 
 import models.cms.CMSImage;
 import models.cms.CMSPage;
+import play.Play;
 import play.mvc.Controller;
+
+import java.util.List;
 
 /**
  * Controller to managed frontend CMS module.
@@ -10,7 +13,7 @@ import play.mvc.Controller;
 public class Frontend extends Controller {
 
     /**
-     * Dsiplay a CMS page.
+     * Display a CMS page.
      *
      * @param pageName
      */
@@ -19,6 +22,18 @@ public class Frontend extends Controller {
 		notFoundIfNull(page);
 		renderTemplate("/cms/" + page.template + ".html", page);
 	}
+
+    /**
+     * Display a CMS template object to RSS.
+     *
+     * @param template
+     */
+    public static void rss(String template) {
+        List<CMSPage> pages = CMSPage.getAllByTemplate(template);
+        String applicationName = Play.configuration.getProperty("application.name");
+        response.contentType = "application/rss+xml";
+        render("/cms/rss.html", applicationName, template, pages);
+    }
 
     /**
      * Render an image.

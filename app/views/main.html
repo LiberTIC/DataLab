@@ -28,19 +28,21 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li>
-                                <a href="/" title="/">Le projet</a>
+                                <a href="@{cms.Frontend.show("le-projet")}" title="Le projet">
+                                    Le projet
+                                </a>
                             </li>
                             <li>
-                                <a href="/" title="/">Blog</a>
+                                <a href="@{Application.blog()}" title="Le Blog">Blog</a>
                             </li>
                             <li>
                                 <a href="@{Organismes.search()}" title="/">Annuaire</a>
                             </li>
                             <li>
-                                <a href="/" title="/">Participez</a>
+                                <a href="@{cms.Frontend.show("participez")}" title="Participez">Participez</a>
                             </li>
                             <li>
-                                <a href="/" title="/">Partenaires</a>
+                                <a href="@{cms.Frontend.show("les-partenaires")}" title="Les partenaires">Partenaires</a>
                             </li>
                             <li>
                                 <a href="/contact" title="/">Contact</a>

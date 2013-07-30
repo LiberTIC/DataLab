@@ -57,33 +57,41 @@ public class CMSPage extends GenericModel {
     }
 
     /**
-     * Find all page by template.
+     * Find all page by template (order by created date desc).
      *
-     * @param tempate
+     * @param template
      * @return
      */
-    public static List<CMSPage> getAllByTemplate(String tempate){
-       return CMSPage.find("template = ?1", tempate).fetch();
+    public static List<CMSPage> getAllByTemplate(String template){
+       return CMSPage.find("template = ?1 order by created desc", template).fetch();
+    }
+
+    /**
+     * Get the lastest element by template.
+     *
+     * @param template
+     * @return
+     */
+    public static CMSPage getLastest(String template){
+       return CMSPage.find("template = ?1 order by created desc", template).first();
     }
 
     /**
      * Get previous item by date by template.
      *
-     * @param template
      * @return
      */
-    public CMSPage previous(String template) {
+    public CMSPage previous() {
         return CMSPage.find("template = ?1 AND created < ?2 order by created desc", template, created).first();
     }
 
     /**
      * Get previous item by date by template.
      *
-     * @param template
      * @return
      */
     public CMSPage next() {
-        return CMSPage.find("template = ?1 AND created > ?2 order by created desc", template, created).first();
+        return CMSPage.find("template = ?1 AND created > ?2 order by created desc",template,  created).first();
     }
 
 }
