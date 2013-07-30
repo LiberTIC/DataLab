@@ -18,6 +18,7 @@ public class Tags extends FastTags {
         if (page == null) {
             page = new CMSPage();
             page.name = pageName;
+            page.title = pageName;
             page.description = "Fragment on " + template.template.name;
             page.body = "";
             page.template = "Fragment";

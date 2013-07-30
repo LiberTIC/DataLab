@@ -1,43 +1,45 @@
 #{extends 'cms/cms.html' /}
 
-<h1>Administration des ${template}s</h1>
+<h1>&{'cms.title', template}</h1>
 
 <table class="table table-hover table-striped sortable">
-    <caption>${pages.size()} ${template}s found.</caption>
+    <caption>
+        &{'cms.caption', pages.size(), template}
+    </caption>
     <thead>
         <tr>
-            <th  data-defaultsort="asc" >Name</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th data-dateformat="DD/MM/YYYY">Created</th>
-            <th data-dateformat="DD/MM/YYYY">Updated</th>
-            <th>Action</th>
+            <th class="span3" data-defaultsort="asc">&{'cms.page.title'}</th>
+            <th class="span3">&{'cms.page.description'}</th>
+            <th class="span2" data-dateformat="DD/MM/YYYY">&{'cms.page.created'}</th>
+            <th class="span2" data-dateformat="DD/MM/YYYY">&{'cms.page.updated'}</th>
+            <th class="span2">&{'cms.action'}</th>
         </tr>
     </thead>
     <tbody>
         #{list items:pages, as:'page' }
             <tr>
-                <td>${page.name}</td>
                 <td>${page.title}</td>
                 <td>${page.description}</td>
                 <td>${page.created.format("dd/MM/yyyy")}</td>
                 <td>${page.updated.format("dd/MM/yyyy")}</td>
                 <td>
+                    <a class="btn btn-danger pull-right" href="@{cms.Admin.savePage(page)}&delete=true" title="&{'cms.page.delete'}">
+                        <i class="icon-remove"></i>
+                    </a>
+                    <a class="btn btn-warning pull-right" href="@{cms.Admin.editPage(page.name)}" title="&{'cms.page.edit'}">
+                        <i class="icon-pencil"></i>
+                    </a>
                     #{if page.template != "Fragment"}
-                        <a href="@{cms.Frontend.show(page.name)}" title="Show">
+                        <a class="btn btn-info pull-right" href="@{cms.Frontend.show(page.name)}" title="&{'cms.page.view'}">
                             <i class="icon-eye-open"></i>
                         </a>
                     #{/if}
-                    <a href="@{cms.Admin.editPage(page.name)}" title="Edit">
-                        <i class="icon-pencil"></i>
-                    </a>
-                    <a href="@{cms.Admin.savePage(page)}&delete=true" title="Delete">
-                        <i class="icon-remove"></i>
-                    </a>
                 </td>
             </tr>
         #{/list}
     </tbody>
 </table>
 
-<a href="@{cms.Admin.addPage("")}">New Page</a><br/>
+#{if template != "Fragments"}
+    <a class="btn btn-success pull-right" href="@{cms.Admin.addPage(template)}">&{'cms.page.new', template}</a>
+#{/if}

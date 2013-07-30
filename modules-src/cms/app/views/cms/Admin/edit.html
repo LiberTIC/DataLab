@@ -1,32 +1,81 @@
 #{extends 'cms/cms.html' /}
 
-#{form @cms.Admin.savePage()}
-    <table>
-        <tr valign="top">
-            <td>Name:</td>
-            <td><input type="text" size="20" name="page.name" value="${page.name}"></td>
-        </tr>
-        <tr valign="top">
-            <td>Title:</td>
-            <td><input type="text" size="60" name="page.title" value="${page.title}"></td>
-        </tr>
-        <tr valign="top">
-            <td>Body:</td>
-            <td><textarea rows="30" cols="60" name="page.body">${page.body}</textarea></td>
-        </tr>
-    </table>
+#{form @cms.Admin.savePage(), class:"form-horizontal"}
 
-    <input type="submit" name="saveList" value="Save &amp; goto page list">
-
-    #{if (tmpl==null)}
-        <input type="text" size="10" name="tmpl" value="">
+    #{ifErrors}
+        <div class="alert alert-error">
+            <strong>&{'error'}</strong> &{'error.checkform'}
+        </div>
+    #{/ifErrors}
+    #{if flash.success}
+        <div class="alert alert-success">
+            ${flash.success}
+        </div>
     #{/if}
-    #{else}
-        <input type="hidden" name="tmpl" value="${tmpl}">
-    #{/else}
-    <input type="submit" name="savePage" value="Save &amp; goto page">
-    <input type="submit" name="delete" value="Delete">
 
+    <input type="hidden" name="page.template" value="${page.template}" />
+
+    <!-- Field name -->
+    <div class="control-group #{ifError 'page.name'}error#{/ifError}">
+        <label class="control-label" for="name">
+            &{'cms.page.name'}
+            <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.name.help'}"><i class="icon-info-sign"></i></a>
+        </label>
+        <div class="controls">
+            <input class="span8" type="text" id="name" name="page.name" placeholder="&{'cms.page.name.placeholder'}" value="${page?.name}"/>
+            #{if errors?.forKey('page.name')}
+                <span class="help-inline">#{error 'page.name' /}</span>
+            #{/if}
+        </div>
+    </div>
+
+    <!-- Field title -->
+    <div class="control-group #{ifError 'page.title'}error#{/ifError}">
+        <label class="control-label" for="title">
+            &{'cms.page.title'}
+            <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.title.help'}"><i class="icon-info-sign"></i></a>
+        </label>
+        <div class="controls">
+            <input class="span8" type="text" id="title" name="page.title" placeholder="&{'cms.page.title.placeholder'}" value="${page?.title}"/>
+            #{if errors?.forKey('page.title')}
+                <span class="help-inline">#{error 'page.title' /}</span>
+            #{/if}
+        </div>
+    </div>
+
+    <!-- Field description -->
+    <div class="control-group #{ifError 'page.description'}error#{/ifError}">
+        <label class="control-label" for="description">
+            &{'cms.page.description'}
+            <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.description.help'}"><i class="icon-info-sign"></i></a>
+        </label>
+        <div class="controls">
+            <textarea id="description" name="page.description" placeholder="&{'cms.page.description.placeholder'}" class="span8" rows="3">${page?.description}</textarea>
+            #{if errors?.forKey('page.description')}
+                <span class="help-inline">#{error 'page.description' /}</span>
+            #{/if}
+        </div>
+    </div>
+
+    <!-- Field body -->
+    <div class="control-group #{ifError 'page.body'}error#{/ifError}">
+        <label class="control-label" for="body">
+            &{'cms.page.body'}
+            <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.body.help'}"><i class="icon-info-sign"></i></a>
+        </label>
+        <div class="controls">
+            <textarea id="body" name="page.body" placeholder="&{'cms.page.body.placeholder'}" class="span6" rows="30">${page?.body}</textarea>
+            #{if errors?.forKey('page.body')}
+                <span class="help-inline">#{error 'page.body' /}</span>
+            #{/if}
+        </div>
+    </div>
+
+    <!-- Form button -->
+    <div class="form-actions">
+        <button class="btn btn-primary" type="submit">&{'cms.save'}</button>
+        <button class="btn btn-danger" name="delete" value="delete" type="submit">&{'cms.delete'}</button>
+    </div>
 #{/form}
 
 <script type="text/javascript" src="/public/tiny_mce/tiny_mce.js" ></script >
@@ -46,5 +95,8 @@
         theme_advanced_resizing : true,
         external_image_list_url : "imagelist.js",
         convert_urls : false
+    });
+    $(document).ready(function () {
+        $('.form-tooltip').tooltip();
     });
 </script >

@@ -30,7 +30,7 @@ GET     /admin                                  Application.admin
 #
 # Modules routes
 #
-*		/										module:securesocial
+*		/auth                                   module:securesocial
 GET		/user/{<[0-9]+>userId}                  User.view
 GET		/user/me                                User.myProfile
 GET		/user/me/edit                           User.edit

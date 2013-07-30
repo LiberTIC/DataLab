@@ -1,9 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+#{extends 'page.html' /}
+#{set title:page.title /}
 
-</body>
-</html>
+${page.body.raw()}
+
+<div class="pagination">
+    <ul>
+        #{if page.previous()}
+            <li id="previous">
+                <a href="@{cms.Frontend.show(page.previous().name)}">${page.previous().title}</a>
+            </li>
+        #{/if}
+        #{if page.next()}
+            <li id="next">
+                <a href="@{cms.Frontend.show(page.next().name)}">${page.next().title}</a>
+            </li>
+        #{/if}
+    </ul>
+</div>
+
+#{cms.editPage pageName:page.name /}

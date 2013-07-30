@@ -49,7 +49,8 @@ public class Admin extends Controller {
      */
 	public static void editPage(String pageName) {
 		CMSPage page = CMSPage.findById(pageName);
-		renderTemplate("@edit", page);
+        String template = page.template;
+		renderTemplate("@edit", page, template);
 	}
 
     /**
@@ -58,14 +59,13 @@ public class Admin extends Controller {
 	public static void addPage(String template) {
 		CMSPage page = new CMSPage();
         page.template = template;
-		renderTemplate("@edit", page);
+		renderTemplate("@edit", page, template);
 	}
 
     /**
      * Saving a CMS page.
      *
      * @param page
-     * @param template
      */
 	public static void savePage(@Valid CMSPage page) {
         String template = page.template;

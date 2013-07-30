@@ -32,7 +32,7 @@
                 <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.nom.help'}"><i class="icon-info-sign"></i></a>
             </label>
             <div class="controls">
-                <input class="span6" type="text" id="name" name="organisme.nom" placeholder="&{'organisme.nom.placeholder'}" value="${_organisme?.nom}"/>
+                <input class="span6" type="text" id="nom" name="organisme.nom" placeholder="&{'organisme.nom.placeholder'}" value="${_organisme?.nom}"/>
                 #{if errors?.forKey('organisme.nom')}
                     <span class="help-inline">#{error 'organisme.nom' /}</span>
                 #{/if}

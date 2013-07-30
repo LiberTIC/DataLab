@@ -67,4 +67,24 @@ public class CMSPage extends GenericModel {
        return CMSPage.find("template = ?1", tempate).fetch();
     }
 
+    /**
+     * Get previous item by date by template.
+     *
+     * @param template
+     * @return
+     */
+    public CMSPage previous(String template) {
+        return CMSPage.find("template = ?1 AND created < ?2 order by created desc", template, created).first();
+    }
+
+    /**
+     * Get previous item by date by template.
+     *
+     * @param template
+     * @return
+     */
+    public CMSPage next() {
+        return CMSPage.find("template = ?1 AND created > ?2 order by created desc", template, created).first();
+    }
+
 }
