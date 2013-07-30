@@ -24,7 +24,6 @@ public class CMSPage extends GenericModel {
     public String title;
 
     @Lob
-    @Required
     public String description;
 
     @Lob

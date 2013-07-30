@@ -73,6 +73,9 @@ public class Admin extends Controller {
 			page.delete();
 			index(template);
 		}
+        if (validation.hasErrors()) {
+            renderTemplate("@edit", page, template);
+        }
         page.updated = new Date();
 		page.save();
 		if (request.params.get("savePage") != null)

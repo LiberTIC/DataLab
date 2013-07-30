@@ -1,5 +1,12 @@
 #{extends 'cms/cms.html' /}
 
+#{if page.title != null && page.title != ""}
+    <h1>&{'cms.edit.title', page.title}</h1>
+#{/if}
+#{else}
+    <h1>&{'cms.new.title', template}</h1>
+#{/else}
+
 #{form @cms.Admin.savePage(), class:"form-horizontal"}
 
     #{ifErrors}
@@ -22,7 +29,7 @@
             <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.name.help'}"><i class="icon-info-sign"></i></a>
         </label>
         <div class="controls">
-            <input class="span8" type="text" id="name" name="page.name" placeholder="&{'cms.page.name.placeholder'}" value="${page?.name}"/>
+            <input class="span12" type="text" id="name" name="page.name" placeholder="&{'cms.page.name.placeholder'}" value="${page?.name}"/>
             #{if errors?.forKey('page.name')}
                 <span class="help-inline">#{error 'page.name' /}</span>
             #{/if}
@@ -36,7 +43,7 @@
             <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.title.help'}"><i class="icon-info-sign"></i></a>
         </label>
         <div class="controls">
-            <input class="span8" type="text" id="title" name="page.title" placeholder="&{'cms.page.title.placeholder'}" value="${page?.title}"/>
+            <input class="span12" type="text" id="title" name="page.title" placeholder="&{'cms.page.title.placeholder'}" value="${page?.title}"/>
             #{if errors?.forKey('page.title')}
                 <span class="help-inline">#{error 'page.title' /}</span>
             #{/if}
@@ -50,7 +57,7 @@
             <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.description.help'}"><i class="icon-info-sign"></i></a>
         </label>
         <div class="controls">
-            <textarea id="description" name="page.description" placeholder="&{'cms.page.description.placeholder'}" class="span8" rows="3">${page?.description}</textarea>
+            <textarea id="description" name="page.description" placeholder="&{'cms.page.description.placeholder'}" class="span12" rows="3">${page?.description}</textarea>
             #{if errors?.forKey('page.description')}
                 <span class="help-inline">#{error 'page.description' /}</span>
             #{/if}
@@ -64,7 +71,7 @@
             <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.body.help'}"><i class="icon-info-sign"></i></a>
         </label>
         <div class="controls">
-            <textarea id="body" name="page.body" placeholder="&{'cms.page.body.placeholder'}" class="span6" rows="30">${page?.body}</textarea>
+            <textarea id="body" name="page.body" placeholder="&{'cms.page.body.placeholder'}" class="span12" rows="30">${page?.body}</textarea>
             #{if errors?.forKey('page.body')}
                 <span class="help-inline">#{error 'page.body' /}</span>
             #{/if}
@@ -73,8 +80,8 @@
 
     <!-- Form button -->
     <div class="form-actions">
-        <button class="btn btn-primary" type="submit">&{'cms.save'}</button>
-        <button class="btn btn-danger" name="delete" value="delete" type="submit">&{'cms.delete'}</button>
+        <button class="btn btn-primary" type="submit">&{'cms.page.save'}</button>
+        <button class="btn btn-danger" name="delete" value="delete" type="submit">&{'cms.page.delete'}</button>
     </div>
 #{/form}
 
