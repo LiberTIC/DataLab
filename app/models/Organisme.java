@@ -3,6 +3,7 @@ package models;
 import play.data.validation.Required;
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
+import play.modules.search.Field;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -16,6 +17,7 @@ public class Organisme extends Model {
     @ManyToOne
     public OrganismeMaster master;
 
+    @Field(sortable=true)
     @Required
     public String nom;
 
@@ -23,23 +25,32 @@ public class Organisme extends Model {
 
     public String siret;
 
+    @Field
     public String nbSalarie;
 
+    @Field
     public String telephone;
 
+    @Field
     public String email;
 
+    @Field
     public String adresse;
 
+    @Field
     @Required
     public String ville;
 
+    @Field
     public String codePostal;
 
+    @Field
     public String produit;
 
+    @Field
     public String description;
 
+    @Field(sortable=true)
     public Date created = new Date();
 
     public Double wsg_x;
@@ -49,6 +60,7 @@ public class Organisme extends Model {
     @ManyToOne
     public User user;
 
+    @Field(joinField="libelle")
     @Required
     @ManyToOne
     public OrganismeType type;

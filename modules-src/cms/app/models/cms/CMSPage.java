@@ -3,6 +3,8 @@ package models.cms;
 import play.Logger;
 import play.data.validation.Required;
 import play.db.jpa.GenericModel;
+import play.modules.search.Field;
+import play.modules.search.Indexed;
 import play.templates.Template;
 import play.templates.TemplateLoader;
 
@@ -14,27 +16,35 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Indexed
 public class CMSPage extends GenericModel {
 
     @Id
     @Required
+    @Field(sortable = true)
     public String name;
 
     @Required
+    @Field(sortable = true)
     public String title;
 
     @Lob
+    @Field
     public String description;
 
     @Lob
+    @Field
     @Required
     public String body;
 
+    @Field
     @Required
     public String template;
 
+    @Field(sortable = true)
     public Date created = new Date();
 
+    @Field(sortable = true)
     public Date updated = new Date();
 
     /**

@@ -5,6 +5,7 @@ import play.PlayPlugin;
 import play.exceptions.UnexpectedException;
 import play.modules.search.store.FileExtractor;
 import play.mvc.Router;
+
 /**
  * Integrated to Play's lifecycle, SearchPlugin
  * will trap JPA events and drive the Search
@@ -34,7 +35,7 @@ public class SearchPlugin extends PlayPlugin {
         if (!message.startsWith("JPASupport"))
             return;
         if (message.equals("JPASupport.objectPersisted") || message.equals("JPASupport.objectUpdated")) {
-            Search.index (context);
+            Search.index(context);
         } else if (message.equals("JPASupport.objectDeleted")) {
             Search.unIndex(context);
         }

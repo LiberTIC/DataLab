@@ -23,6 +23,7 @@ import play.modules.search.store.Store;
  * Samples in samples-and-tests/app/controllers/JPASearch.java
  */
 public class Search {
+
     private static String ANALYSER_CLASS;
     private static Version LUCENE_VERSION;
     private static Store store;

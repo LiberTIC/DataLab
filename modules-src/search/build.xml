@@ -28,7 +28,7 @@
         <jar destfile="lib/search.jar" basedir="tmp/classes">
             <manifest>
                 <section name="Play">
-                    <attribute name="Specification-Title" value="Search module"/>
+                    <attribute name="Specification-Title" value="SearchTest module"/>
                 </section>
             </manifest>
         </jar>

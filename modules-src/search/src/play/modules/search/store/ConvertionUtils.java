@@ -1,5 +1,6 @@
 package play.modules.search.store;
 
+import java.lang.reflect.Method;
 import java.util.Collection;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -15,6 +16,7 @@ import play.db.jpa.JPABase;
 import play.db.jpa.Model;
 import play.exceptions.UnexpectedException;
 import play.modules.search.Indexed;
+import play.modules.search.ModelVersioned;
 import play.modules.search.Query.SearchException;
 
 /**
@@ -39,42 +41,60 @@ public class ConvertionUtils {
         JPABase jpaBase = (JPABase) object;
         Document document = new Document();
         document.add(new Field("_docID", getIdValueFor(jpaBase) + "", Field.Store.YES, Field.Index.NOT_ANALYZED));
+
+        // copy field of all fields
         StringBuffer allValue = new StringBuffer();
-        for (java.lang.reflect.Field field : object.getClass().getFields()) {
-            play.modules.search.Field index = field.getAnnotation(play.modules.search.Field.class);
-            if (index == null)
-                continue;
-            if (field.getType().isArray())
-                continue;
-            if (Collection.class.isAssignableFrom(field.getType()))
-                continue;
 
-            String name = field.getName();
-            String value = null;
+        Object currentObject = object;
 
-            if (JPABase.class.isAssignableFrom(field.getType()) && !(index.joinField().length() == 0)) {
-                JPABase joinObject = (JPABase ) field.get(object);
-                for (java.lang.reflect.Field joinField : joinObject.getClass().getFields()) {
-                    if (joinField.getName().equals(index.joinField())) {
-                        name = joinField.getName();
-                        value = valueOf(joinObject, joinField);
+        while(currentObject != null) {
+            // we index all annotated primitive fields
+            for (java.lang.reflect.Field field : currentObject.getClass().getFields()) {
+                play.modules.search.Field index = field.getAnnotation(play.modules.search.Field.class);
+                if (index == null)
+                    continue;
+                if (field.getType().isArray())
+                    continue;
+                if (Collection.class.isAssignableFrom(field.getType()))
+                    continue;
+
+                // Creation of name/value pair
+                String name = field.getName();
+                String value = null;
+                if (JPABase.class.isAssignableFrom(field.getType()) && !(index.joinField().length() == 0)) {
+                    JPABase joinObject = (JPABase ) field.get(currentObject);
+                    for (java.lang.reflect.Field joinField : joinObject.getClass().getFields()) {
+                        if (joinField.getName().equals(index.joinField())) {
+                            name = joinField.getName();
+                            value = valueOf(joinObject, joinField);
+                        }
                     }
+                } else {
+                    value = valueOf(currentObject, field);
                 }
-            } else {
-                value = valueOf(object, field);
+                if (value == null)
+                    continue;
+
+                // adding field to the current document
+                document.add(new Field(name, value, index.stored() ? Field.Store.YES : Field.Store.NO, index.tokenize() ? Field.Index.ANALYZED : Field.Index.NOT_ANALYZED));
+
+                if (index.tokenize() && index.sortable()) {
+                    document.add(new Field(name + "_untokenized", value, index.stored() ? Field.Store.YES : Field.Store.NO, Field.Index.NOT_ANALYZED));
+                }
+                allValue.append(value).append(' ');
             }
 
-            if (value == null)
-                continue;
-
-            document.add(new Field(name, value, index.stored() ? Field.Store.YES : Field.Store.NO,
-                            index.tokenize() ? Field.Index.ANALYZED : Field.Index.NOT_ANALYZED));
-            if (index.tokenize() && index.sortable()) {
-                document.add(new Field(name + "_untokenized", value, index.stored() ? Field.Store.YES : Field.Store.NO,
-                                Field.Index.NOT_ANALYZED));
+            // if object implement ModelVersionned, then we index in this document its fields
+            if (currentObject instanceof ModelVersioned ) {
+                Method getLastVersion = currentObject.getClass().getMethod("getLastVersion");
+                currentObject = getLastVersion.invoke(currentObject);
             }
-            allValue.append(value).append(' ');
+            else {
+                currentObject = null;
+            }
         }
+
+        // adding copy field of all fields to the current document
         document.add(new Field("allfield", allValue.toString(), Field.Store.NO, Field.Index.ANALYZED));
         return document;
     }

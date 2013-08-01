@@ -1,6 +1,8 @@
 package models;
 
 import play.db.jpa.Model;
+import play.modules.search.Indexed;
+import play.modules.search.ModelVersioned;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,7 +11,8 @@ import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-public class OrganismeMaster extends Model {
+@Indexed
+public class OrganismeMaster extends Model implements ModelVersioned {
 
     @OneToMany(mappedBy="master", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     public List<Organisme> versions;
