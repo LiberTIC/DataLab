@@ -55,55 +55,67 @@
 
         #{doLayout /}
 
-        <footer class="blockOdd">
-            <div class="container">
-                <div class="row-fluid">
-                    <div class="span4">
-                        <ul class="left inline">
-                            <li>
-                                <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="License Creative commons : BY-SA">
-                                    <img class="middle" src="@{'public/images/cc-by-sa.png'}" alt="" />
-                                    DataLab
-                                </a>
-                            </li>
-                            <li>|</li>
-                            <li id="mentions">
-                                <a href="@{cms.Frontend.show('mentions-legales')}" title="Mentions Légales">
-                                    Mentions légales
-                                </a>
-                            </li>
-                        </ul>
+        <footer>
+            <div id="sponsor">
+                <div class="container">
+                    <div class="row-fluid">
+                        Un projet soutenu par
+                        <a href="http://www.paysdelaloire.fr" title="Site de la Régon Pays de la Loire">
+                            <img src="@{'public/images/soutenu_par_region_pdl.png'}" title="Logo de la région Pays de la Loire"/>
+                        </a>
                     </div>
+                </div>
+            </div>
+            <div class=" blockOdd">
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <ul class="left inline">
+                                <li>
+                                    <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="License Creative commons : BY-SA">
+                                        <img class="middle" src="@{'public/images/cc-by-sa.png'}" alt="" />
+                                        DataLab
+                                    </a>
+                                </li>
+                                <li>|</li>
+                                <li id="mentions">
+                                    <a href="@{cms.Frontend.show('mentions-legales')}" title="Mentions Légales">
+                                        Mentions légales
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-                    <div class="span8">
-                        <ul class="right inline">
-                            <li class="first">
-                                <a href="@{Contact.index()}" title="Nous contacter">
-                                    Nous contacter
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@{cms.Frontend.show('participez')}" title="Particpez">
-                                    Participez
-                                </a>
-                            </li>
-                            <li>|</li>
-                            <li>
-                                <a href="#" title="Nos documents">
-                                    Nos documents
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Nos images">
-                                    Nos images
-                                </a>
-                            </li>
-                            <li class="last">
-                                <a href="#" title="Nos vidéos">
-                                    Nos vidéos
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="span8">
+                            <ul class="right inline">
+                                <li class="first">
+                                    <a href="@{Contact.index()}" title="Nous contacter">
+                                        Nous contacter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@{cms.Frontend.show('participez')}" title="Particpez">
+                                        Participez
+                                    </a>
+                                </li>
+                                <li>|</li>
+                                <li>
+                                    <a href="#" title="Nos documents">
+                                        Nos documents
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Nos images">
+                                        Nos images
+                                    </a>
+                                </li>
+                                <li class="last">
+                                    <a href="#" title="Nos vidéos">
+                                        Nos vidéos
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

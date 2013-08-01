@@ -60,31 +60,41 @@ h3 {
 }
 
 .mainCOntainer {
-  margin-top: 50px;
 }
 
 // footer
 footer {
-  margin-top: 100px;
-  .container {
-    padding-bottom: 10px;
+  #sponsor {
+    background-color: @greyLight;
+    height: 100px;
+    color: @grey;
+    font-style: italic;
+    font-weight: bold;
+
+    .container {
+      padding : 10px 0;
+    }
   }
-  ul {
-    margin-bottom: 0;
-    &.left {
-      li {
-        font-family: @ftSecondary;
-        font-style: 11px;
-        &#mentions {
-          font-style: italic;
+
+  .blockOdd{
+
+    ul {
+      margin-bottom: 0;
+      &.left {
+        li {
+          font-family: @ftSecondary;
+          font-style: 11px;
+          &#mentions {
+            font-style: italic;
+          }
         }
       }
-    }
-    &.right {
-      li {
-        a {
-          font-size: 12px;
-          text-transform: uppercase;
+      &.right {
+        li {
+          a {
+            font-size: 12px;
+            text-transform: uppercase;
+          }
         }
       }
     }
