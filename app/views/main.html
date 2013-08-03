@@ -45,7 +45,17 @@
                                 <a href="@{cms.Frontend.show("les-partenaires")}" title="Les partenaires">Partenaires</a>
                             </li>
                             <li>
-                                <a href="/contact" title="/">Contact</a>
+                                <a href="@{Contact.index()}" title="Contactez nous">Contact</a>
+                            </li>
+                            <li class="breaker"/>
+                            <li class="icone">
+                                <a href="@{Contact.index()}" title="Contactez nous"><i class="icon-envelope-alt"></i></a>
+                            </li>
+                            <li class="icone">
+                                <a href="http://www.tiwtter/datalab" title="Twitter: @datalab"><i class="icon-twitter"></i></a>
+                            </li>
+                            <li class="icone">
+                                <a href="@{cms.Frontend.rss("blog")}" title="Flux RSS du blog"><i class="icon-rss"></i></a>
                             </li>
                         </ul>
                     </div>

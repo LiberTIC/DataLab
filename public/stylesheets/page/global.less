@@ -48,14 +48,28 @@ h3 {
       margin: 0;
 
       li > a {
-        padding: 12px 0 12px 12px;
+        padding: 12px;
         color: @white;
-        font-size: 14px;
+        font-size: 15px;
         text-transform: uppercase;
-
+        line-height: 25px;
         &:hover {
           color: @primary;
+        }
+        & i {
+          color: @grey;
+          font-size: 150%;
+        }
+      }
 
+      li.breaker {
+        padding: 12px;
+      }
+
+      li.icone {
+        padding: 12px 0  12px 5px;
+        a {
+          padding: 0;
         }
       }
     }
