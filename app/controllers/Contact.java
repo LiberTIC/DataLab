@@ -27,7 +27,7 @@ public class Contact extends AbstractController {
             params.put("author", user.displayName);
             params.put("email", user.email);
         }
-        render(randomID, user);
+        render(randomID);
     }
 
     /**

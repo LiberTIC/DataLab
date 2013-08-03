@@ -55,12 +55,24 @@ organisme.save                    = Enregistrer
 #
 # page contact
 #
-page.contact.title    = Nous contacter
-page.contact.author   = Votre nom
-page.contact.email    = Votre email
-page.contact.message  = Votre message
-page.contact.security = Code de sécurité
-page.contact.send     = Envoyer
+page.contact.title                 = Nous contacter
+page.contact.author                = Votre nom
+page.contact.author.placeholder    = Pierre Dupont
+page.contact.author.help           = Veuillez saisir votre nom et prénom
+page.contact.structure             = Votre structure
+page.contact.structure.placeholder = Libertic
+page.contact.structure.help        = Veuillez saisir votre structure
+page.contact.email                 = Votre email
+page.contact.email.placeholder     = pierre.dupont@yopmail.com
+page.contact.email.help            = Veuillez saisir votre adresse email
+page.contact.telephone             = Votre téléphone
+page.contact.telephone.placeholder = Libertic
+page.contact.telephone.help        = Veuillez saisir votre numéro de téléphone
+page.contact.message               = Votre message
+page.contact.message.help          = Veuillez saisir votre message
+page.contact.security              = Code de sécurité
+page.contact.security.help         = Veuillez saisir le code se sécurité (captcha). Si  vous ne parvenez pas à le déchiffrer, vous pouvez en changer en rechargeant la page (F5).
+page.contact.send                  = Envoyer
 
 #
 # Login
