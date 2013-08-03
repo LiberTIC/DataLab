@@ -5,6 +5,9 @@ import models.OrganismeActivite;
 import models.OrganismeMaster;
 import models.OrganismeType;
 import play.data.validation.Valid;
+import play.modules.search.Query;
+import play.modules.search.Search;
+import play.mvc.Scope;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
@@ -135,5 +138,52 @@ public class Organismes extends AbstractController {
 
         response.setContentTypeIfNotSet(organisme.logo.type());
         renderBinary(organisme.logo.get());
+    }
+
+    /**
+     * Render the admin interface for organisme (list all or search)
+     */
+    public static void admin(String query){
+        isAdminUser();
+
+        if (query == null && Scope.Session.current().contains("admin.query")) {
+            query = Scope.Session.current().get("admin.query");
+        }
+
+        Query q = Search.search("nom:" + query, OrganismeMaster.class);
+        List<OrganismeMaster> organismes = q.fetch();
+        Scope.Session.current().put("admin.query", query);
+        render(organismes, query);
+    }
+
+    public static void delete(Long id) {
+        isAdminUser();
+
+        OrganismeMaster organisme = OrganismeMaster.findById(id);
+        notFoundIfNull(organisme);
+        organisme.delete();
+
+        admin(null);
+    }
+
+    /**
+     * Admin action to set partenaire.
+     *
+     * @param partenaires
+     */
+    public static void setPartenaires(List<Long> partenaires){
+        isAdminUser();
+
+        for (Long id : partenaires) {
+            OrganismeMaster organisme = OrganismeMaster.findById(id);
+            if(organisme.isPartenaire == null | !organisme.isPartenaire) {
+                organisme.isPartenaire = Boolean.TRUE;
+            }
+            else {
+                organisme.isPartenaire = Boolean.FALSE;
+            }
+            organisme.save();
+        }
+        admin(null);
     }
 }

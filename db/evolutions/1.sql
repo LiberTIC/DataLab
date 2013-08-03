@@ -29,7 +29,7 @@ INSERT INTO organismetype VALUES (4, 'Type 4');
 INSERT INTO organismetype VALUES (5, 'Type 5');
 
 -- Organismes data
-INSERT INTO organismemaster VALUES (1);
+INSERT INTO organismemaster VALUES (1, TRUE);
 INSERT INTO organisme VALUES (1, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'IT', NULL, '+33000000000', 'Nantes', NULL, NULL, 1, NULL, 1);
 INSERT INTO organisme VALUES (2, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'Site Web', NULL, '+33000000000', 'Nantes', NULL, NULL, 1, 1, 1);
 INSERT INTO organisme VALUES (3, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'Site Web', NULL, '+33000000000', 'Nantes', 0.0, 1.1, 1, 2, 1);

@@ -14,6 +14,11 @@ import java.util.List;
 @Indexed
 public class OrganismeMaster extends Model implements ModelVersioned {
 
+    /**
+     * Boolean field to know if the organisme is a partenaire.
+     */
+    public Boolean isPartenaire = false;
+
     @OneToMany(mappedBy="master", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     public List<Organisme> versions;
 

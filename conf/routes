@@ -11,7 +11,7 @@ GET     /organisme/csv                          Organismes.csv
 GET     /organisme/rss                          Organismes.rss
 POST    /organisme/{<[0-9]+>id}                 Organismes.save
 GET     /organisme/{<[0-9]+>id}                 Organismes.show
-GET     /organisme/edit/?{<[0-9]+>id}?          Organismes.edit
+GET     /organisme/edit/{<[0-9]+>id}            Organismes.edit
 GET     /organisme/history/{<[0-9]+>id}         Organismes.history
 GET     /organisme/logo/{<[0-9]+>id}            Organismes.logo
 
@@ -26,6 +26,7 @@ GET     /contact/captcha                        Contact.captcha
 # Admin route
 #
 GET     /admin                                  Application.admin
+GET     /admin/organisme                        Organismes.admin
 
 #
 # Modules routes
