@@ -37,11 +37,12 @@ INSERT INTO organismenbsalarie VALUES (5, 'Plus de 100');
 
 -- Organismes data
 INSERT INTO organismemaster VALUES (1, TRUE);
--- LogiSima (for test purpose)
+INSERT INTO organismemaster VALUES (2, TRUE);
 INSERT INTO organisme (id, nom, siteweb, siret, creation, produit, description, tags, interlocuteur, telephone, email, facebook, twitter, adresse, ville, codepostal, wsg_x, wsg_y, created, type_id, activite_id, nbsalarie_id, user_id, master_id) VALUES
     (1, 'LogiSima', 'http://www.logisima.com', NULL, NOW(), 'produit', 'description', 'test, exemple', 'Benoît Simard', '+33000000000',  'bsimard@yopmail.com', NULL, 'logisima', '21 rue d''escalibur', 'Nantes', '44000', NULL, NULL, '2013-08-10', 1, 1, 1, 1, 1),
     (2, 'LogiSima', 'http://www.logisima.com', NULL, NOW(), 'produit', 'description', 'test, exemple', 'Benoît Simard', '+33000000000',  'bsimard@yopmail.com', NULL, 'logisima', '21 rue d''escalibur', 'Nantes', '44000', NULL, NULL, '2013-08-11', 1, 1, 1, 1, 1),
-    (3, 'LogiSima', 'http://www.logisima.com', NULL, NOW(), 'produit', 'description', 'test, exemple', 'Benoît Simard', '+33000000000',  'bsimard@yopmail.com', NULL, 'logisima', '21 rue d''escalibur', 'Nantes', '44000', 1.0, 1.1, NOW(), 1, 1, 1, 1, 1);
+    (3, 'LogiSima', 'http://www.logisima.com', NULL, NOW(), 'produit', 'description', 'test, exemple', 'Benoît Simard', '+33000000000',  'bsimard@yopmail.com', NULL, 'logisima', '21 rue d''escalibur', 'Nantes', '44000', 1.0, 1.1, NOW(), 1, 1, 1, 1, 1),
+    (4, 'LINA (GDD)', 'https://www.lina.univ-nantes.fr/?-GDD-.html', NULL, NOW(), 'produit', 'Nous travaillons sur la "Gestion de Données Distribuées" avec le focus sur le management des données, les systèmes embarqués et le web des données, vie privée et confidentialité, sémantique, données liées', NULL, 'Elodie GUIDON', '+33000000000',  'lina@yopmail.com', NULL, NULL, '2 rue de la Houssinière', 'Nantes', '44322', 1.0, 1.1, NOW(), 1, 1, 1, 1, 2);
 
 
 -- CMS Pages data
@@ -59,8 +60,8 @@ DELETE FROM organisme;
 DELETE FROM organismemaster;
 DELETE FROM organismeactivite;
 DELETE FROM organismetype;
-DELETE FROM organismenbsalarie
-DELETE FROM cmspage;;
+DELETE FROM organismenbsalarie;
+DELETE FROM cmspage;
 DELETE FROM member_useraccount;
 DELETE FROM useraccount;
 DELETE FROM member;
