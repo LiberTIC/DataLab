@@ -9,6 +9,11 @@ page.organisme.search.title = Recherchez un organisme
 page.organisme.show.title = %s
 
 #
+# page organisme partenaire
+page.organisme.partenaire.title= Partenaires
+#
+
+#
 # organisme
 #
 organisme.nom                     = Nom

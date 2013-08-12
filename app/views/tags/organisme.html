@@ -238,3 +238,20 @@
         </description>
     </item>
 #{/if}
+
+*{ ~~~ Partenaire ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
+#{if _as == 'partenaire'}
+    <div class="partenaire">
+        <div class="flip">
+            <img src="@{Organismes.logo(_organisme.id)}" title="Logo de ${_organisme.getLastVersion().nom}" />
+        </div>
+        <div class="flap">
+            <p>${_organisme.getLastVersion().description}</p>
+            <a class="btn" href="${_organisme.getLastVersion().siteweb}" title="Site internet de ${_organisme.getLastVersion().nom}">Voir site web</a>
+        </div>
+        <div class="footer">
+            <h3>${_organisme.getLastVersion().nom}</h3>
+        </div>
+    </div>
+
+#{/if}

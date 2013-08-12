@@ -156,6 +156,11 @@ public class Organismes extends AbstractController {
         render(organismes, query);
     }
 
+    /**
+     * Admin action to delete on organisme.
+     *
+     * @param id
+     */
     public static void delete(Long id) {
         isAdminUser();
 
@@ -185,5 +190,14 @@ public class Organismes extends AbstractController {
             organisme.save();
         }
         admin(null);
+    }
+
+    /**
+     * View to list all partenaires.
+     */
+    public static void partenaires(){
+        List<OrganismeMaster> partenaires = OrganismeMaster.getAllPartenaires();
+
+        render(partenaires);
     }
 }

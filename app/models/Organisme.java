@@ -35,6 +35,9 @@ public class Organisme extends Model {
     public String email;
 
     @Field
+    public String siteweb;
+
+    @Field
     public String adresse;
 
     @Field

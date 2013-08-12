@@ -23,6 +23,14 @@ public class OrganismeMaster extends Model implements ModelVersioned {
     public List<Organisme> versions;
 
     /**
+     * Return all partenaire.
+     * @return
+     */
+    public static List<OrganismeMaster> getAllPartenaires(){
+        return find("isPartenaire IS TRUE").fetch();
+    }
+
+    /**
      * Override the getter for versions to ensure to have version in the proper order.
      * @return
      */
