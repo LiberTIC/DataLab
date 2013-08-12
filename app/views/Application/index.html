@@ -1,5 +1,6 @@
 #{extends 'main.html' /}
 #{set title:'Accueil' /}
+#{set mainClass:'home' /}
 
 <!-- header-->
 <header id="overview" class="blockDefault firstBlock">
@@ -135,7 +136,7 @@
 </div>
 
 <!-- Agenda -->
-<div class="blockEven">
+<div class="blockEven" id="agenda">
     <div class="container">
         #{cms.display 'home_agenda' }
             <h2>Agenda</h2>

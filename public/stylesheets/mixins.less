@@ -18,7 +18,7 @@
   padding : 20px 0;
 }
 .block {
-  border-bottom: 1px solid @grey;
+  //border-bottom: 1px solid @grey;
 }
 .blockEven {
   color : @white;
@@ -42,6 +42,16 @@
   background-color: @white;
   .block;
 }
+.blockLight {
+  color : @grey;
+  background-color: @greyLight;
+  .block;
+}
+.blockDark {
+  color : @greyLight;
+  background-color: @grey;
+  .block;
+}
 .mainContainer {
   border: none;
 }
@@ -63,9 +73,19 @@ ul.inline > li.last, ol.inline > li.last {
 }
 
 // forms
-.form-horizontal {
-  background-color: @greyLight;
-  padding: 40px;
+form.form-horizontal {
+
+  fieldset {
+    margin: 15px 0;
+
+    > label {
+      font-family: @ftSecondary;
+      font-size: 25px;
+      color: @grey;
+      margin: 20px 0 20px 20%;
+      padding-left: 20px;
+    }
+  }
 
   .control-label {
     width : 20%;
@@ -76,9 +96,12 @@ ul.inline > li.last, ol.inline > li.last {
     margin-left: 20%;
     width : 80%;
 
-    input, textarea {
+    input, textarea, select {
       width: 70%;
       margin: 0;
+    }
+    select {
+      width:72%;
     }
   }
 

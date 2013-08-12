@@ -1,6 +1,14 @@
-#{extends 'page.html' /}
+#{extends 'page_logo.html' /}
 #{set title:messages.get('page.organisme.partenaire.title') /}
 
 #{list items:partenaires, as:'organisme'}
     #{organisme organisme:organisme , as:'partenaire' /}
 #{/list}
+
+#{set 'moreScripts'}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".flap").hide();
+        });
+    </script>
+#{/set}

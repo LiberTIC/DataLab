@@ -1,9 +1,6 @@
 package controllers;
 
-import models.Organisme;
-import models.OrganismeActivite;
-import models.OrganismeMaster;
-import models.OrganismeType;
+import models.*;
 import play.data.validation.Valid;
 import play.modules.search.Query;
 import play.modules.search.Search;
@@ -56,9 +53,10 @@ public class Organismes extends AbstractController {
         // depends objects
         List<OrganismeType> types = OrganismeType.findAll();
         List<OrganismeActivite> activites = OrganismeActivite.findAll();
+        List<OrganismeNbSalarie> nbSalaries = OrganismeNbSalarie.findAll();
 
         // render
-        render(id, organisme, types, activites);
+        render(id, organisme, types, activites, nbSalaries);
     }
 
     /**

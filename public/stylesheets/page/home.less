@@ -1,198 +1,207 @@
-#overview {
-  .container {
-    text-align: center;
+body.home {
+  #overview {
+    border-bottom: 1px solid @grey;
+    .container {
+      text-align: center;
 
-    #title {
-      max-width: 388px;
-      margin: 25px auto 45px;
+      #title {
+        max-width: 388px;
+        margin: 25px auto 45px;
 
-      p {
-        font-family: @ftSecondary;
-        font-size: 15px;
-        font-weight: bold;
-      }
-    }
-
-    #axes {
-      ul {
-        li {
-          padding: 0;
-          margin: 0;
-          width: 25%;
-
-          h3 {
-            text-transform: uppercase;
-            color: @white;
-            line-height: 30px;
-            background-image:  url('/public/images/pictos/chevron.png'), url('/public/images/pictos/chevron.png');
-            background-repeat: no-repeat;
-            background-position: 107% center, -7% center;
-          }
-
-          &.even  h3 {
-            background-color: @primary;
-          }
-
-          &.odd  h3 {
-            background-color: @secondary;
-          }
-        }
-      }
-    }
-
-  }
-}
-
-#communaute {
-  ul {
-    margin: 40px 0 60px;
-
-    li {
-      width: 112px;
-      padding: 0 11px;
-      div {
-        span {
-          display: block;
-          padding-top: 77px;
-          font-size: 13px;
-          letter-spacing: -1px;
+        p {
+          font-family: @ftSecondary;
+          font-size: 15px;
           font-weight: bold;
         }
       }
+
+      #axes {
+        ul {
+          li {
+            padding: 0;
+            margin: 0;
+            width: 25%;
+
+            h3 {
+              text-transform: uppercase;
+              color: @white;
+              line-height: 30px;
+              background-image:  url('/public/images/pictos/chevron.png'), url('/public/images/pictos/chevron.png');
+              background-repeat: no-repeat;
+              background-position: 107% center, -7% center;
+            }
+
+            &.even  h3 {
+              background-color: @primary;
+            }
+
+            &.odd  h3 {
+              background-color: @secondary;
+            }
+          }
+        }
+      }
+
     }
   }
-  #medias {
-    .acteur('/public/images/acteurs/medias.png');
-  }
-  #collectivites {
-    .acteur('/public/images/acteurs/collectivites.png');
-  }
-  #associations {
-    .acteur('/public/images/acteurs/associations.png');
-  }
-  #enseignement {
-    .acteur('/public/images/acteurs/enseignements.png');
-  }
-  #entreprises {
-    .acteur('/public/images/acteurs/entreprises.png');
-  }
-  #recherche {
-    .acteur('/public/images/acteurs/recherche.png');
-  }
-  #startups {
-    .acteur('/public/images/acteurs/startups.png');
-  }
-}
 
-#projet {
-  h2 {
-    margin-bottom: 0px;
-  }
-  .container >  div {
-    padding: 0 45px;
-    position: relative;
-    top: -40px;
+  #communaute {
+    border-bottom: 1px solid @grey;
+    ul {
+      margin: 40px 0 60px;
 
-    #projetBaseLine {
-      text-align: right;
-      color: @secondary;
-      h3 {
-        margin: 0;
-        font-weight: normal;
-        font-size: 28px;
-      }
-      p{
-        font-family: @ftSecondary;
-        font-size: 20px;
-      }
-    }
-    .row-fluid {
-      margin: 40px 0;
-      .span6 {
+      li {
+        width: 112px;
+        padding: 0 11px;
         div {
-          font-family: @ftSecondary;
-          width: 80%;
-          margin: 0 auto;
-          h3 {
-            font-size: 20px;
+          span {
+            display: block;
+            padding-top: 77px;
+            font-size: 13px;
             letter-spacing: -1px;
-            margin: 0px;
-            padding-left: 15px;
-            padding-top: 5px;
+            font-weight: bold;
           }
-          p {
-            font-size: 20px;
-            text-align: center;
-            padding: 35px;
-            line-height: 25px;
-          }
-        }
-        .appelTitle {
-          background: url('/public/images/pictos/appel.png') no-repeat 100% 2% @secondary;
-        }
-        .annuaireTitle {
-          background: url('/public/images/pictos/annuaire.png') no-repeat 100% 8% @secondary;
         }
       }
     }
-    #etcom {
-      bottom: 70px;
-      height: 0;
-      left: 45%;
+    #medias {
+      .acteur('/public/images/acteurs/medias.png');
+    }
+    #collectivites {
+      .acteur('/public/images/acteurs/collectivites.png');
+    }
+    #associations {
+      .acteur('/public/images/acteurs/associations.png');
+    }
+    #enseignement {
+      .acteur('/public/images/acteurs/enseignements.png');
+    }
+    #entreprises {
+      .acteur('/public/images/acteurs/entreprises.png');
+    }
+    #recherche {
+      .acteur('/public/images/acteurs/recherche.png');
+    }
+    #startups {
+      .acteur('/public/images/acteurs/startups.png');
+    }
+  }
+
+  #projet {
+    border-bottom: 1px solid @grey;
+    h2 {
+      margin-bottom: 0px;
+    }
+    .container >  div {
+      padding: 0 45px;
       position: relative;
+      top: -40px;
 
-      span {
-        color: @grey;
-        font-family: @ftSecondary;
-        font-size: 125px;
+      #projetBaseLine {
+        text-align: right;
+        color: @secondary;
+        h3 {
+          margin: 0;
+          font-weight: normal;
+          font-size: 28px;
+        }
+        p{
+          font-family: @ftSecondary;
+          font-size: 20px;
+        }
+      }
+      .row-fluid {
+        margin: 40px 0;
+        .span6 {
+          div {
+            font-family: @ftSecondary;
+            width: 80%;
+            margin: 0 auto;
+            h3 {
+              font-size: 20px;
+              letter-spacing: -1px;
+              margin: 0px;
+              padding-left: 15px;
+              padding-top: 5px;
+            }
+            p {
+              font-size: 20px;
+              text-align: center;
+              padding: 35px;
+              line-height: 25px;
+            }
+          }
+          .appelTitle {
+            background: url('/public/images/pictos/appel.png') no-repeat 100% 2% @secondary;
+          }
+          .annuaireTitle {
+            background: url('/public/images/pictos/annuaire.png') no-repeat 100% 8% @secondary;
+          }
+        }
+      }
+      #etcom {
+        bottom: 70px;
+        height: 0;
+        left: 45%;
+        position: relative;
+
+        span {
+          color: @grey;
+          font-family: @ftSecondary;
+          font-size: 125px;
+        }
       }
     }
   }
-}
 
-#agenda {
-
-}
-
-#partenaires {
-  ul {
-    li {
-      width: 19%;
-      padding: 0;
-      text-align: center;
-    }
+  #agenda {
+    border-bottom: 1px solid @grey;
   }
 
-  #devenirpartenaire{
-    bottom: 35px;
-    left: 825px;
-    position: relative;
-    height: 0;
-    width: 115px;
-    a {
-      display: block;
-      text-align: center;
+  #partenaires {
+    border-bottom: 1px solid @grey;
+    ul {
+      li {
+        width: 19%;
+        padding: 0;
+        text-align: center;
+      }
+    }
+
+    #devenirpartenaire{
+      bottom: 35px;
+      left: 825px;
+      position: relative;
+      height: 0;
       width: 115px;
-      height: 115px;
-      display: table-cell;
-      vertical-align: middle;
-      background-color: @black;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 18px;
-      color: @white;
-      font-family: @ftSecondary;
-      .circle;
-
-      img {
+      a {
         display: block;
-        margin: 0 auto;
-      }
-      &:hover{
-        background-color: @secondary;
+        text-align: center;
+        width: 115px;
+        height: 115px;
+        display: table-cell;
+        vertical-align: middle;
+        background-color: @black;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 18px;
+        color: @white;
+        font-family: @ftSecondary;
+        .circle;
+
+        img {
+          display: block;
+          margin: 0 auto;
+        }
+        &:hover{
+          background-color: @secondary;
+        }
       }
     }
+
   }
-
+  footer {
+    margin-top:0;
+    border-top: none;
+  }
 }
-
