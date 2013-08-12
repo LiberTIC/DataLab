@@ -70,7 +70,7 @@ public class OrganismeMaster extends Model implements ModelVersioned {
                 data += ";";
 
             if (organisme.nbSalarie != null)
-                data += "\"" + organisme.nbSalarie.replaceAll("\"", "\\\"") + "\";";
+                data += "\"" + organisme.nbSalarie.libelle.replaceAll("\"", "\\\"") + "\";";
             else
                 data += ";";
 

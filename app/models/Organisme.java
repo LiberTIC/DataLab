@@ -26,9 +26,6 @@ public class Organisme extends Model {
     public String siret;
 
     @Field
-    public String nbSalarie;
-
-    @Field
     public String telephone;
 
     @Field
@@ -53,6 +50,18 @@ public class Organisme extends Model {
     @Field
     public String description;
 
+    @Field
+    public String tags;
+
+    @Field(sortable=true)
+    public Date creation;
+
+    public String interlocuteur;
+
+    public String twitter;
+
+    public String facebook;
+
     @Field(sortable=true)
     public Date created = new Date();
 
@@ -68,7 +77,14 @@ public class Organisme extends Model {
     @ManyToOne
     public OrganismeType type;
 
-    @ManyToMany
-    public List<OrganismeActivite> activites;
+    @Field(joinField="libelle")
+    @Required
+    @ManyToOne
+    public OrganismeNbSalarie nbSalarie;
+
+    @Field(joinField="libelle")
+    @Required
+    @ManyToOne
+    public OrganismeActivite activite;
 
 }

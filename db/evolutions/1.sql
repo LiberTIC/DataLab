@@ -1,6 +1,6 @@
 # --- !Ups
 
---- User data
+-- User data
 INSERT INTO member VALUES (1,	NULL,	'http://a0.twimg.com/profile_images/1248011807/bsimard-logo_normal.png', 'Benoît Simard',	'bsimard@yopmail.com',	TRUE,	TRUE,	null,	'XXXXXXXX', 'http://wwww.bsimard.com',	'XXXXXXXX');
 INSERT INTO useraccount VALUES (1, 'twitter', '197173482');
 INSERT INTO member_useraccount VALUES (1, 1);
@@ -14,25 +14,35 @@ INSERT INTO member VALUES (3, NULL, NULL, 'User', 'administrateur@yopmail.com', 
 INSERT INTO useraccount VALUES (4, 'userpass', 'user');
 INSERT INTO member_useraccount VALUES (3, 4);
 
---- Activity theme
-INSERT INTO organismeactivite VALUES (1, 'Activity 1');
-INSERT INTO organismeactivite VALUES (2, 'Activity 2');
-INSERT INTO organismeactivite VALUES (3, 'Activity 3');
+-- Activity theme
+INSERT INTO organismeactivite VALUES (1, 'Formation');
+INSERT INTO organismeactivite VALUES (2, 'Développement');
+INSERT INTO organismeactivite VALUES (3, 'Usages');
 INSERT INTO organismeactivite VALUES (4, 'Activity 4');
 INSERT INTO organismeactivite VALUES (5, 'Activity 5');
 
---- Activity theme
-INSERT INTO organismetype VALUES (1, 'Type 1');
-INSERT INTO organismetype VALUES (2, 'Type 2');
-INSERT INTO organismetype VALUES (3, 'Type 3');
-INSERT INTO organismetype VALUES (4, 'Type 4');
-INSERT INTO organismetype VALUES (5, 'Type 5');
+-- Activity type
+INSERT INTO organismetype VALUES (1, 'Enseignement-Recherche');
+INSERT INTO organismetype VALUES (2, 'Entreprise');
+INSERT INTO organismetype VALUES (3, 'Média');
+INSERT INTO organismetype VALUES (4, 'Association');
+INSERT INTO organismetype VALUES (5, 'Autre');
+
+-- Nb Salarie
+INSERT INTO organismenbsalarie VALUES (1, '1 à 5');
+INSERT INTO organismenbsalarie VALUES (2, '6 à 20');
+INSERT INTO organismenbsalarie VALUES (3, '21 à 50');
+INSERT INTO organismenbsalarie VALUES (4, '51 à 100');
+INSERT INTO organismenbsalarie VALUES (5, 'Plus de 100');
 
 -- Organismes data
 INSERT INTO organismemaster VALUES (1, TRUE);
-INSERT INTO organisme VALUES (1, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'IT', NULL, '+33000000000', 'Nantes', NULL, NULL, 1, 1, NULL, 1);
-INSERT INTO organisme VALUES (2, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'Site Web', NULL, '+33000000000', 'Nantes', NULL, NULL, 1, 1,  1, 1);
-INSERT INTO organisme VALUES (3, '21 rue d''escalibur', '44000', NOW(), NULL, 'bsimard@yopmail.com', NULL, '1', 'LogiSima', 'Site Web', NULL, '+33000000000', 'Nantes', 0.0, 1.1, 1, 1, 2, 1);
+-- LogiSima (for test purpose)
+INSERT INTO organisme (id, nom, siteweb, siret, creation, produit, description, tags, interlocuteur, telephone, email, facebook, twitter, adresse, ville, codepostal, wsg_x, wsg_y, created, type_id, activite_id, nbsalarie_id, user_id, master_id) VALUES
+    (1, 'LogiSima', 'http://www.logisima.com', NULL, NOW(), 'produit', 'description', 'test, exemple', 'Benoît Simard', '+33000000000',  'bsimard@yopmail.com', NULL, 'logisima', '21 rue d''escalibur', 'Nantes', '44000', NULL, NULL, '2013-08-10', 1, 1, 1, 1, 1),
+    (2, 'LogiSima', 'http://www.logisima.com', NULL, NOW(), 'produit', 'description', 'test, exemple', 'Benoît Simard', '+33000000000',  'bsimard@yopmail.com', NULL, 'logisima', '21 rue d''escalibur', 'Nantes', '44000', NULL, NULL, '2013-08-11', 1, 1, 1, 1, 1),
+    (3, 'LogiSima', 'http://www.logisima.com', NULL, NOW(), 'produit', 'description', 'test, exemple', 'Benoît Simard', '+33000000000',  'bsimard@yopmail.com', NULL, 'logisima', '21 rue d''escalibur', 'Nantes', '44000', 1.0, 1.1, NOW(), 1, 1, 1, 1, 1);
+
 
 -- CMS Pages data
 INSERT INTO cmspage VALUES ('le-projet', '<p>&nbsp;</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ais, si una littera commota sit, fore tota ut labet disciplina. Etsi ea quidem, quae adhuc dixisti, quamvis ad aetatem recte isto modo dicerentur. Quod cum dixissent, ille contra.<em>Nullus est igitur cuiusquam dies natalis.</em> Duo Reges: constructio interrete. Aeque enim contingit omnibus fidibus, ut incontentae sint.Idemne, quod iucunde?</p> <p>&nbsp;</p> <p>Qualis ista philosophia est, quae non interitum afferat pravitatis, sed sit contenta mediocritate vitiorum? Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Cenasti in vita numquam bene, cum omnia in ista Consumis squilla atque acupensere cum decimano. Animum autem reliquis rebus ita perfecit, ut corpus; Neminem videbis ita laudatum, ut artifex callidus comparandarum voluptatum diceretur. Idem adhuc; Ita multo sanguine profuso in laetitia et in victoria est mortuus. Ille enim occurrentia nescio quae comminiscebatur; Ex eorum enim scriptis et institutis cum omnis doctrina liberalis, omnis historia. <a href="http://loripsum.net/" target="_blank">Beatus sibi videtur esse moriens.</a> Illud urgueam, non intellegere eum quid sibi dicendum sit, cum dolorem summum malum esse dixerit.</p> <p>&nbsp;</p> <p>Sed vos squalidius, illorum vides quam niteat oratio. Ergo adhuc, quantum equidem intellego, causa non videtur fuisse mutandi nominis. Non igitur potestis voluptate omnia dirigentes aut tueri aut retinere virtutem. Quis negat? Sed quae tandem ista ratio est? Quod eo liquidius faciet, si perspexerit rerum inter eas verborumne sit controversia. Sed residamus, inquit, si placet. His singulis copiose responderi solet, sed quae perspicua sunt longa esse non debent.</p> <p>&nbsp;</p> <ol> <li>Polemoni et iam ante Aristoteli ea prima visa sunt, quae paulo ante dixi.</li> <li>Nec mihi illud dixeris: Haec enim ipsa mihi sunt voluptati, et erant illa Torquatis.</li> <li>Minime vero istorum quidem, inquit.</li> <li>At ille non pertimuit saneque fidenter: Istis quidem ipsis verbis, inquit;</li> </ol> <p>&nbsp;</p> <dl><dt><dfn>Eam stabilem appellas.</dfn></dt><dd>Nec hoc ille non vidit, sed verborum magnificentia est et gloria delectatus.</dd><dt><dfn>Ergo, inquit, tibi Q.</dfn></dt><dd>In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret.</dd><dt><dfn>Quis hoc dicit?</dfn></dt><dd>Item de contrariis, a quibus ad genera formasque generum venerunt.</dd><dt><dfn>Itaque fecimus.</dfn></dt><dd>Et harum quidem rerum facilis est et expedita distinctio.</dd></dl> <p>&nbsp;</p> <h3>Nec enim, omnes avaritias si aeque avaritias esse dixerimus, sequetur ut etiam aequas esse dicamus.</h3> <p>&nbsp;</p> <p>Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Negat esse eam, inquit, propter se expetendam. Itaque primos congressus copulationesque et consuetudinum instituendarum voluntates fieri propter voluptatem; Hanc quoque iucunditatem, si vis, transfer in animum; Nam his libris eum malo quam reliquo ornatu villae delectari. Contineo me ab exemplis. <em>Nemo igitur esse beatus potest.</em> Mihi enim satis est, ipsis non satis. Easdemne res? Hunc vos beatum;</p> <p>&nbsp;</p> <h2>Ne discipulum abducam, times.</h2> <p>&nbsp;</p> <p>Stulti autem malorum memoria torquentur, sapientes bona praeterita grata recordatione renovata delectant. <a href="http://loripsum.net/" target="_blank">Age, inquies, ista parva sunt.</a> Atqui, inquam, Cato, si istud optinueris, traducas me ad te totum licebit. Quodsi ipsam honestatem undique pertectam atque absolutam. Haec para/doca illi, nos admirabilia dicamus. Qua tu etiam inprudens utebare non numquam. <em>Pollicetur certe.</em> At, illa, ut vobis placet, partem quandam tuetur, reliquam deserit.</p> <p>&nbsp;</p> <ul> <li>Quid enim?</li> <li>Quid de Pythagora?</li> <li>At cum de plurimis eadem dicit, tum certe de maximis.</li> <li>Verba tu fingas et ea dicas, quae non sentias?</li> </ul> <p>&nbsp;</p>', NOW(), NULL, 'page', 'Le projet', NOW());
@@ -45,11 +55,12 @@ INSERT INTO cmspage VALUES ('mon-blog-num2', '<p>&nbsp;</p> <p>Lorem ipsum dolor
 INSERT INTO cmspage VALUES ('mon-blog-num3', '<p>&nbsp;</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tria genera bonorum;<em>Sit enim idem caecus, debilis.</em> Cum id fugiunt, re eadem defendunt, quae Peripatetici, verba. Quae tamen a te agetur non melior, quam illae sunt, quas interdum optines. Licet hic rursus ea commemores, quae optimis verbis ab Epicuro de laude amicitiae dicta sunt. <a href="http://loripsum.net/" target="_blank">Primum divisit ineleganter;</a></p> <p>&nbsp;</p> <dl><dt><dfn>An eiusdem modi?</dfn></dt><dd>Non dolere, inquam, istud quam vim habeat postea videro;</dd><dt><dfn>Stoicos roga.</dfn></dt><dd>Semper enim ita adsumit aliquid, ut ea, quae prima dederit, non deserat.</dd><dt><dfn>Quare attende, quaeso.</dfn></dt><dd>Non autem hoc: igitur ne illud quidem.</dd><dt><dfn>Paria sunt igitur.</dfn></dt><dd>Idque testamento cavebit is, qui nobis quasi oraculum ediderit nihil post mortem ad nos pertinere?</dd><dt><dfn>Quis hoc dicit?</dfn></dt><dd>Si alia sentit, inquam, alia loquitur, numquam intellegam quid sentiat;</dd></dl> <p>&nbsp;</p> <ol> <li>At iam decimum annum in spelunca iacet.</li> <li>Qua tu etiam inprudens utebare non numquam.</li> <li>Illud dico, ea, quae dicat, praeclare inter se cohaerere.</li> </ol> <p>&nbsp;</p> <ul> <li>Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.</li> <li>Paupertas si malum est, mendicus beatus esse nemo potest, quamvis sit sapiens.</li> </ul> <p>&nbsp;</p> <p>Quamquam te quidem video minime esse deterritum. Nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; <a href="http://loripsum.net/" target="_blank">Illi enim inter se dissentiunt.</a> Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. Bona autem corporis huic sunt, quod posterius posui, similiora. Qua ex cognitione facilior facta est investigatio rerum occultissimarum. Quod quidem iam fit etiam in Academia.</p> <p>&nbsp;</p> <p>Primum Theophrasti, Strato, physicum se voluit;Non laboro, inquit, de nomine.Qui ita affectus, beatum esse numquam probabis; Bona autem corporis huic sunt, quod posterius posui, similiora. Tu enim ista lenius, hic Stoicorum more nos vexat. Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Quo plebiscito decreta a senatu est consuli quaestio Cn. At hoc in eo M. Mihi enim satis est, ipsis non satis.</p> <p>&nbsp;</p> <p>At ille pellit, qui permulcet sensum voluptate.Tuo vero id quidem, inquam, arbitratu. <a href="http://loripsum.net/" target="_blank">Paria sunt igitur.</a> Sed quanta sit alias, nunc tantum possitne esse tanta. Bonum valitudo: miser morbus. Ratio quidem vestra sic cogit. Primum Theophrasti, Strato, physicum se voluit; Quamvis enim depravatae non sint, pravae tamen esse possunt. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse;</p> <p>&nbsp;</p> <p>Duo Reges: constructio interrete. <strong>Si quae forte-possumus.</strong> Gloriosa ostentatio in constituendo summo bono. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. <strong>Nescio quo modo praetervolavit oratio.</strong></p> <p>&nbsp;</p>', NOW(), NULL, 'blog', 'Mon troisième ticket de blog', NOW());
 
 # --- !Downs
+DELETE FROM organisme;
+DELETE FROM organismemaster;
+DELETE FROM organismeactivite;
+DELETE FROM organismetype;
+DELETE FROM organismenbsalarie
+DELETE FROM cmspage;;
 DELETE FROM member_useraccount;
 DELETE FROM useraccount;
 DELETE FROM member;
-DELETE FROM organisme;
-DELETE FROM organismemaster;
-DELETE FROM themeactivite;
-DELETE FROM cmspage;;
-
