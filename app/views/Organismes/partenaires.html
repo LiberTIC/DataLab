@@ -1,0 +1,6 @@
+#{extends 'page.html' /}
+#{set title:messages.get('page.organisme.partenaire.title') /}
+
+#{list items:partenaires, as:'organisme'}
+    #{organisme organisme:organisme , as:'partenaire' /}
+#{/list}

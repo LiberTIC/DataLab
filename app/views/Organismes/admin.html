@@ -1,0 +1,45 @@
+#{extends 'admin.html' /}
+
+<h1>Organismes</h1>
+
+<table class="table table-hover table-striped sortable">
+    <caption>
+        Found ${organismes.size()} organismes.
+    </caption>
+    <thead>
+        <tr>
+            <th class="span1" data-defaultsort="asc">Id</th>
+            <th class="span3">Logo</th>
+            <th class="span3">Nom</th>
+            <th class="span3">Partenaire</th>
+            <th class="span2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        #{list items:organismes, as:'organisme' }
+            <tr>
+                <td>${organisme?.id}</td>
+                <td>
+                    #{if organisme?.getLastVersion()?.logo != null}
+                        <img src="@{Organismes.logo(organisme.id)}" /> <br/>
+                    #{/if}
+                </td>
+                <td>${organisme?.getLastVersion()?.nom}</td>
+                <td>${organisme?.isPartenaire}</td>
+                <td>
+                    <a class="btn btn-danger pull-right" href="@{Organismes.delete(organisme.id)}" title="Delete">
+                        <i class="icon-remove"></i>
+                    </a>
+                    <a class="btn btn-warning pull-right" href="@{Organismes.edit(organisme.id)}" title="Edit">
+                        <i class="icon-pencil"></i>
+                    </a>
+                    <a class="btn btn-info pull-right" href="@{Organismes.show(organisme.id)}" title="View">
+                        <i class="icon-eye-open"></i>
+                    </a>
+                </td>
+            </tr>
+        #{/list}
+    </tbody>
+</table>
+
+<a class="btn btn-success pull-right" href="@{Organismes.edit()}">New</a>
