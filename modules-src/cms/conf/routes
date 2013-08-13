@@ -10,8 +10,8 @@ GET      /admin/cms                        cms.Admin.index
 GET      /admin/cms/new                    cms.Admin.addPage
 POST     /admin/cms/upload                 cms.Admin.upload
 GET		 /admin/cms/imagelist.js           cms.Admin.imagelist
-GET      /admin/cms/page                   cms.Admin.savePage
 POST     /admin/cms/page                   cms.Admin.savePage
+GET      /admin/cms/page                   cms.Admin.savePage
 GET      /admin/cms/{pageName}             cms.Admin.editPage
 
 #Frontend
