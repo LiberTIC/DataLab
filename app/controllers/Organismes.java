@@ -76,7 +76,8 @@ public class Organismes extends AbstractController {
             // depends objects
             List<OrganismeType> types = OrganismeType.findAll();
             List<OrganismeActivite> activites = OrganismeActivite.findAll();
-            render("@edit", id, organisme, types, activites);
+            List<OrganismeNbSalarie> nbSalaries = OrganismeNbSalarie.findAll();
+            render("@edit", id, organisme, types, activites, nbSalaries);
         }
         organisme.save();
 
