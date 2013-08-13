@@ -9,6 +9,14 @@ page.organisme.search.title = Recherchez un organisme
 page.organisme.show.title = %s
 
 #
+# page organisme edit
+#
+page.organisme.edit.title     = Annuaire //
+page.organisme.edit.stitle    = Créer une fiche
+page.organisme.edit.baseline  = Avant de soumettre une fiche, assurez-vous qu'il s'agit bien d'une structure implantée en Pays de la Loire et travaillant sur le thème des données et de l'opendata.
+page.organisme.edit.condition = Les informations sont destinées à être publiées librement en ligne. Acceptez-vous ces conditions d'utilisation ?
+
+#
 # page organisme partenaire
 page.organisme.partenaire.title= Partenaires
 #
@@ -22,9 +30,9 @@ organisme.nom.placeholder         = DataLab
 organisme.type                    = Type
 organisme.type.help               = Type help
 organisme.type.placeholder        = Type placeholder
-organisme.activites               = Activités
-organisme.activites.help          = Activites help
-organisme.activites.placeholder   = Activité placeholder
+organisme.activite                = Activités
+organisme.activite.help           = Activites help
+organisme.activite.placeholder    = Activité placeholder
 organisme.logo                    = Logo
 organisme.logo.help               = Logo help
 organisme.logo.placeholder        = Logo

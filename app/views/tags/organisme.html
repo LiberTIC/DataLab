@@ -16,7 +16,7 @@
 
         #{ifErrors}
             <div class="alert alert-error">
-                <strong>&{'error'}</strong> &{'error.checkform'}
+                <strong>&{'error.checkform'}</strong>
             </div>
         #{/ifErrors}
         #{if flash.success}
@@ -37,9 +37,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="nom" name="organisme.nom" placeholder="&{'organisme.nom.placeholder'}" value="${_organisme?.nom}"/>
-                    #{if errors?.forKey('organisme.nom')}
+                    #{ifError 'organisme.nom'}
                         <span class="help-inline">#{error 'organisme.nom' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -51,16 +51,16 @@
                 </label>
                 <div class="controls">
                     #{select 'organisme.type.id', items:_types, value:_organisme?.type?.id, id:'type'/}
-                    #{if errors?.forKey('organisme.type')}
+                    #{ifError 'organisme.type'}
                         <span class="help-inline">#{error 'organisme.type' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
             <!-- Field logo -->
             <div class="control-group #{ifError 'organisme.logo'}error#{/ifError}">
                 <label class="control-label" for="logo">
-                &{'organisme.logo'}
+                    &{'organisme.logo'}
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.logo.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
@@ -68,9 +68,9 @@
                         <img src="@{Organismes.logo(_id)}" /> <br/>
                     #{/if}
                     <input type="file" id="logo" name="organisme.logo" placeholder="&{'organisme.logo.placeholder'}" value="${_organisme?.logo}"/>
-                    #{if errors?.forKey('organisme.logo')}
+                    #{ifError 'organisme.logo'}
                         <span class="help-inline">#{error 'organisme.logo' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -82,9 +82,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="siteweb" name="organisme.siteweb" placeholder="&{'organisme.siteweb.placeholder'}" value="${_organisme?.siteweb}"/>
-                    #{if errors?.forKey('organisme.siteweb')}
+                    #{ifError 'organisme.siteweb'}
                         <span class="help-inline">#{error 'organisme.siteweb' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -96,9 +96,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="siret" name="organisme.siret" placeholder="&{'organisme.siret.placeholder'}" value="${_organisme?.siret}"/>
-                    #{if errors?.forKey('organisme.siret')}
+                    #{ifError 'organisme.siret'}
                         <span class="help-inline">#{error 'organisme.siret' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -110,9 +110,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="creation" name="organisme.creation" placeholder="&{'organisme.creation.placeholder'}" value="${_organisme?.creation}"/>
-                    #{if errors?.forKey('organisme.creation')}
+                    #{ifError 'organisme.creation'}
                         <span class="help-inline">#{error 'organisme.creation' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -124,9 +124,9 @@
                 </label>
                 <div class="controls">
                     #{select 'organisme.nbSalarie.id', items:_nbSalaries, value:_organisme?.nbSalarie?.id, id:'nbSalarie' /}
-                    #{if errors?.forKey('organisme.nbSalarie')}
+                    #{ifError 'organisme.nbSalarie'}
                         <span class="help-inline">#{error 'organisme.nbSalarie' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -144,51 +144,51 @@
                 </label>
                 <div class="controls">
                     #{select 'organisme.activite.id', items:_activites, value:_organisme?.activite?.id, id:'activite'/}
-                    #{if errors?.forKey('organisme.activite')}
+                    #{ifError 'organisme.activite'}
                         <span class="help-inline">#{error 'organisme.activite' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
             <!-- Field produit -->
             <div class="control-group #{ifError 'organisme.produit'}error#{/ifError}">
                 <label class="control-label" for="produit">
-                &{'organisme.produit'}
+                    &{'organisme.produit'}
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.produit.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     <textarea id="produit" name="organisme.produit" placeholder="&{'organisme.produit.placeholder'}" rows="3">${_organisme?.produit}</textarea>
-                    #{if errors?.forKey('organisme.produit')}
+                    #{ifError 'organisme.produit'}
                         <span class="help-inline">#{error 'organisme.produit' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
             <!-- Field description -->
             <div class="control-group #{ifError 'organisme.description'}error#{/ifError}">
                 <label class="control-label" for="description">
-                &{'organisme.description'}
+                    &{'organisme.description'}
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.description.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     <textarea id="description" name="organisme.description" placeholder="&{'organisme.description.placeholder'}" rows="3">${_organisme?.description}</textarea>
-                    #{if errors?.forKey('organisme.description')}
+                    #{ifError 'organisme.description'}
                         <span class="help-inline">#{error 'organisme.description' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
             <!-- Field tags -->
             <div class="control-group #{ifError 'organisme.tags'}error#{/ifError}">
                 <label class="control-label" for="tags">
-                &{'organisme.tags'}
+                    &{'organisme.tags'}
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.tags.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     <input type="text" id="tags" name="organisme.tags" placeholder="&{'organisme.tags.placeholder'}" value="${_organisme?.tags}"/>
-                    #{if errors?.forKey('organisme.tags')}
+                    #{ifError 'organisme.tags'}
                         <span class="help-inline">#{error 'organisme.tags' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -205,9 +205,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="interlocuteur" name="organisme.interlocuteur" placeholder="&{'organisme.interlocuteur.placeholder'}" value="${_organisme?.interlocuteur}"/>
-                    #{if errors?.forKey('organisme.interlocuteur')}
+                    #{ifError 'organisme.interlocuteur'}
                         <span class="help-inline">#{error 'organisme.interlocuteur' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -219,9 +219,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="telephone" name="organisme.telephone" placeholder="&{'organisme.telephone.placeholder'}" value="${_organisme?.telephone}"/>
-                    #{if errors?.forKey('organisme.telephone')}
+                    #{ifError 'organisme.telephone'}
                         <span class="help-inline">#{error 'organisme.telephone' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -233,9 +233,9 @@
                 </label>
                 <div class="controls">
                     <input type="email" id="email" name="organisme.email" placeholder="&{'organisme.email.placeholder'}" value="${_organisme?.email}"/>
-                    #{if errors?.forKey('organisme.email')}
+                    #{ifError 'organisme.email'}
                         <span class="help-inline">#{error 'organisme.email' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -247,9 +247,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="adresse" name="organisme.adresse" placeholder="&{'organisme.adresse.placeholder'}" value="${_organisme?.adresse}"/>
-                    #{if errors?.forKey('organisme.adresse')}
+                    #{ifError 'organisme.adresse'}
                         <span class="help-inline">#{error 'organisme.adresse' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -261,9 +261,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="ville" name="organisme.ville" placeholder="&{'organisme.ville.placeholder'}" value="${_organisme?.ville}"/>
-                    #{if errors?.forKey('organisme.ville')}
+                    #{ifError 'organisme.ville'}
                         <span class="help-inline">#{error 'organisme.ville' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -275,9 +275,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="codePostal" name="organisme.codePostal" placeholder="&{'organisme.codePostal.placeholder'}" value="${_organisme?.codePostal}"/>
-                    #{if errors?.forKey('organisme.codePostal')}
+                    #{ifError 'organisme.codePostal'}
                         <span class="help-inline">#{error 'organisme.codePostal' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -289,9 +289,9 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="twitter" name="organisme.twitter" placeholder="&{'organisme.twitter.placeholder'}" value="${_organisme?.twitter}"/>
-                    #{if errors?.forKey('organisme.twitter')}
+                    #{ifError 'organisme.twitter'}
                         <span class="help-inline">#{error 'organisme.twitter' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
@@ -303,13 +303,24 @@
                 </label>
                 <div class="controls">
                     <input type="text" id="facebook" name="organisme.facebook" placeholder="&{'organisme.facebook.placeholder'}" value="${_organisme?.facebook}"/>
-                    #{if errors?.forKey('organisme.facebook')}
+                    #{ifError 'organisme.facebook'}
                         <span class="help-inline">#{error 'organisme.facebook' /}</span>
-                    #{/if}
+                    #{/ifError}
                 </div>
             </div>
 
         </fieldset>
+
+        <!-- CGU -->
+        <div class="control-group #{ifError 'cgu'}errorBlock error#{/ifError}">
+            <label for="cgu">
+                &{'page.organisme.edit.condition'}
+                <input id="cgu" type="checkbox" name="cgu" value="1" />
+                #{ifError 'cgu'}
+                    <span class="help-inline">#{error 'cgu' /}</span>
+                #{/ifError}
+            </label>
+        </div>
 
 
         <!-- Form button -->

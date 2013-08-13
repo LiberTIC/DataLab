@@ -1,5 +1,10 @@
 #{extends 'page.html' /}
 #{set title:messages.get('page.organisme.edit.title') /}
+#{set mainClass:'organisme-edit' /}
+
+<h1>&{'page.organisme.edit.title'} <span>&{'page.organisme.edit.stitle'}</span></h1>
+
+<p>&{'page.organisme.edit.baseline'}</p>
 
 #{organisme organisme:organisme, types:types, activites:activites, nbSalaries:nbSalaries, id:id, as:'form' /}
 

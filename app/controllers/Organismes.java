@@ -1,6 +1,7 @@
 package controllers;
 
 import models.*;
+import play.data.validation.Required;
 import play.data.validation.Valid;
 import play.modules.search.Query;
 import play.modules.search.Search;
@@ -65,12 +66,13 @@ public class Organismes extends AbstractController {
      * @param id
      * @param organisme
      */
-    public static void save(Long id, @Valid Organisme organisme) {
+    public static void save(Long id, @Valid Organisme organisme, @Required Boolean cgu) {
         // only authenticated user can save
         isValidUser();
 
         // is it valid ?
         if (validation.hasErrors()) {
+            validation.keep();
             // depends objects
             List<OrganismeType> types = OrganismeType.findAll();
             List<OrganismeActivite> activites = OrganismeActivite.findAll();
