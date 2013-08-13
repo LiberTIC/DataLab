@@ -6,6 +6,9 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: @ftSecondary;
 }
+h1, h2 {
+  font-weight: normal;
+}
 h1 {
   margin-bottom: 50px;
 }
@@ -18,7 +21,7 @@ h3 {
   font-size: 16px;
 }
 
-// Header
+// MENU
 .navbar {
 
   .container {
@@ -74,6 +77,25 @@ h3 {
         a {
           padding: 0;
         }
+      }
+    }
+  }
+}
+
+//HEADER
+#overview {
+  border-bottom: 1px solid @grey;
+  .container {
+    text-align: center;
+
+    #title {
+      max-width: 388px;
+      margin: 25px auto 45px;
+
+      p {
+        font-family: @ftSecondary;
+        font-size: 15px;
+        font-weight: bold;
       }
     }
   }

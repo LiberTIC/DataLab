@@ -355,9 +355,14 @@
 *{ ~~~ Partenaire ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
 #{if _as == 'partenaire'}
 
-    <div class="partenaire">
+    <div class="partenaire partenaire${_i}">
         <div class="flip">
-            <img src="@{Organismes.logo(_organisme.id)}" title="Logo de ${_organisme.getLastVersion().nom}" />
+            #{if _organisme.getLastVersion().logo.type}
+                <img src="@{Organismes.logo(_organisme.id)}" title="Logo de ${_organisme.getLastVersion().nom}" />
+            #{/if}
+            #{else}
+                <img src="http://lorempixel.com/200/220/" title="Loremp Pixel"/>
+            #{/else}
         </div>
         <div class="flap">
             <p>${_organisme.getLastVersion().description}</p>

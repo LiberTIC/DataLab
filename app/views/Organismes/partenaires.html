@@ -1,14 +1,29 @@
 #{extends 'page_logo.html' /}
 #{set title:messages.get('page.organisme.partenaire.title') /}
 
+<h1>&{'page.organisme.partenaire.title'}</h1>
+%{int i=0}%
 #{list items:partenaires, as:'organisme'}
-    #{organisme organisme:organisme , as:'partenaire' /}
+    %{i++}%
+    #{organisme organisme:organisme , i:i%16, as:'partenaire' /}
 #{/list}
 
 #{set 'moreScripts'}
     <script type="text/javascript">
         $(document).ready(function() {
             $(".flap").hide();
+
+            $(".partenaire").mouseenter(function(){
+                if($(this).children(".flip").is(":visible")){
+                    $(this).children(".flip").hide();
+                    $(this).children(".flap").show();
+                }
+                else{
+                    $(this).children(".flap").hide();
+                    $(this).children(".flip").show();
+                }
+
+            });
         });
     </script>
 #{/set}
