@@ -1,8 +1,10 @@
 package controllers;
 
 import models.*;
+import play.Logger;
 import play.data.validation.Required;
 import play.data.validation.Valid;
+import play.data.validation.Validation;
 import play.modules.search.Query;
 import play.modules.search.Search;
 import play.mvc.Scope;
@@ -72,12 +74,9 @@ public class Organismes extends AbstractController {
 
         // is it valid ?
         if (validation.hasErrors()) {
+            params.flash();
             validation.keep();
-            // depends objects
-            List<OrganismeType> types = OrganismeType.findAll();
-            List<OrganismeActivite> activites = OrganismeActivite.findAll();
-            List<OrganismeNbSalarie> nbSalaries = OrganismeNbSalarie.findAll();
-            render("@edit", id, organisme, types, activites, nbSalaries);
+            edit(id);
         }
         organisme.save();
 

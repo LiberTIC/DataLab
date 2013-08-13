@@ -6,10 +6,8 @@ import play.db.jpa.Model;
 import play.modules.search.Field;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Organisme extends Model {
@@ -32,6 +30,7 @@ public class Organisme extends Model {
     public String email;
 
     @Field
+    @Required
     public String siteweb;
 
     @Field
@@ -45,15 +44,16 @@ public class Organisme extends Model {
     public String codePostal;
 
     @Field
+    @Required
     public String produit;
 
     @Field
     public String description;
 
     @Field
+    @Required
     public String tags;
 
-    @Field(sortable=true)
     public Date creation;
 
     public String interlocuteur;

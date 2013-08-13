@@ -36,7 +36,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.nom.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="nom" name="organisme.nom" placeholder="&{'organisme.nom.placeholder'}" value="${_organisme?.nom}"/>
+                    <input type="text" id="nom" name="organisme.nom" placeholder="&{'organisme.nom.placeholder'}" value="#{if flash['organisme.nom']}${flash['organisme.nom']}#{/if}#{else}${_organisme?.nom}#{/else}"/>
                     #{ifError 'organisme.nom'}
                         <span class="help-inline">#{error 'organisme.nom' /}</span>
                     #{/ifError}
@@ -50,7 +50,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.type.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    #{select 'organisme.type.id', items:_types, value:_organisme?.type?.id, id:'type'/}
+                    #{select 'organisme.type.id', items:_types, value:(flash['organisme.type.id'])?flash['organisme.type.id']:_organisme?.type?.id, id:'type'/}
                     #{ifError 'organisme.type'}
                         <span class="help-inline">#{error 'organisme.type' /}</span>
                     #{/ifError}
@@ -81,7 +81,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.siteweb.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="siteweb" name="organisme.siteweb" placeholder="&{'organisme.siteweb.placeholder'}" value="${_organisme?.siteweb}"/>
+                    <input type="text" id="siteweb" name="organisme.siteweb" placeholder="&{'organisme.siteweb.placeholder'}" value="#{if flash['organisme.siteweb']}${flash['organisme.siteweb']}#{/if}#{else}${_organisme?.siteweb}#{/else}"/>
                     #{ifError 'organisme.siteweb'}
                         <span class="help-inline">#{error 'organisme.siteweb' /}</span>
                     #{/ifError}
@@ -95,7 +95,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.siret.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="siret" name="organisme.siret" placeholder="&{'organisme.siret.placeholder'}" value="${_organisme?.siret}"/>
+                    <input type="text" id="siret" name="organisme.siret" placeholder="&{'organisme.siret.placeholder'}" value="#{if flash['organisme.siret']}${flash['organisme.siret']}#{/if}#{else}${_organisme?.siret}#{/else}"/>
                     #{ifError 'organisme.siret'}
                         <span class="help-inline">#{error 'organisme.siret' /}</span>
                     #{/ifError}
@@ -109,7 +109,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.creation.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="creation" name="organisme.creation" placeholder="&{'organisme.creation.placeholder'}" value="${_organisme?.creation}"/>
+                    <input type="text" id="creation" name="organisme.creation" placeholder="&{'organisme.creation.placeholder'}" value="#{if flash['organisme.creation']}${flash['organisme.creation']}#{/if}#{else}${_organisme?.creation}#{/else}"/>
                     #{ifError 'organisme.creation'}
                         <span class="help-inline">#{error 'organisme.creation' /}</span>
                     #{/ifError}
@@ -123,7 +123,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.nbSalarie.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    #{select 'organisme.nbSalarie.id', items:_nbSalaries, value:_organisme?.nbSalarie?.id, id:'nbSalarie' /}
+                    #{select 'organisme.nbSalarie.id', items:_nbSalaries, value:(flash['organisme.nbSalarie.id'])?flash['organisme.nbSalarie.id']:_organisme?.nbSalarie?.id, id:'nbSalarie' /}
                     #{ifError 'organisme.nbSalarie'}
                         <span class="help-inline">#{error 'organisme.nbSalarie' /}</span>
                     #{/ifError}
@@ -143,7 +143,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.activite.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    #{select 'organisme.activite.id', items:_activites, value:_organisme?.activite?.id, id:'activite'/}
+                    #{select 'organisme.activite.id', items:_activites, value:(flash['organisme.activite.id'])?flash['organisme.activite.id']:_organisme?.activite?.id, id:'activite'/}
                     #{ifError 'organisme.activite'}
                         <span class="help-inline">#{error 'organisme.activite' /}</span>
                     #{/ifError}
@@ -157,7 +157,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.produit.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <textarea id="produit" name="organisme.produit" placeholder="&{'organisme.produit.placeholder'}" rows="3">${_organisme?.produit}</textarea>
+                    <textarea id="produit" name="organisme.produit" placeholder="&{'organisme.produit.placeholder'}" rows="3">#{if flash['organisme.produit']}${flash['organisme.produit']}#{/if}#{else}${_organisme?.produit}#{/else}</textarea>
                     #{ifError 'organisme.produit'}
                         <span class="help-inline">#{error 'organisme.produit' /}</span>
                     #{/ifError}
@@ -171,7 +171,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.description.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <textarea id="description" name="organisme.description" placeholder="&{'organisme.description.placeholder'}" rows="3">${_organisme?.description}</textarea>
+                    <textarea id="description" name="organisme.description" placeholder="&{'organisme.description.placeholder'}" rows="3">#{if flash['organisme.description']}${flash['organisme.description']}#{/if}#{else}${_organisme?.description}#{/else}</textarea>
                     #{ifError 'organisme.description'}
                         <span class="help-inline">#{error 'organisme.description' /}</span>
                     #{/ifError}
@@ -185,7 +185,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.tags.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="tags" name="organisme.tags" placeholder="&{'organisme.tags.placeholder'}" value="${_organisme?.tags}"/>
+                    <input type="text" id="tags" name="organisme.tags" placeholder="&{'organisme.tags.placeholder'}" value="#{if flash['organisme.tags']}${flash['organisme.tags']}#{/if}#{else}${_organisme?.tags}#{/else}"/>
                     #{ifError 'organisme.tags'}
                         <span class="help-inline">#{error 'organisme.tags' /}</span>
                     #{/ifError}
@@ -204,7 +204,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.interlocuteur.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="interlocuteur" name="organisme.interlocuteur" placeholder="&{'organisme.interlocuteur.placeholder'}" value="${_organisme?.interlocuteur}"/>
+                    <input type="text" id="interlocuteur" name="organisme.interlocuteur" placeholder="&{'organisme.interlocuteur.placeholder'}" value="#{if flash['organisme.interlocuteur']}${flash['organisme.interlocuteur']}#{/if}#{else}${_organisme?.interlocuteur}#{/else}"/>
                     #{ifError 'organisme.interlocuteur'}
                         <span class="help-inline">#{error 'organisme.interlocuteur' /}</span>
                     #{/ifError}
@@ -218,7 +218,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.telephone.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="telephone" name="organisme.telephone" placeholder="&{'organisme.telephone.placeholder'}" value="${_organisme?.telephone}"/>
+                    <input type="text" id="telephone" name="organisme.telephone" placeholder="&{'organisme.telephone.placeholder'}" value="#{if flash['organisme.telephone']}${flash['organisme.telephone']}#{/if}#{else}${_organisme?.telephone}#{/else}"/>
                     #{ifError 'organisme.telephone'}
                         <span class="help-inline">#{error 'organisme.telephone' /}</span>
                     #{/ifError}
@@ -232,7 +232,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.email.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="email" id="email" name="organisme.email" placeholder="&{'organisme.email.placeholder'}" value="${_organisme?.email}"/>
+                    <input type="email" id="email" name="organisme.email" placeholder="&{'organisme.email.placeholder'}" value="#{if flash['organisme.email']}${flash['organisme.email']}#{/if}#{else}${_organisme?.email}#{/else}"/>
                     #{ifError 'organisme.email'}
                         <span class="help-inline">#{error 'organisme.email' /}</span>
                     #{/ifError}
@@ -246,7 +246,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.adresse.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="adresse" name="organisme.adresse" placeholder="&{'organisme.adresse.placeholder'}" value="${_organisme?.adresse}"/>
+                    <input type="text" id="adresse" name="organisme.adresse" placeholder="&{'organisme.adresse.placeholder'}" value="#{if flash['organisme.adresse']}${flash['organisme.adresse']}#{/if}#{else}${_organisme?.adresse}#{/else}"/>
                     #{ifError 'organisme.adresse'}
                         <span class="help-inline">#{error 'organisme.adresse' /}</span>
                     #{/ifError}
@@ -260,7 +260,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.ville.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="ville" name="organisme.ville" placeholder="&{'organisme.ville.placeholder'}" value="${_organisme?.ville}"/>
+                    <input type="text" id="ville" name="organisme.ville" placeholder="&{'organisme.ville.placeholder'}" value="#{if flash['organisme.ville']}${flash['organisme.ville']}#{/if}#{else}${_organisme?.ville}#{/else}"/>
                     #{ifError 'organisme.ville'}
                         <span class="help-inline">#{error 'organisme.ville' /}</span>
                     #{/ifError}
@@ -274,7 +274,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.codePostal.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="codePostal" name="organisme.codePostal" placeholder="&{'organisme.codePostal.placeholder'}" value="${_organisme?.codePostal}"/>
+                    <input type="text" id="codePostal" name="organisme.codePostal" placeholder="&{'organisme.codePostal.placeholder'}" value="#{if flash['organisme.codePostal']}${flash['organisme.codePostal']}#{/if}#{else}${_organisme?.codePostal}#{/else}"/>
                     #{ifError 'organisme.codePostal'}
                         <span class="help-inline">#{error 'organisme.codePostal' /}</span>
                     #{/ifError}
@@ -288,7 +288,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.twitter.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="twitter" name="organisme.twitter" placeholder="&{'organisme.twitter.placeholder'}" value="${_organisme?.twitter}"/>
+                    <input type="text" id="twitter" name="organisme.twitter" placeholder="&{'organisme.twitter.placeholder'}" value="#{if flash['organisme.twitter']}${flash['organisme.twitter']}#{/if}#{else}${_organisme?.twitter}#{/else}"/>
                     #{ifError 'organisme.twitter'}
                         <span class="help-inline">#{error 'organisme.twitter' /}</span>
                     #{/ifError}
@@ -302,7 +302,7 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.facebook.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="facebook" name="organisme.facebook" placeholder="&{'organisme.facebook.placeholder'}" value="${_organisme?.facebook}"/>
+                    <input type="text" id="facebook" name="organisme.facebook" placeholder="&{'organisme.facebook.placeholder'}" value="#{if flash['organisme.facebook']}${flash['organisme.facebook']}#{/if}#{else}${_organisme?.facebook}#{/else}"/>
                     #{ifError 'organisme.facebook'}
                         <span class="help-inline">#{error 'organisme.facebook' /}</span>
                     #{/ifError}
