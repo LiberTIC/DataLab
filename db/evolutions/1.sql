@@ -22,11 +22,13 @@ INSERT INTO organismeactivite VALUES (4, 'Activity 4');
 INSERT INTO organismeactivite VALUES (5, 'Activity 5');
 
 -- Activity type
-INSERT INTO organismetype VALUES (1, 'Enseignement-Recherche');
-INSERT INTO organismetype VALUES (2, 'Entreprise');
-INSERT INTO organismetype VALUES (3, 'Média');
-INSERT INTO organismetype VALUES (4, 'Association');
-INSERT INTO organismetype VALUES (5, 'Autre');
+INSERT INTO organismetype VALUES (1, 'Association');
+INSERT INTO organismetype VALUES (2, 'Collectivité');
+INSERT INTO organismetype VALUES (3, 'Enseignement');
+INSERT INTO organismetype VALUES (4, 'Entreprise');
+INSERT INTO organismetype VALUES (5, 'Média');
+INSERT INTO organismetype VALUES (6, 'Recherche');
+INSERT INTO organismetype VALUES (7, 'Autre');
 
 -- Nb Salarie
 INSERT INTO organismenbsalarie VALUES (1, '1 à 5');

@@ -2,6 +2,7 @@
 #{set title:messages.get('page.organisme.partenaire.title') /}
 
 <h1>&{'page.organisme.partenaire.title'}</h1>
+
 %{int i=1}%
 #{list items:partenaires, as:'organisme'}
     #{organisme organisme:organisme , i:i%16, as:'partenaire' /}

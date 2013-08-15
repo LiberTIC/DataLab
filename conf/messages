@@ -6,7 +6,8 @@ page.organisme.search.title = Recherchez un organisme
 #
 # page organisme show
 #
-page.organisme.show.title = %s
+page.organisme.show.title                   = Annuaire //
+page.organisme.show.stitle                  = Fiche acteur
 
 #
 # page organisme edit

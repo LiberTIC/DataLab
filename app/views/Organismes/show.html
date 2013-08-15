@@ -1,5 +1,152 @@
-#{extends 'page.html' /}
-#{set title:messages.get('page.organisme.show.title', organisme?.nom) /}
+#{extends 'main.html' /}
+#{set mainClass:'organisme' /}
+#{set title:messages.get('page.organisme.show.title') /}
 
-#{organisme organisme:organisme, id:id, as:'full' /}
+
+<div class="firstBlock blockDefault mainContainer">
+    <div class="container">
+        <h1>&{'page.organisme.show.title'}<span>&{'page.organisme.show.stitle'}</span></h1>
+    </div>
+</div>
+
+
+<div class="blockDark">
+    <div class="container">
+        <div class="row-fluid">
+
+            <!-- Right column -->
+            <div class="span8">
+
+                <!-- Identitte -->
+                <div id="info" class="blockDefault">
+                    <div class="row-fluid">
+                        <div class="span6 name">
+                            <h2>${organisme.nom}</h2>
+                        </div>
+                        <div class="span6">
+                            <h3>Localité</h3>
+                            <p>${organisme.ville}</p>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6 type${organisme.type.id}">
+                            <h3>Typologie</h3>
+                            <p>${organisme?.type?.libelle}</p>
+                        </div>
+                        <div class="span6">
+                            <h3>Thème</h3>
+                            <p>${organisme?.activite?.libelle}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activities -->
+                <div id="activities" class="blockDefault">
+                    <!-- Description -->
+                    <div>
+                        <h3>Description</h3>
+                        ${organisme.description}
+                    </div>
+                    <!-- Produit -->
+                    <div>
+                        <h3>Produits</h3>
+                        ${organisme.produit}
+                    </div>
+                </div>
+
+                <div id="identity" class="blockDefault">
+                    #{if organisme.siret}
+                        <div>
+                            <span class="libelle">Identifiant unique</span><span class="value">${organisme.siret}</span>
+                        </div>
+                    #{/if}
+                    #{if organisme.creation}
+                        <div>
+                            <span class="libelle">Date de création</span><span class="value">${organisme.creation.format("dd/MM/yyyy")}</span>
+                        </div>
+                    #{/if}
+                    #{if organisme.nbSalarie}
+                        <div>
+                            <span class="libelle">N° de salariés</span><span class="value">${organisme.nbSalarie.libelle}</span>
+                        </div>
+                    #{/if}
+                </div>
+
+            </div>
+
+            <!-- Left column -->
+            <div class="span4 ">
+
+                <!-- Logo -->
+                <div id="blocklogo" class="blockDefault">
+                    <div>
+                        #{if organisme.logo.type != null}
+                            <img src="@{Organismes.logo(organisme.id)}" alt="Logo de ${organisme.nom}"/>
+                        #{/if}
+                        #{else}
+                            <img src="http://lorempixel.com/200/220/" title="Loremp Pixel"/>
+                        #{/else}
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div id="tags" class="blockDefault">
+                    <div>
+                        ${organisme.tags}
+                    </div>
+                </div>
+
+                <!-- Contact informations -->
+                <div id="contact" class="blockDefault">
+                    <div>
+                        <ul class="unstyled">
+                            #{if organisme.siteweb}
+                                <li>
+                                    <i>@</i>
+                                    <a href="${organisme.siteweb}" title="Site internet de ${organisme.nom}">
+                                        ${organisme.siteweb}
+                                    </a>
+                                </li>
+                            #{/if}
+                            #{if organisme.email}
+                                <li>
+                                    <i class="icon-envelope-alt"></i>
+                                    <a href="mailto:${organisme.email}" title="Envoyer un mail à ${organisme.nom}">
+                                        ${organisme.email}
+                                    </a>
+                                </li>
+                            #{/if}
+                            #{if organisme.telephone}
+                                <li>
+                                    <i class="icon-phone"></i>
+                                    <a href="tel:${organisme.telephone}" title="Téléphoner à ${organisme.nom}">
+                                        ${organisme.telephone}
+                                    </a>
+                                </li>
+                            #{/if}
+                            #{if organisme.twitter}
+                                <li>
+                                    <i class="icon-twitter"></i>
+                                    <a href="http://www.twitter.com/${organisme.twitter}" title="Compte twitter de ${organisme.nom}">
+                                        ${organisme.twitter}
+                                    </a>
+                                </li>
+                            #{/if}
+                            #{if organisme.facebook}
+                                <li>
+                                    <i class="icon-facebook"></i>
+                                    <a href="http://www.facebook.com/${organisme.facebook}" title="Compte facebook de ${organisme.nom}">
+                                        ${organisme.facebook}
+                                    </a>
+                                </li>
+                            #{/if}
+                         </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 

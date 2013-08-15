@@ -1,0 +1,98 @@
+
+//mixin partenaire
+.partenaire-box(@color) {
+  color: @white;
+  width: 200px;
+  margin-right: 43px;
+  margin-bottom: 43px;
+  border: 2px solid @color;
+  display: inline-block;
+  float:left;
+  height: 250px;
+
+  .flip, .flap {
+    height: 220px;
+    width: 200px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+
+    img {
+      vertical-align: middle;
+      max-height: 216px;
+      max-width: 196px;
+      padding: 2px;
+    }
+
+    a.btn {
+      background-color: @color;
+      background-image: none;
+      color: #FFFFFF;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+      border-radius: 0;
+      border-style: none;
+      box-shadow: 0px 2px 4px @black;
+    }
+  }
+
+  .flap {
+    background-color: darken(@color, 5%);
+    text-overflow:ellipsis;
+  }
+
+  .footer {
+    margin:0;
+    height: 30px;
+    position: relative;
+    background-color: @color;
+    h3 {
+      text-align: center;
+      margin: 0;
+      height: 100%;
+      line-height: 30px;
+    }
+  }
+}
+
+.partenaire1, .partenaire7, .partenaire12, .partenaire16 {
+  .partenaire-box(@secondary);
+}
+
+.partenaire2, .partenaire8, .partenaire11, .partenaire13 {
+  .partenaire-box(@greyDark);
+}
+
+.partenaire3, .partenaire5, .partenaire10, .partenaire15 {
+  .partenaire-box(@primary);
+}
+
+.partenaire4, .partenaire6, .partenaire9, .partenaire14 {
+  .partenaire-box(@grey);
+}
+
+.partenaire4, .partenaire8, .partenaire12, .partenaire16 {
+  margin-right: 0;
+}
+
+#partenaire {
+  .flap {
+    height: 250px;
+    a {
+      font-size: 20px;
+      line-height: normal;
+      color: @white;
+      text-transform: uppercase;
+      font-family: @ftSecondary;
+      font-weight: bolder;
+      div {
+        font-size: 100px;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &:hover {
+      background-color: @secondary;
+    }
+  }
+}
