@@ -2,16 +2,25 @@
 #{set title:messages.get('page.organisme.partenaire.title') /}
 
 <h1>&{'page.organisme.partenaire.title'}</h1>
-%{int i=0}%
+%{int i=1}%
 #{list items:partenaires, as:'organisme'}
-    %{i++}%
     #{organisme organisme:organisme , i:i%16, as:'partenaire' /}
+    %{i++}%
 #{/list}
+
+<div id="partenaire" class="partenaire${i}">
+    <div class="flap">
+        <a href="#" title="&{'page.organisme.partenaire.devenez'}">
+            <div>+</div>
+            &{'page.organisme.partenaire.devenez'}
+        </a>
+    </div>
+</div>
 
 #{set 'moreScripts'}
     <script type="text/javascript">
         $(document).ready(function() {
-            $(".flap").hide();
+            $(".partenaire .flap").hide();
 
             $(".partenaire").mouseenter(function(){
                 if($(this).children(".flip").is(":visible")){
