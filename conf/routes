@@ -12,6 +12,7 @@ GET     /organisme/csv                          Organismes.csv
 GET     /organisme/rss                          Organismes.rss
 POST    /organisme/{<[0-9]+>id}                 Organismes.save
 GET     /organisme/{<[0-9]+>id}                 Organismes.show
+GET     /organisme/delete{<[0-9]+>id}           Organismes.delete
 GET     /organisme/edit/{<[0-9]+>id}            Organismes.edit
 GET     /organisme/new                          Organismes.edit
 GET     /organisme/history/{<[0-9]+>id}         Organismes.history

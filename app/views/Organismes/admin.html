@@ -2,6 +2,15 @@
 
 <h1>Organismes</h1>
 
+<div class="form-search">
+    #{form @Organismes.admin(), method:'GET'}
+        <div class="input-append">
+            <input type="text" placeholder="Search" class="input-large search-query" name="search" value="${search}">
+            <span class="add-on btn"><i class="icon-search"></i></span>
+        </div>
+    #{/form}
+</div>
+
 <table class="table table-hover table-striped sortable">
     <caption>
         Found ${organismes.size()} organismes.
@@ -20,7 +29,7 @@
             <tr>
                 <td>${organisme?.id}</td>
                 <td>
-                    #{if organisme?.getLastVersion()?.logo != null}
+                    #{if organisme?.getLastVersion()?.logo?.type != null}
                         <img src="@{Organismes.logo(organisme.id)}" /> <br/>
                     #{/if}
                 </td>

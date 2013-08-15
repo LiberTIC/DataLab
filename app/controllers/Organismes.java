@@ -4,12 +4,10 @@ import models.*;
 import play.Logger;
 import play.data.validation.Required;
 import play.data.validation.Valid;
-import play.data.validation.Validation;
 import play.modules.search.Query;
 import play.modules.search.Search;
 import play.mvc.Scope;
 
-import java.io.ByteArrayInputStream;
 import java.util.List;
 
 /**
@@ -143,17 +141,26 @@ public class Organismes extends AbstractController {
     /**
      * Render the admin interface for organisme (list all or search)
      */
-    public static void admin(String query){
+    public static void admin(String search) {
         isAdminUser();
 
-        if (query == null && Scope.Session.current().contains("admin.query")) {
+        String query = "*:*";
+
+        // only if there is no search params, we take the session search.
+        if (search == null && Scope.Session.current().contains("admin.query")) {
             query = Scope.Session.current().get("admin.query");
         }
 
-        Query q = Search.search("nom:" + query, OrganismeMaster.class);
+        if(search != null && search.trim().length() > 0) {
+            query =  "nom:" + search + "*";
+        }
+
+        Logger.debug("Search query is " + query);
+        Query q = Search.search(query, OrganismeMaster.class);
+
         List<OrganismeMaster> organismes = q.fetch();
         Scope.Session.current().put("admin.query", query);
-        render(organismes, query);
+        render(organismes, search);
     }
 
     /**
@@ -176,15 +183,14 @@ public class Organismes extends AbstractController {
      *
      * @param partenaires
      */
-    public static void setPartenaires(List<Long> partenaires){
+    public static void setPartenaires(List<Long> partenaires) {
         isAdminUser();
 
         for (Long id : partenaires) {
             OrganismeMaster organisme = OrganismeMaster.findById(id);
-            if(organisme.isPartenaire == null | !organisme.isPartenaire) {
+            if (organisme.isPartenaire == null | !organisme.isPartenaire) {
                 organisme.isPartenaire = Boolean.TRUE;
-            }
-            else {
+            } else {
                 organisme.isPartenaire = Boolean.FALSE;
             }
             organisme.save();
@@ -195,7 +201,7 @@ public class Organismes extends AbstractController {
     /**
      * View to list all partenaires.
      */
-    public static void partenaires(){
+    public static void partenaires() {
         List<OrganismeMaster> partenaires = OrganismeMaster.getAllPartenaires();
 
         render(partenaires);

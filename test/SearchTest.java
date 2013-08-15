@@ -15,10 +15,11 @@ public class SearchTest extends UnitTest {
      */
     @Test
     public void testSearch() {
-        Query q = Search.search("produit:Site Web", OrganismeMaster.class);
+        Query q = Search.search("produit:\"Site Web\"", OrganismeMaster.class);
         List<OrganismeMaster> list = q.fetch();
         assertEquals(1, list.size());
-        assertEquals(list.get(0).getLastVersion().produit, "Site Web");
+        assertEquals("Site web", list.get(0).getLastVersion().produit);
+        assertEquals("LogiSima", list.get(0).getLastVersion().nom);
 
         q = Search.search("produit:IT", OrganismeMaster.class);
         list = q.fetch();
