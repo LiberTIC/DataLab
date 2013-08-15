@@ -16,13 +16,6 @@ import java.util.List;
 public class Organismes extends AbstractController {
 
     /**
-     * Search organismes
-     */
-    public static void search() {
-        render();
-    }
-
-    /**
      * Display the last version of an organisme.
      *
      * @param id
@@ -136,6 +129,18 @@ public class Organismes extends AbstractController {
 
         response.setContentTypeIfNotSet(organisme.logo.type());
         renderBinary(organisme.logo.get());
+    }
+
+    public static void search(String query, List<Long> typologies, List<String> deps) {
+        // let's do the search
+        String search = "*:*";
+        Logger.debug("Search query is " + search);
+        Query q = Search.search(search, OrganismeMaster.class);
+        List<OrganismeMaster> organismes = q.fetch();
+
+        // populate render
+        List<OrganismeType> types = OrganismeType.findAll();
+        render(query, types, organismes);
     }
 
     /**

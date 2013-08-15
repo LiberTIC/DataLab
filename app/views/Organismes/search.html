@@ -1,4 +1,135 @@
 #{extends 'main.html' /}
-#{set mainClass:'organisme' /}
+#{set mainClass:'organisme search' /}
 #{set title:messages.get('page.organisme.search.title') /}
 
+<div class="firstBlock blockDefault mainContainer">
+    <div class="container">
+        <h1>&{'page.organisme.search.title'}</h1>
+
+        <div id="searchIntro">
+            #{cms.display 'annuaire_search' }
+                <p>Cet annuaire collaboratif répertorie les acteurs de l'enseignement, la recherche, les aassociations, réseaux, médias et entreprises proposant des services et outils en lien avec les démarches open data et le traitement des données en Pays de la Loire.</p>
+            #{/cms.display}
+        </div>
+
+        <p>Vous pouvez modifier et rajouter des informations afin de nous <strong>aider à compléter cet annuaire</strong></p>
+
+        <div id="new">
+            <a class="btn btn-primary" href="@{Organismes.edit()}" title="Créer une fiche acteur">Créer une fiche acteur</a>
+        </div>
+    </div>
+</div>
+
+
+#{form @Organismes.search(), id:'form', method:'GET'}
+    <div class="blockDark">
+        <div class="container">
+            <div class="row-fluid">
+
+                <!-- Right column -->
+                <div class="span8">
+                    <div id="search">
+                        <h2>Rechercher dans l'annuaire</h2>
+                        <div class="row-fluid">
+                            <div class="span2">
+                                <label id="query" class="control-label pull-left">Mots clés </label>
+                            </div>
+                            <div class="input-append span10 pull-right">
+                                <input id="query" type="text" name="query" value="${query}" />
+                                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="result">
+                        #{list items:organismes , as:'organisme'}
+                            #{organisme organisme:organisme.getLastVersion(), as:'list' /}
+                        #{/list}
+                    </div>
+                </div>
+
+                <div class="span4">
+                    <h2>Recherche ciblé</h2>
+
+                    <div>
+                        <h3>Typologie</h3>
+                        <div class="blockDefault">
+                            <ul class="unstyled">
+                                #{list items:types, as:'type'}
+                                    <li>
+                                        <label for="type${type.id}">
+                                            <input id="type${type.id}" name="typologies" type="checkbox" value="${type.id}">
+                                            ${type.libelle}
+                                        </label>
+                                    </li>
+                                #{/list}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Département</h3>
+                        <div class="blockDefault">
+                            <ul class="unstyled">
+                                <li>
+                                    <label for="44">
+                                        <input id="44" name="deps" type="checkbox" value="44"> Loire-Atlantique
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="49">
+                                        <input id="49" name="deps" type="checkbox" value="49"> Maine et Loire
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="53">
+                                        <input id="53" name="deps" type="checkbox" value="53"> Mayenne
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="72">
+                                        <input id="72" name="deps" type="checkbox" value="72"> Sarthe
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="85">
+                                        <input id="85" name="deps" type="checkbox" value="85"> Vendée
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+#{/form}
+
+<div class="blockDefault" id="export">
+    <div class="container">
+        <div class="row-fluid">
+            <!-- Right column -->
+            <div class="span8">
+                <a class="pull-right" href="@{Organismes.csv()}" title="Exporter l'annuaire en CSV">
+                    Exporter l'annuaire en CSV <img src="@{'public/images/pictos/csv.png'}" alt="" />
+                </a>
+            </div>
+            <!-- Right column -->
+            <div class="span6">
+            </div>
+        </div>
+    </div>
+</div>
+
+#{set 'moreScripts'}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(":checkbox").click(function(){
+                $("#form").submit();
+                $(":checkbox").attr("disabled", true);
+            });
+        });
+    </script>
+#{/set}

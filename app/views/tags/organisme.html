@@ -1,13 +1,40 @@
-*{ ~~~ Mode full ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
-#{if _as == 'full'}
-    <ul>
-        <li>${_organisme?.nom}</li>
-        <li><img src="@{Organismes.logo(_id)}" /></li>
-    </ul>
-#{/if}
-
 *{ ~~~ Mode list ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*
 #{if _as == 'list'}
+    <div class="itemResult blockDefault">
+        <div class="row-fluid">
+            <div class="span6">
+                <h4>
+                    <a href="@{Organismes.show(_organisme.master.id)}" title="Voir la fiche de ${_organisme.nom }">
+                        ${_organisme.nom}
+                    </a>
+                </h4>
+                <p>${_organisme.activite.libelle}</p>
+                <div class="tags">
+                    ${_organisme.tags}
+                </div>
+                <div class="info">
+                    <ul class="unstyled">
+                        <li>${_organisme.ville}</li>
+                        <li>
+                            <a href="${_organisme.siteweb}" title="Site internet de ${_organisme.nom}">${_organisme.siteweb}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span6">
+                #{if _organisme.logo.type}
+                    <a href="@{Organismes.show(_organisme.master.id)}" title="Voir la fiche de ${_organisme.nom }">
+                        <img src="@{Organismes.logo(_organisme.id)}" title="Logo de ${_organisme.getLastVersion().nom}" />
+                    </a>
+                #{/if}
+                #{else}
+                    <a href="@{Organismes.show(_organisme.master.id)}" title="Voir la fiche de ${_organisme.nom }">
+                        <img src="http://lorempixel.com/200/220/" title="Loremp Pixel"/>
+                    </a>
+                #{/else}
+            </div>
+        </div>
+    </div>
 #{/if}
 
 *{ ~~~ Mode edit/form ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ }*

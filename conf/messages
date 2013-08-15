@@ -1,36 +1,34 @@
 #
 # page organisme search
 #
-page.organisme.search.title = Recherchez un organisme
+page.organisme.search.title = Annuaire
 
 #
 # page organisme show
 #
-page.organisme.show.title                   = Annuaire //
-page.organisme.show.stitle                  = Fiche acteur
-page.organisme.show.localite                = Localité
-page.organisme.show.typologie               = Typologie
-page.organisme.show.theme                   = Thème
-page.organisme.show.description             = Description
-page.organisme.show.produits                = Produits
-page.organisme.show.identifiant             = Identifiant unique
-page.organisme.show.creation                = Date de création
-page.organisme.show.nbsalarie               = N° de salariés
-page.organisme.show.logo.alt                = Logo de %s
-page.organisme.show.site.title              = Site internet de %s
-page.organisme.show.mail.title              = Envoyer un email à %s
-page.organisme.show.telephone.title         = Téléphoner à %s
-page.organisme.show.twitter.title           = Compte twitter de %s
-page.organisme.show.facebook.title          = COmpte facebook de %s
-page.organisme.show.tel                     = Tel:
-page.organisme.show.email                   = Email:
-page.organisme.show.adresse                 = Adresse:
-page.organisme.show.ville                   = Ville:
-page.organisme.show.cp                      = CP:
-page.organisme.show.edit                    = Modifier la fiche de l'acteur
-page.organisme.show.contact                 = Contact
-
-
+page.organisme.show.title           = Annuaire //
+page.organisme.show.stitle          = Fiche acteur
+page.organisme.show.localite        = Localité
+page.organisme.show.typologie       = Typologie
+page.organisme.show.theme           = Thème
+page.organisme.show.description     = Description
+page.organisme.show.produits        = Produits
+page.organisme.show.identifiant     = Identifiant unique
+page.organisme.show.creation        = Date de création
+page.organisme.show.nbsalarie       = N° de salariés
+page.organisme.show.logo.alt        = Logo de %s
+page.organisme.show.site.title      = Site internet de %s
+page.organisme.show.mail.title      = Envoyer un email à %s
+page.organisme.show.telephone.title = Téléphoner à %s
+page.organisme.show.twitter.title   = Compte twitter de %s
+page.organisme.show.facebook.title  = COmpte facebook de %s
+page.organisme.show.tel             = Tel:
+page.organisme.show.email           = Email:
+page.organisme.show.adresse         = Adresse:
+page.organisme.show.ville           = Ville:
+page.organisme.show.cp              = CP:
+page.organisme.show.edit            = Modifier la fiche de l'acteur
+page.organisme.show.contact         = Contact
 
 #
 # page organisme edit
