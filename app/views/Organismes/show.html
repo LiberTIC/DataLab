@@ -149,4 +149,67 @@
     </div>
 </div>
 
+<div class="blockDefault">
+    <div class="container">
+        <div class="row-fluid">
+
+            <!-- Right column -->
+            <div class="span8">
+                <div class="blockOdd contactTitle pull-right">
+                    <h3>Contact</h3>
+                    <ul class="unstyled">
+                        #{if organisme.telephone}
+                            <li>
+                                <span class="libelle">Tel:</span>
+                                <span class="value">
+                                    <a href="tel:${organisme.telephone}" title="Téléphoner à ${organisme.nom}">
+                                        ${organisme.telephone}
+                                    </a>
+                                </span>
+                            </li>
+                        #{/if}
+                        #{if organisme.email}
+                            <li>
+                                <span class="libelle">Email:</span>
+                                <span class="value">
+                                   <a href="mailto:${organisme.email}" title="Envoyer un mail à ${organisme.nom}">
+                                        ${organisme.email}
+                                   </a>
+                                </span>
+                            </li>
+                        #{/if}
+                        #{if organisme.adresse}
+                            <li>
+                                <span class="libelle">Adresse:</span>
+                                <span class="value">${organisme.adresse}</span>
+                            </li>
+                        #{/if}
+                        #{if organisme.ville}
+                            <li>
+                                <span class="libelle">Ville:</span>
+                                <span class="value">${organisme.ville}</span>
+                            </li>
+                        #{/if}
+                        #{if organisme.codePostal}
+                            <li>
+                                <span class="libelle">CP:</span>
+                                <span class="value">${organisme.codePostal}</span>
+                            </li>
+                        #{/if}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Left column -->
+            <div id="edit" class="span4">
+                <div class="blockOdd pull-left">
+                    <a href="@{Organismes.edit(organisme.master.id)}" title="Modifier la fiche de l'acteur">
+                        Modifier la fiche de l'acteur
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
