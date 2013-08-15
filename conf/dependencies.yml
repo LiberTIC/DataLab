@@ -4,5 +4,3 @@ require:
     - play
     - play -> secure
     - jlibdiff -> jlibdiff 1.01
-    - org.apache.lucene ->  lucene-core 4.3.1
-    - org.apache.lucene ->  lucene-analyzers 3.6.2
