@@ -4,7 +4,7 @@
         <div class="row-fluid">
             <div class="span6">
                 <h4>
-                    <a href="@{Organismes.show(_organisme.master.id)}" title="Voir la fiche de ${_organisme.nom }">
+                    <a href="@{Organismes.show(_organisme.master.id)}" title="&{'page.organisme.search.item.show', _organisme.nom }">
                         ${_organisme.nom}
                     </a>
                 </h4>
@@ -16,20 +16,20 @@
                     <ul class="unstyled">
                         <li>${_organisme.ville}</li>
                         <li>
-                            <a href="${_organisme.siteweb}" title="Site internet de ${_organisme.nom}">${_organisme.siteweb}</a>
+                            <a href="${_organisme.siteweb}" title="&{'page.organisme.search.site.title', _organisme.nom }">${_organisme.siteweb}</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="span6">
                 #{if _organisme.logo.type}
-                    <a href="@{Organismes.show(_organisme.master.id)}" title="Voir la fiche de ${_organisme.nom }">
-                        <img src="@{Organismes.logo(_organisme.id)}" title="Logo de ${_organisme.getLastVersion().nom}" />
+                    <a href="@{Organismes.show(_organisme.master.id)}" title="&{'page.organisme.search.item.show', _organisme.nom }">
+                        <img src="@{Organismes.logo(_organisme.id)}" title="&{'page.organisme.search.logo.alt', _organisme.nom }" />
                     </a>
                 #{/if}
                 #{else}
-                    <a href="@{Organismes.show(_organisme.master.id)}" title="Voir la fiche de ${_organisme.nom }">
-                        <img src="http://lorempixel.com/200/220/" title="Loremp Pixel"/>
+                    <a href="@{Organismes.show(_organisme.master.id)}" title="&{'page.organisme.search.item.show', _organisme.nom }">
+                        <img src="http://lorempixel.com/200/220/" title="Lorem Pixel"/>
                     </a>
                 #{/else}
             </div>

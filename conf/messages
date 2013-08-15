@@ -1,7 +1,23 @@
 #
 # page organisme search
 #
-page.organisme.search.title = Annuaire
+page.organisme.search.title                      = Annuaire
+page.organisme.search.accroche                   = Vous pouvez modifier et rajouter des informations afin de nous <strong>aider à compléter cet annuaire</strong>
+page.organisme.search.create                     = Créer une fiche acteur
+page.organisme.search.search                     = Rechercher dans l'annuaire
+page.organisme.search.keyword                    = Mots clés
+page.organisme.search.search.target              = Recherche ciblé
+page.organisme.search.typo                       = Typologie
+page.organisme.search.departement                = Département
+page.organisme.search.44                         = Loire-Atlantique
+page.organisme.search.49                         = Maine et Loire
+page.organisme.search.53                         = Mayenne
+page.organisme.search.72                         = Sarthe
+page.organisme.search.85                         = Vendée
+page.organisme.search.export                     = Exporter l'annuaire
+page.organisme.search.site.title                 = Voir le site de %s
+page.organisme.search.item.show                  = Allez à la fiche de %s
+page.organisme.search.logo.alt                   = Logo de %s
 
 #
 # page organisme show

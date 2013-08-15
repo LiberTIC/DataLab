@@ -12,10 +12,10 @@
             #{/cms.display}
         </div>
 
-        <p>Vous pouvez modifier et rajouter des informations afin de nous <strong>aider à compléter cet annuaire</strong></p>
+        <p>&{'page.organisme.search.accroche'}</p>
 
         <div id="new">
-            <a class="btn btn-primary" href="@{Organismes.edit()}" title="Créer une fiche acteur">Créer une fiche acteur</a>
+            <a class="btn btn-primary" href="@{Organismes.edit()}" title="Créer une fiche acteur">&{'page.organisme.search.create'}</a>
         </div>
     </div>
 </div>
@@ -29,10 +29,10 @@
                 <!-- Right column -->
                 <div class="span8">
                     <div id="search">
-                        <h2>Rechercher dans l'annuaire</h2>
+                        <h2>&{'page.organisme.search.search'}</h2>
                         <div class="row-fluid">
                             <div class="span2">
-                                <label id="query" class="control-label pull-left">Mots clés </label>
+                                <label id="query" class="control-label pull-left">&{'page.organisme.search.keyword'}</label>
                             </div>
                             <div class="input-append span10 pull-right">
                                 <input id="query" type="text" name="query" value="${query}" />
@@ -49,10 +49,10 @@
                 </div>
 
                 <div class="span4">
-                    <h2>Recherche ciblé</h2>
+                    <h2>&{'page.organisme.search.search.target'}</h2>
 
                     <div>
-                        <h3>Typologie</h3>
+                        <h3>&{'page.organisme.search.typo'}</h3>
                         <div class="blockDefault">
                             <ul class="unstyled">
                                 #{list items:types, as:'type'}
@@ -68,32 +68,32 @@
                     </div>
 
                     <div>
-                        <h3>Département</h3>
+                        <h3>&{'page.organisme.search.departement'}</h3>
                         <div class="blockDefault">
                             <ul class="unstyled">
                                 <li>
                                     <label for="44">
-                                        <input id="44" name="deps" type="checkbox" value="44"> Loire-Atlantique
+                                        <input id="44" name="deps" type="checkbox" value="44"> &{'page.organisme.search.44'}
                                     </label>
                                 </li>
                                 <li>
                                     <label for="49">
-                                        <input id="49" name="deps" type="checkbox" value="49"> Maine et Loire
+                                        <input id="49" name="deps" type="checkbox" value="49"> &{'page.organisme.search.49'}
                                     </label>
                                 </li>
                                 <li>
                                     <label for="53">
-                                        <input id="53" name="deps" type="checkbox" value="53"> Mayenne
+                                        <input id="53" name="deps" type="checkbox" value="53"> &{'page.organisme.search.53'}
                                     </label>
                                 </li>
                                 <li>
                                     <label for="72">
-                                        <input id="72" name="deps" type="checkbox" value="72"> Sarthe
+                                        <input id="72" name="deps" type="checkbox" value="72"> &{'page.organisme.search.72'}
                                     </label>
                                 </li>
                                 <li>
                                     <label for="85">
-                                        <input id="85" name="deps" type="checkbox" value="85"> Vendée
+                                        <input id="85" name="deps" type="checkbox" value="85"> &{'page.organisme.search.85'}
                                     </label>
                                 </li>
                             </ul>
@@ -112,8 +112,8 @@
         <div class="row-fluid">
             <!-- Right column -->
             <div class="span8">
-                <a class="pull-right" href="@{Organismes.csv()}" title="Exporter l'annuaire en CSV">
-                    Exporter l'annuaire en CSV <img src="@{'public/images/pictos/csv.png'}" alt="" />
+                <a class="pull-right" href="@{Organismes.csv()}" title="&{'page.organisme.search.export'}">
+                &{'page.organisme.search.export'}<img src="@{'public/images/pictos/csv.png'}" alt="" />
                 </a>
             </div>
             <!-- Right column -->
