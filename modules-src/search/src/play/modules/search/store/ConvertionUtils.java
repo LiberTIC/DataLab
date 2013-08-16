@@ -65,7 +65,6 @@ public class ConvertionUtils {
                     JPABase joinObject = (JPABase ) field.get(currentObject);
                     for (java.lang.reflect.Field joinField : joinObject.getClass().getFields()) {
                         if (joinField.getName().equals(index.joinField())) {
-                            name = joinField.getName();
                             value = valueOf(joinObject, joinField);
                         }
                     }
@@ -76,6 +75,7 @@ public class ConvertionUtils {
                     continue;
 
                 // adding field to the current document
+                Logger.debug("indexing field " + name + " with value " + value);
                 document.add(new Field(name, value, index.stored() ? Field.Store.YES : Field.Store.NO, index.tokenize() ? Field.Index.ANALYZED : Field.Index.NOT_ANALYZED));
 
                 if (index.tokenize() && index.sortable()) {

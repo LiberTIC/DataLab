@@ -148,6 +148,12 @@ page.contact.security.help         = Veuillez saisir le code se sécurité (capt
 page.contact.send                  = Envoyer
 
 #
+# CMS
+#
+cms.blog.post.previous = Post précédent : %s
+cms.blog.post.next     = Post suivant : %s
+
+#
 # Login
 #
 securesocial.loginTitle                 = S'authentifier
