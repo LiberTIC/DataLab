@@ -1,5 +1,6 @@
 package play.modules.search;
 
+import play.Logger;
 import play.Play;
 import play.PlayPlugin;
 import play.exceptions.UnexpectedException;
@@ -32,6 +33,7 @@ public class SearchPlugin extends PlayPlugin {
 
     @Override
     public void onEvent(String message, Object context) {
+        Logger.debug("Message: " + message + " | object: " +context.toString());
         if (!message.startsWith("JPASupport"))
             return;
         if (message.equals("JPASupport.objectPersisted") || message.equals("JPASupport.objectUpdated")) {

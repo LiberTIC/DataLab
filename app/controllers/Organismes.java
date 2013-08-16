@@ -69,16 +69,15 @@ public class Organismes extends AbstractController {
             validation.keep();
             edit(id);
         }
-        organisme.save();
 
         // retrieve organisme master or create it
         OrganismeMaster master = new OrganismeMaster();
         if (id != null) {
             master = OrganismeMaster.findById(id);
         }
-        master.save();
         organisme.master = master;
         organisme.save();
+        master.save();
 
         // redirect user to show
         show(master.id);
@@ -169,7 +168,7 @@ public class Organismes extends AbstractController {
 
         // populate render
         List<OrganismeType> types = OrganismeType.findAll();
-        render(query, types, organismes);
+        render(query, typologies, deps, types, organismes);
     }
 
     /**

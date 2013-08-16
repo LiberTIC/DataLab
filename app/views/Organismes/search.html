@@ -58,7 +58,7 @@
                                 #{list items:types, as:'type'}
                                     <li>
                                         <label for="type${type.id}">
-                                            <input id="type${type.id}" name="typologies" type="checkbox" value="${type.id}">
+                                            <input id="type${type.id}" name="typologies" type="checkbox" value="${type.id}" #{if typologies?.contains(type.id)}checked="checked"#{/if} />
                                             ${type.libelle}
                                         </label>
                                     </li>
@@ -73,27 +73,27 @@
                             <ul class="unstyled">
                                 <li>
                                     <label for="44">
-                                        <input id="44" name="deps" type="checkbox" value="44"> &{'page.organisme.search.44'}
+                                        <input id="44" name="deps" type="checkbox" value="44" #{if deps?.contains("44")}checked="checked"#{/if} /> &{'page.organisme.search.44'}
                                     </label>
                                 </li>
                                 <li>
                                     <label for="49">
-                                        <input id="49" name="deps" type="checkbox" value="49"> &{'page.organisme.search.49'}
+                                        <input id="49" name="deps" type="checkbox" value="49" #{if deps?.contains("49")}checked="checked"#{/if} /> &{'page.organisme.search.49'}
                                     </label>
                                 </li>
                                 <li>
                                     <label for="53">
-                                        <input id="53" name="deps" type="checkbox" value="53"> &{'page.organisme.search.53'}
+                                        <input id="53" name="deps" type="checkbox" value="53" #{if deps?.contains("53")}checked="checked"#{/if} /> &{'page.organisme.search.53'}
                                     </label>
                                 </li>
                                 <li>
                                     <label for="72">
-                                        <input id="72" name="deps" type="checkbox" value="72"> &{'page.organisme.search.72'}
+                                        <input id="72" name="deps" type="checkbox" value="72" #{if deps?.contains("72")}checked="checked"#{/if} /> &{'page.organisme.search.72'}
                                     </label>
                                 </li>
                                 <li>
                                     <label for="85">
-                                        <input id="85" name="deps" type="checkbox" value="85"> &{'page.organisme.search.85'}
+                                        <input id="85" name="deps" type="checkbox" value="85" #{if deps?.contains("85")}checked="checked"#{/if} /> &{'page.organisme.search.85'}
                                     </label>
                                 </li>
                             </ul>
