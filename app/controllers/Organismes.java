@@ -132,7 +132,7 @@ public class Organismes extends AbstractController {
 
     public static void search(String query, List<Long> typologies, List<String> deps) {
 
-        List<OrganismeMaster> organismes = OrganismeMaster.search(query, typologies, deps);
+        List<OrganismeMaster> organismes = OrganismeMaster.search(query, typologies, deps, 1);
 
         // populate render
         List<OrganismeType> types = OrganismeType.findAll();
@@ -182,21 +182,19 @@ public class Organismes extends AbstractController {
     /**
      * Admin action to set partenaire.
      *
-     * @param partenaires
+     * @param id
      */
-    public static void setPartenaires(List<Long> partenaires) {
+    public static void setPartenaires(Long id) {
         isAdminUser();
 
-        for (Long id : partenaires) {
-            OrganismeMaster organisme = OrganismeMaster.findById(id);
-            if (organisme.isPartenaire == null | !organisme.isPartenaire) {
-                organisme.isPartenaire = Boolean.TRUE;
-            } else {
-                organisme.isPartenaire = Boolean.FALSE;
-            }
-            organisme.save();
+        OrganismeMaster organisme = OrganismeMaster.findById(id);
+        if (organisme.isPartenaire == null | !organisme.isPartenaire) {
+            organisme.isPartenaire = Boolean.TRUE;
+        } else {
+            organisme.isPartenaire = Boolean.FALSE;
         }
-        admin(null);
+        organisme.save();
+        renderJSON("");
     }
 
     /**

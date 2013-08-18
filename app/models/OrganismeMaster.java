@@ -17,6 +17,8 @@ import java.util.List;
 @Indexed
 public class OrganismeMaster extends Model implements ModelVersioned {
 
+    private final static int ITEM_PER_PAGE = 10;
+
     /**
      * Boolean field to know if the organisme is a partenaire.
      */
@@ -128,7 +130,7 @@ public class OrganismeMaster extends Model implements ModelVersioned {
      * @param deps
      * @return
      */
-    public static List<OrganismeMaster> search(String query, List<Long> typologies, List<String> deps){
+    public static List<OrganismeMaster> search(String query, List<Long> typologies, List<String> deps, int page){
         // default search
         String search = "*:*";
         if(query != null && query.trim().length() >0) {
@@ -169,7 +171,11 @@ public class OrganismeMaster extends Model implements ModelVersioned {
 
         Logger.debug("Search query is " + search);
         Query q = Search.search(search, OrganismeMaster.class);
-        List<OrganismeMaster> organismes = q.fetch();
+        if(query == null || query.trim().length() >0) {
+            //q.orderBy("created");
+        }
+        List<OrganismeMaster> organismes = q.page((page-1) * ITEM_PER_PAGE, ITEM_PER_PAGE).fetch();
+
         return organismes;
     }
 }

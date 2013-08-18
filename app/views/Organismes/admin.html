@@ -34,7 +34,12 @@
                     #{/if}
                 </td>
                 <td>${organisme?.getLastVersion()?.nom}</td>
-                <td>${organisme?.isPartenaire}</td>
+                <td>
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <button type="button" class="btn btn-success #{if organisme?.isPartenaire}active#{/if}">On</button>
+                        <button type="button" class="btn btn-danger #{if !organisme?.isPartenaire}active#{/if}">Off</button>
+                    </div>
+                </td>
                 <td>
                     <a class="btn btn-danger pull-right" href="@{Organismes.delete(organisme.id)}" title="Delete">
                         <i class="icon-remove"></i>
