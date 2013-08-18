@@ -158,8 +158,8 @@ cms.blog.post.next     = Post suivant : %s
 #
 securesocial.loginTitle                 = S'authentifier
 securesocial.login                      = S'authentifier
-securesocial.clickOnYourAccount         = Use your existing account on one of the following networks to log in.
-securesocial.useEmailAndPassword        = Or use a username and password.
+securesocial.clickOnYourAccount         = Utilisez votre compte de l'un des réseaux suivants pour vous authentifier
+securesocial.useEmailAndPassword        = Ou utilisez votre login / password.
 securesocial.email                      = Adresse email
 securesocial.emailHelp                  = john.doe@gmail.com
 securesocial.password                   = Password

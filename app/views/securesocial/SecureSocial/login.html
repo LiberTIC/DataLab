@@ -1,5 +1,6 @@
-#{extends 'page.html' /}
+#{extends 'page_logo.html' /}
 #{set title: messages.get('securesocial.loginTitle') /}
+#{set mainClass:'securesocial' /}
 
 <script language="javascript" type="text/javascript" charset="utf-8">
     function openid(type) {
@@ -13,6 +14,9 @@
 
 <div class="row-fluid">
     <div class="span12">
+
+        <h1>&{'securesocial.loginTitle'}</h1>
+
         #{if flash.error}
             <div class="alert alert-error">
                 ${flash.error}
@@ -38,7 +42,7 @@
         </div>
 
         <div id="openid-form" class="clearfix" style="display:none;">
-            #{form @securesocial.SecureSocial.authenticate(), class:"form-horizontal"}
+            #{form @securesocial.SecureSocial.authenticate(), class:"form-horizontal blockDefault"}
                 <input id="openid-type" type="hidden" name="type">
                 <fieldset>
                     <div class="control-group">
@@ -54,31 +58,36 @@
         #{if userPassEnabled }
             <div class="clearfix" >
                 <p>&{'securesocial.useEmailAndPassword'}</p>
-                #{form @securesocial.SecureSocial.authenticate(securesocial.provider.ProviderType.userpass), class:"form-horizontal"}
-                    <fieldset>
-                         <div class="control-group #{ifError 'userName'} error #{/ifError}">
+                #{form @securesocial.SecureSocial.authenticate(securesocial.provider.ProviderType.userpass), class:"form-horizontal blockDefault"}
+                    <fieldset class="blockLight">
+
+                        <!-- Login field -->
+                        <div class="control-group #{ifError 'userName'} error #{/ifError}">
                             <label class="control-label" for="displayName">&{'securesocial.userName'}</label>
                             <div class="controls">
-                                <input id="displayName" class="large" name="userName" value="${flash.userName}"/>
+                                <input type="text" id="displayName" class="large" name="userName" value="${flash.userName}"/>
                                 #{ifError 'userName'}
-                                <span class="help-inline">#{error 'userName'/}</span>
+                                    <span class="help-inline">#{error 'userName'/}</span>
                                 #{/ifError}
                             </div>
                         </div>
 
+                        <!-- Password field -->
                          <div class="control-group #{ifError 'password'} error #{/ifError}">
                             <label class="control-label" for="password">&{'securesocial.password'}</label>
                             <div class="controls">
                                 <input id="password" class="large" name="password" type="password"/>
                                 #{ifError 'password'}
-                                <span class="help-inline">&{'securesocial.required'}</span>
+                                    <span class="help-inline">&{'securesocial.required'}</span>
                                 #{/ifError}
                             </div>
                         </div>
 
+                        <!-- Submit -->
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">&{'securesocial.login'}</button>
+                            <button type="submit" class="btn btn-primary pull-right">&{'securesocial.login'}</button>
                         </div>
+
                     </fieldset>
                 #{/form}
             </div>
