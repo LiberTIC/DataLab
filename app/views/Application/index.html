@@ -21,24 +21,32 @@
             #{cms.display 'home_axes' }
                 <ul class="inline span12">
                     <li class="odd span3">
-                        <img src="@{'public/images/axes/former.png'}" alt=""/>
-                        <h3>Former</h3>
-                        <p>A la culture, aux outils, aux traitements, aux techniques</p>
+                        <a href="@{cms.Frontend.show('le-projet')}" title="Le projet">
+                            <img src="@{'public/images/axes/former.png'}" alt=""/>
+                            <h3>Former</h3>
+                            <p>A la culture, aux outils, aux traitements, aux techniques</p>
+                        </a>
                     </li>
                     <li class="even span3">
-                        <img src="@{'public/images/axes/experimenter.png'}" alt=""/>
-                        <h3>Expérimenter</h3>
-                        <p>Des projets innovants en lien avec des experts</p>
+                        <a href="@{cms.Frontend.show('le-projet')}" title="Le projet">
+                            <img src="@{'public/images/axes/experimenter.png'}" alt=""/>
+                            <h3>Expérimenter</h3>
+                            <p>Des projets innovants en lien avec des experts</p>
+                        </a>
                     </li>
                     <li class="odd span3">
-                        <img src="@{'public/images/axes/developper.png'}" alt=""/>
-                        <h3>Développer</h3>
-                        <p>Des services, des usages, des recherchers, des animations</p>
+                        <a href="@{cms.Frontend.show('le-projet')}" title="Le projet">
+                            <img src="@{'public/images/axes/developper.png'}" alt=""/>
+                            <h3>Développer</h3>
+                            <p>Des services, des usages, des recherchers, des animations</p>
+                        </a>
                     </li>
                     <li class="even span3">
-                        <img src="@{'public/images/axes/valoriser.png'}" alt=""/>
-                        <h3>Valoriser</h3>
-                        <p>Les acteurs, les compétences, les initiatives</p>
+                        <a href="@{cms.Frontend.show('le-projet')}" title="Le projet">
+                            <img src="@{'public/images/axes/valoriser.png'}" alt=""/>
+                            <h3>Valoriser</h3>
+                            <p>Les acteurs, les compétences, les initiatives</p>
+                        </a>
                     </li>
                 </ul>
             #{/cms.display}
@@ -217,7 +225,7 @@
         <div id="devenirpartenaire">
             <a href="@{Organismes.partenaires()}" title="Devenez partenaire">
                 <span>Devenez Partenaire</span>
-                <img src="@{'public/images/pictos/right-arrow.png'}" atl="" />
+                <img src="@{'public/images/pictos/right-arrow.png'}" alt="" />
             </a>
         </div>
     </div>
