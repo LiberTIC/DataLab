@@ -28,7 +28,8 @@ INSERT INTO organismetype VALUES (3, 'Enseignement');
 INSERT INTO organismetype VALUES (4, 'Entreprise');
 INSERT INTO organismetype VALUES (5, 'Média');
 INSERT INTO organismetype VALUES (6, 'Recherche');
-INSERT INTO organismetype VALUES (7, 'Autre');
+INSERT INTO organismetype VALUES (7, 'Statups');
+INSERT INTO organismetype VALUES (8, 'Autre');
 
 -- Nb Salarie
 INSERT INTO organismenbsalarie VALUES (1, '1 à 5');

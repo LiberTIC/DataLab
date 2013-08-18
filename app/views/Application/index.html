@@ -49,42 +49,56 @@
 <!-- Communauté -->
 <div id="communaute" class="row-fluid blockEven">
     <div class="container">
-        #{cms.display 'home_axes' }
+        #{cms.display 'home_acteurs' }
             <h2>Une communauté d'acteurs</h2>
             <ul class="inline row-fluid">
-                <li class="first">
-                    <div id="medias">
-                        <span>Médias</span>
-                    </div>
-                </li>
                 <li>
                     <div id="collectivites">
-                        <span>Collectivités</span>
-                    </div>
-                </li>
-                <li>
-                    <div id="associations">
-                        <span>Associations</span>
-                    </div>
-                </li>
-                <li>
-                    <div id="enseignement">
-                        <span>Enseignement</span>
+                        <a href="@{Organismes.search(null,2, null)}" title="Voir la liste des collectivités dans l'annuaire">
+                            <span>Collectivités</span>
+                        </a>
                     </div>
                 </li>
                 <li>
                     <div id="entreprises">
-                        <span>Entreprises</span>
+                        <a href="@{Organismes.search(null,4, null)}" title="Voir la liste des entreprises dans l'annuaire">
+                            <span>Entreprises</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div id="enseignement">
+                        <a href="@{Organismes.search(null,3, null)}" title="Voir la liste des enseigants dans l'annuaire">
+                            <span>Enseignement</span>
+                        </a>
                     </div>
                 </li>
                 <li>
                     <div id="recherche">
-                        <span>Recherche</span>
+                        <a href="@{Organismes.search(null,6, null)}" title="Voir la liste des chercheurs dans l'annuaire">
+                            <span>Recherche</span>
+                        </a>
                     </div>
                 </li>
                 <li class="last">
                     <div id="startups">
-                        <span>Startups</span>
+                        <a href="@{Organismes.search(null,7, null)}" title="Voir la liste des startups dans l'annuaire">
+                            <span>Startups</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="first">
+                    <div id="medias">
+                        <a href="@{Organismes.search(null,5, null)}" title="Voir la liste des médias dans l'annuaire">
+                            <span>Médias</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div id="associations">
+                        <a href="@{Organismes.search(null,1, null)}" title="Voir la liste des associations dans l'annuaire">
+                            <span>Associations</span>
+                        </a>
                     </div>
                 </li>
             </ul>
