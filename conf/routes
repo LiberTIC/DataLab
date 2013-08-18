@@ -31,6 +31,7 @@ GET     /contact/captcha                        Contact.captcha
 #
 GET     /admin                                  Application.admin
 GET     /admin/organisme                        Organismes.admin
+GET     /admin/organisme/{<[0-9]+>id}partenaire Organismes.partenaire
 
 #
 # Modules routes

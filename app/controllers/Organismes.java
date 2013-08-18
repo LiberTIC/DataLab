@@ -184,17 +184,17 @@ public class Organismes extends AbstractController {
      *
      * @param id
      */
-    public static void setPartenaires(Long id) {
+    public static void partenaire(Long id, Boolean isPartenaire) {
         isAdminUser();
 
         OrganismeMaster organisme = OrganismeMaster.findById(id);
-        if (organisme.isPartenaire == null | !organisme.isPartenaire) {
+        if (isPartenaire) {
             organisme.isPartenaire = Boolean.TRUE;
         } else {
             organisme.isPartenaire = Boolean.FALSE;
         }
         organisme.save();
-        renderJSON("");
+        admin(null);
     }
 
     /**

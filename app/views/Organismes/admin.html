@@ -36,8 +36,8 @@
                 <td>${organisme?.getLastVersion()?.nom}</td>
                 <td>
                     <div class="btn-group" data-toggle="buttons-radio">
-                        <button type="button" class="btn btn-success #{if organisme?.isPartenaire}active#{/if}">On</button>
-                        <button type="button" class="btn btn-danger #{if !organisme?.isPartenaire}active#{/if}">Off</button>
+                        <a href="@{Organismes.partenaire(organisme.id, true)}" class="btn btn-success #{if organisme?.isPartenaire}active#{/if}">On</a>
+                        <a href="@{Organismes.partenaire(organisme.id, false)}" class="btn btn-danger #{if !organisme?.isPartenaire}active#{/if}">Off</a>
                     </div>
                 </td>
                 <td>
