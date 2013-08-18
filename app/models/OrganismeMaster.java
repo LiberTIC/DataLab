@@ -1,8 +1,11 @@
 package models;
 
+import play.Logger;
 import play.db.jpa.Model;
 import play.modules.search.Indexed;
 import play.modules.search.ModelVersioned;
+import play.modules.search.Query;
+import play.modules.search.Search;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -116,4 +119,57 @@ public class OrganismeMaster extends Model implements ModelVersioned {
         return data;
     }
 
+
+    /**
+     * Search an organisme with lucene.
+     *
+     * @param query
+     * @param typologies
+     * @param deps
+     * @return
+     */
+    public static List<OrganismeMaster> search(String query, List<Long> typologies, List<String> deps){
+        // default search
+        String search = "*:*";
+        if(query != null && query.trim().length() >0) {
+            search = "(";
+            search += "nom:" + query + "*";
+            search += " OR description:" + query + "~";
+            search += " OR produit:" + query + "~";
+            search += " OR tags:" + query + "~";
+            search += " OR activites:" + query + "~";
+            search += " OR ville:" + query + "~";
+            search += ")";
+        }
+
+        // query for typologie
+        if(typologies != null) {
+            String typeQuery = "";
+            for(Long id:typologies) {
+                OrganismeType type = OrganismeType.findById(id);
+                if(type != null) {
+                    if(typeQuery.length() > 0) {
+                        typeQuery += " OR ";
+                    }
+                    typeQuery += "type:\"" + type.libelle + "\"";
+                }
+            }
+            search +=  " AND (" + typeQuery + ")";
+        }
+        if(deps != null) {
+            String depsQuery = "";
+            for(String dep:deps) {
+                if(depsQuery.length() > 1) {
+                    depsQuery += " OR ";
+                }
+                depsQuery += "codePostal:" + dep + "*";
+            }
+            search +=  " AND (" + depsQuery + ")";
+        }
+
+        Logger.debug("Search query is " + search);
+        Query q = Search.search(search, OrganismeMaster.class);
+        List<OrganismeMaster> organismes = q.fetch();
+        return organismes;
+    }
 }

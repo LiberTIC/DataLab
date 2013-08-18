@@ -1,48 +1,54 @@
 &.search {
 
-  .blockDark {
-    background-image: url('/public/images/annuaire-background.png');
-    background-repeat: no-repeat;
-    background-position: 0 120px;
-    .container {
-      .span8, .span4 {
-        padding: 20px 40px 40px 0;
-        h2, h3 {
-          color: @white;
-          text-transform: none;
-          font-size: 25px;
+  #form {
+
+    .blockDark {
+      background-image: url('/public/images/annuaire-background.png');
+      background-repeat: no-repeat;
+      background-position: 0 120px;
+      .container {
+        .row-fluid {
         }
-      }
-      .span8 {
-        padding-top: 0;
-        padding-right: 0;
-        > div {
-          padding-right: 40px;
-        }
-      }
-      .span4 {
-        &> div {
-          margin-top: 30px;
-          h3 {
-            font-weight: bold;
-            font-size: 30px;
+        .span8, .span4 {
+          padding: 20px 40px 40px 0;
+          h2, h3 {
+            color: @white;
+            text-transform: none;
+            font-size: 25px;
           }
+        }
+        .span8 {
+          padding-top: 0;
+          padding-right: 0;
+          min-height: 625px;
+          > div {
+            padding-right: 40px;
+          }
+        }
+        .span4 {
+          &> div {
+            margin-top: 30px;
+            h3 {
+              font-weight: bold;
+              font-size: 30px;
+            }
 
-          div.blockDefault {
-            padding: 10px;
+            div.blockDefault {
+              padding: 10px;
 
-            ul {
-              background-color: @greyLight;
-              margin: 0;
-              color: @black;
-              padding: 10px 0 10px 20px;
+              ul {
+                background-color: @greyLight;
+                margin: 0;
+                color: @black;
+                padding: 10px 0 10px 20px;
 
-              li {
-                input {
-                  margin-right: 10px;
-                }
-                &:hover {
-                  background: url('/public/images/pictos/left-blue-arrow.png') no-repeat 100% 100% transparent;
+                li {
+                  input {
+                    margin-right: 10px;
+                  }
+                  &:hover {
+                    background: url('/public/images/pictos/left-blue-arrow.png') no-repeat 100% 100% transparent;
+                  }
                 }
               }
             }
@@ -50,6 +56,7 @@
         }
       }
     }
+
   }
 
   #searchIntro {

@@ -131,40 +131,8 @@ public class Organismes extends AbstractController {
     }
 
     public static void search(String query, List<Long> typologies, List<String> deps) {
-        // default search
-        String search = "*:*";
-        if(query != null && query.trim().length() >0) {
-            search = "nom:" + query + "*";
-        }
 
-        // query for typologie
-        if(typologies != null) {
-            String typeQuery = "";
-            for(Long id:typologies) {
-                OrganismeType type = OrganismeType.findById(id);
-                if(type != null) {
-                    if(typeQuery.length() > 0) {
-                        typeQuery += " OR ";
-                    }
-                    typeQuery += "type:\"" + type.libelle + "\"";
-                }
-            }
-            search +=  " AND (" + typeQuery + ")";
-        }
-        if(deps != null) {
-            String depsQuery = "";
-            for(String dep:deps) {
-                    if(depsQuery.length() > 1) {
-                        depsQuery += " OR ";
-                    }
-                    depsQuery += "codePostal:" + dep + "*";
-            }
-            search +=  " AND (" + depsQuery + ")";
-        }
-
-        Logger.debug("Search query is " + search);
-        Query q = Search.search(search, OrganismeMaster.class);
-        List<OrganismeMaster> organismes = q.fetch();
+        List<OrganismeMaster> organismes = OrganismeMaster.search(query, typologies, deps);
 
         // populate render
         List<OrganismeType> types = OrganismeType.findAll();
