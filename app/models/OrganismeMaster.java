@@ -171,8 +171,9 @@ public class OrganismeMaster extends Model implements ModelVersioned {
 
         Logger.debug("Search query is " + search);
         Query q = Search.search(search, OrganismeMaster.class);
-        if(query == null || query.trim().length() >0) {
-            //q.orderBy("created");
+        if(query == null || query.trim().length() ==0) {
+            q.orderBy("created");
+            q.reverse();
         }
         List<OrganismeMaster> organismes = q.page((page-1) * ITEM_PER_PAGE, ITEM_PER_PAGE).fetch();
 
