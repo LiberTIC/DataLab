@@ -71,7 +71,7 @@
             <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.body.help'}"><i class="icon-info-sign"></i></a>
         </label>
         <div class="controls">
-            <textarea id="body" name="page.body" placeholder="&{'cms.page.body.placeholder'}" class="span12" rows="30">${page?.body}</textarea>
+            <textarea id="body" name="page.body" placeholder="&{'cms.page.body.placeholder'}" class="span12 tynimce" rows="30">${page?.body}</textarea>
             #{if errors?.forKey('page.body')}
                 <span class="help-inline">#{error 'page.body' /}</span>
             #{/if}
@@ -92,6 +92,10 @@
         elements : 'nourlconvert',
         theme : "advanced",
         plugins : "advimage, advlink",
+        editor_selector : "tynimce",
+
+        // including css
+        content_css: "@{'public/stylesheets/main.less'}",
 
         // Theme options - button# indicated the row# only
         theme_advanced_buttons1 : "newdocument,|,bold,italic,underline,|,justifyleft,justifycenter,justifyright,fontselect,fontsizeselect,formatselect",
