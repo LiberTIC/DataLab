@@ -136,7 +136,10 @@
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.creation.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
-                    <input type="text" id="creation" name="organisme.creation" placeholder="&{'organisme.creation.placeholder'}" value="#{if flash['organisme.creation']}${flash['organisme.creation']}#{/if}#{else}${_organisme?.creation}#{/else}"/>
+                    <div class="input-append date datepicker" >
+                        <input  id="creation" data-date-format="dd-mm-yyyy" name="organisme.creation" class="span2" size="16" type="date" value="#{if flash['organisme.creation']}${flash['organisme.creation']}#{/if}#{else}${_organisme?.creation?.format('dd-MM-yyyy')}#{/else}">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
                     #{ifError 'organisme.creation'}
                         <span class="help-inline">#{error 'organisme.creation' /}</span>
                     #{/ifError}

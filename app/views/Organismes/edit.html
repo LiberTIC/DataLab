@@ -1,6 +1,17 @@
 #{extends 'page.html' /}
 #{set title:messages.get('page.organisme.edit.title') /}
 #{set mainClass:'organisme' /}
+#{set 'moreScripts'}
+    <script src="@{'/public/javascripts/bootstrap-datepicker.js'}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#creation').datepicker();
+            $("span.add-on").click(function() {
+                $('#creation').datepicker('show');
+            })
+        });
+    </script>
+#{/set}
 
 <h1>&{'page.organisme.edit.title'} <span>&{'page.organisme.edit.stitle'}</span></h1>
 
