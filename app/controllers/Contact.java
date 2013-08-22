@@ -13,14 +13,27 @@ import securesocial.provider.SocialUser;
 import java.util.concurrent.ExecutionException;
 
 /**
- * Controller that managed contact form.
+ * Controller that managed contact forms.
  */
 public class Contact extends AbstractController {
 
     /**
-     * Display the form contact.
+     * Display the contact form.
      */
     public static void index() {
+        String randomID = Codec.UUID();
+        SocialUser user = SecureSocial.getCurrentUser();
+        if (user != null) {
+            params.put("author", user.displayName);
+            params.put("email", user.email);
+        }
+        render(randomID);
+    }
+
+    /**
+     * Display the participez form.
+     */
+    public static void participez() {
         String randomID = Codec.UUID();
         SocialUser user = SecureSocial.getCurrentUser();
         if (user != null) {
@@ -45,17 +58,19 @@ public class Contact extends AbstractController {
     }
 
     /**
-     * Send the contact email.
+     * Send the contact mail.
      *
      * @param author
      * @param message
      * @param email
+     * @param structure
+     * @param telephone
      * @param code
      * @param randomID
      * @throws InterruptedException
      * @throws ExecutionException
      */
-    public static void send(@Required String author, @Required String message, @Required @Email String email, @Required String code, String randomID) throws InterruptedException, ExecutionException {
+    public static void send(String type, @Required String author, @Required String message, @Required @Email String email, String structure, String telephone,  @Required String code, String randomID) throws InterruptedException, ExecutionException {
         if (!Play.id.equals("test")) {
             validation.equals(code, Cache.get(randomID)).message("Invalid code. Please type it again");
         }
@@ -65,9 +80,15 @@ public class Contact extends AbstractController {
             randomID = Codec.UUID();
             render("@index", randomID);
         }
-        Mails.contact(author, message, email);
+        Mails.contact(type, author, message, email, structure, telephone);
         flash.success("Merci pour votre intéret %s", author);
-        index();
+
+        if(type.equals("contact")) {
+            index();
+        }
+        else {
+            participez();
+        }
     }
 
 }

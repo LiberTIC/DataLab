@@ -23,6 +23,7 @@ GET     /organisme/logo/{<[0-9]+>id}            Organismes.logo
 # Contact
 #
 GET     /contact                                Contact.index
+GET     /participez                             Contact.participez
 POST    /contact                                Contact.send
 GET     /contact/captcha                        Contact.captcha
 

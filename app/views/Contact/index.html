@@ -4,13 +4,15 @@
 <div class="row">
     <div class="span12">
 
-        <h1>Contactez nous !</h1>
+        <h1>&{'page.contact.title'}</h1>
 
         #{cms.display 'contact'}
             <p>Pour toutes questions ou suggestions, n'hésitez pas à nous contcater via le formulaire ci-dessous :</p>
         #{/cms.display}
 
         #{form @Contact.send(), class:"form-horizontal contact"}
+
+            <input type="hidden" name="type" value="contact" />
 
             #{ifErrors}
                 <div class="alert alert-error">

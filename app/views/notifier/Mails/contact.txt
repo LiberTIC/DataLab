@@ -1,5 +1,12 @@
 Bonjour,
 
-${author} souhaite vous contacter et a laissé ce message :
+#{if type == 'contact}${author} souhaite vous contacter et a laissé ce message :#{/if}
+#{else}${structure} souhaite participez et à laissé la proposition suivantes : #{/else}
 
 ${message}
+
+Voici ses coordonnées :
+ * Nom       : ${author}
+ * Structure : ${structure}
+ * email     : ${email}
+ * Tel       : ${telephone}

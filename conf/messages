@@ -148,6 +148,22 @@ page.contact.security.help         = Veuillez saisir le code se sécurité (capt
 page.contact.send                  = Envoyer
 
 #
+# page participez
+#
+page.participez.title                 = Participez
+page.participez.author                = Votre nom
+page.participez.author.placeholder    = Pierre Dupont
+page.participez.author.help           = Veuillez saisir votre nom et prénom
+page.participez.structure             = Votre structure
+page.participez.structure.placeholder = DataLab
+page.participez.structure.help        = Veuillez saisir votre structure
+page.participez.email                 = Votre email
+page.participez.email.placeholder     = pierre.dupont@yopmail.com
+page.participez.email.help            = Veuillez saisir votre adresse email
+page.participez.message               = Votre proposition
+page.participez.message.help          = Veuillez saisir votre votre proposition ou besoin
+
+#
 # CMS
 #
 cms.blog.post.previous = Post précédent : %s

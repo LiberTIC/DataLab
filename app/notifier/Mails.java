@@ -34,6 +34,7 @@ public class Mails extends Mailer {
     /**
      * Method that send a mail for the contact form.
      *
+     * @param type
      * @param author
      * @param message
      * @param email
@@ -41,9 +42,14 @@ public class Mails extends Mailer {
      *
      * @throws InterruptedException
      */
-    public static void contact(String author, String message, String email) throws InterruptedException, ExecutionException {
+    public static void contact(String type, String author, String message, String email, String structure, String telephone) throws InterruptedException, ExecutionException {
         Logger.debug("A mail is about to be sent by " + author + "(" + email + ")");
-        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] %s souhaite vous contacter", author);
+        if(type.equals("contact")) {
+            setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] %s souhaite vous contacter", author);
+        }
+        else {
+            setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] %s souhaite participez", structure);
+        }
         setFrom(Play.configuration.getProperty("application.mail.noreply"));
         setReplyTo(email);
         List<User> admins = User.find("SELECT u FROM User u WHERE isAdmin = true").fetch();
@@ -52,7 +58,7 @@ public class Mails extends Mailer {
                 addRecipient(admin.email);
             }
         }
-        send(author, message);
+        send(type, author, message, structure, telephone, email);
     }
 
 }
