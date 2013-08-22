@@ -9,6 +9,7 @@ import play.modules.search.Search;
 import play.mvc.Scope;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Controller to manage organisme pages.
@@ -130,13 +131,16 @@ public class Organismes extends AbstractController {
         renderBinary(organisme.logo.get());
     }
 
-    public static void search(String query, List<Long> typologies, List<String> deps) {
+    public static void search(String query, List<Long> typologies, List<String> deps, Integer page) {
 
-        List<OrganismeMaster> organismes = OrganismeMaster.search(query, typologies, deps, 1);
+        Map<String, Object> result = OrganismeMaster.search(query, typologies, deps, page);
+        List<OrganismeMaster> organismes = (List<OrganismeMaster>) result.get(OrganismeMaster.MAP_RESULT_LIST);
+        Integer nbItems = (Integer) result.get(OrganismeMaster.MAP_RESULT_NB);
+        Long nbTotal = Long.valueOf(OrganismeMaster.count());
 
         // populate render
         List<OrganismeType> types = OrganismeType.findAll();
-        render(query, typologies, deps, types, organismes);
+        render(query, typologies, deps, types, organismes, page, nbItems, nbTotal);
     }
 
     /**

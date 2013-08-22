@@ -18,7 +18,7 @@ page.organisme.search.export                     = Exporter l'annuaire
 page.organisme.search.site.title                 = Voir le site de %s
 page.organisme.search.item.show                  = Allez à la fiche de %s
 page.organisme.search.logo.alt                   = Logo de %s
-
+page.organisme.search.baseline                   = La recherche retourne %s résultat(s) sur %s
 #
 # page organisme show
 #

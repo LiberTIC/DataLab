@@ -11,13 +11,17 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Indexed
 public class OrganismeMaster extends Model implements ModelVersioned {
 
-    private final static int ITEM_PER_PAGE = 10;
+    private final static int ITEM_PER_PAGE = 5;
+    public static final String MAP_RESULT_LIST = "result";
+    public static final String MAP_RESULT_NB = "nb";
 
     /**
      * Boolean field to know if the organisme is a partenaire.
@@ -130,7 +134,10 @@ public class OrganismeMaster extends Model implements ModelVersioned {
      * @param deps
      * @return
      */
-    public static List<OrganismeMaster> search(String query, List<Long> typologies, List<String> deps, int page){
+    public static Map<String, Object> search(String query, List<Long> typologies, List<String> deps, Integer page){
+        if (page == null) {
+            page =1;
+        }
         // default search
         String search = "*:*";
         if(query != null && query.trim().length() >0) {
@@ -176,7 +183,13 @@ public class OrganismeMaster extends Model implements ModelVersioned {
             q.reverse();
         }
         List<OrganismeMaster> organismes = q.page((page-1) * ITEM_PER_PAGE, ITEM_PER_PAGE).fetch();
+        Integer nb = q.count();
 
-        return organismes;
+        // create the result map
+        HashMap<String, Object> result = new HashMap<String, Object>();
+        result.put(MAP_RESULT_NB, nb);
+        result.put(MAP_RESULT_LIST, organismes);
+
+        return result;
     }
 }

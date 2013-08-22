@@ -124,7 +124,7 @@ public class Query {
         }
     }
 
-    public long count() throws SearchException {
+    public Integer count() throws SearchException {
         try {
             org.apache.lucene.search.Query luceneQuery = new QueryParser(Search.getLuceneVersion(), "_docID", Search.getAnalyser()).parse(query);
             topDocs = store.getIndexSearcher(clazz.getName()).search(luceneQuery, null, Integer.MAX_VALUE, getSort());

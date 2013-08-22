@@ -142,6 +142,42 @@
       }
     }
   }
+
+  #searchText {
+    color: @black;
+    margin-top: 10px;
+    padding-right: 40px;
+  }
+
+  #pagination {
+    .pagination {
+      text-align: center;
+      margin-top: 40px;
+      padding-right: 20px;
+      ul {
+        padding: 10px;
+        background-color: @white;
+        height: 30px;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        li {
+          display: inline-block;
+          height: 30px;
+          padding: 0 3px;
+          a {
+            background-color: @greyLight;
+            &.current {
+              border: 1px solid @black;
+            }
+          }
+          &:first-child a, &:last-child a {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 #export {

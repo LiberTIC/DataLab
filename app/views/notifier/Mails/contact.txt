@@ -1,6 +1,6 @@
 Bonjour,
 
-#{if type == 'contact}${author} souhaite vous contacter et a laissé ce message :#{/if}
+#{if type == 'contact'}${author} souhaite vous contacter et a laissé ce message :#{/if}
 #{else}${structure} souhaite participez et à laissé la proposition suivantes : #{/else}
 
 ${message}
