@@ -47,6 +47,7 @@ public class ContactTest extends FunctionalTest {
     public void testSend(){
         //@Required String author, @Required String message, @Required @Email String email, @Required String code, String randomID
         Map<String, String> args = new HashMap<String, String>();
+        args.put("type", "contact");
         args.put("author", "Benoît Simard");
         args.put("email", "bsimard@yopmail.com");
         args.put("code", "XXXX");

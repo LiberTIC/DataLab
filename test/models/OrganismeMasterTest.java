@@ -25,9 +25,9 @@ public class OrganismeMasterTest extends UnitTest {
         assertEquals("Nantes", orga.ville);
         assertEquals("44000", orga.codePostal);
         assertEquals("bsimard@yopmail.com", orga.email);
-        assertEquals("produit", orga.produit);
+        assertEquals("Site web", orga.produit);
         assertEquals("+33000000000", orga.telephone);
-        assertEquals("Enseignement-Recherche", orga.type.libelle);
+        assertEquals("Association", orga.type.libelle);
         assertNotNull(orga.wsg_x);
         assertNotNull(orga.wsg_y);
     }

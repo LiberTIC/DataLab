@@ -31,16 +31,4 @@ public class OrganismeTest extends FunctionalTest {
         assertContentType("text/csv", response);
     }
 
-    /**
-     * Testing logo generation.
-     */
-    @Test
-    public void testLogo() {
-        Response response = GET("/organisme/logo/1");
-        assertIsOk(response);
-        OrganismeMaster master = Organisme.findById(1);
-        Organisme organisme = master.getLastVersion();
-        assertContentType(organisme.logo.type(), response);
-    }
-    
 }
