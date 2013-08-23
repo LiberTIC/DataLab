@@ -17,6 +17,7 @@ import java.util.Map;
 
 @Entity
 @Indexed
+
 public class OrganismeMaster extends Model implements ModelVersioned {
 
     private final static int ITEM_PER_PAGE = 5;

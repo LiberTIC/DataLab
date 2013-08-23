@@ -2,6 +2,7 @@ package models.cms;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import play.data.validation.Required;
 import play.db.jpa.Blob;
@@ -13,6 +14,7 @@ import java.util.Date;
 
 @Entity
 @Indexed
+@Table(name = "cmsimage")
 public class CMSImage extends GenericModel {
 
     @Id

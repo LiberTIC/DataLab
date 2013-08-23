@@ -5,8 +5,10 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "organismenbsalarie")
 public class OrganismeNbSalarie extends Model {
 
     @Required

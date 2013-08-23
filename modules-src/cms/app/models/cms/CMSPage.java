@@ -11,12 +11,14 @@ import play.templates.TemplateLoader;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Indexed
+@Table(name = "cmspage")
 public class CMSPage extends GenericModel {
 
     @Id
