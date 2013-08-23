@@ -7,17 +7,14 @@ import play.modules.search.ModelVersioned;
 import play.modules.search.Query;
 import play.modules.search.Search;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Entity
 @Indexed
-
+@Table(name = "organismemaster")
 public class OrganismeMaster extends Model implements ModelVersioned {
 
     private final static int ITEM_PER_PAGE = 5;

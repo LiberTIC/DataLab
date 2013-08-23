@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "organismentype")
+@Table(name = "organismetype")
 public class OrganismeType extends Model {
 
     @Required
