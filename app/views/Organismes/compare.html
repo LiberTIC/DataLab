@@ -1,0 +1,13 @@
+#{extends 'admin.html' /}
+#{set title:'Admin - Organisme' /}
+
+<h1>Comparaison des versions du ${organismeFrom.created.format("dd/MM/yyyy")} et ${organismeTo.created.format("dd/MM/yyyy")}</h1>
+
+<div id="compare" class="row">
+    <div class="span6">
+        #{organisme organisme:organismeFrom, types:types, activites:activites, nbSalaries:nbSalaries, id:id, as:'form', disabled:'true' /}
+    </div>
+    <div class="span6">
+    #{organisme organisme:organismeTo, types:types, activites:activites, nbSalaries:nbSalaries, id:id, as:'form', disabled:'true' /}
+    </div>
+</div>

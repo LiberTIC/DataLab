@@ -17,10 +17,10 @@
     </caption>
     <thead>
         <tr>
-            <th class="span1" data-defaultsort="asc">Id</th>
-            <th class="span3">Logo</th>
-            <th class="span3">Nom</th>
-            <th class="span3">Partenaire</th>
+            <th class="span1" data-defaultsort="desc">Id</th>
+            <th class="span4">Logo</th>
+            <th class="span4">Nom</th>
+            <th class="span1">Partenaire</th>
             <th class="span2">Action</th>
         </tr>
     </thead>
@@ -41,6 +41,9 @@
                     </div>
                 </td>
                 <td>
+                    <a class="btn pull-right" href="@{Organismes.history(organisme.id)}" title="History">
+                        <i class="icon-archive"></i>
+                    </a>
                     <a class="btn btn-danger pull-right" href="@{Organismes.delete(organisme.id)}" title="Delete">
                         <i class="icon-remove"></i>
                     </a>

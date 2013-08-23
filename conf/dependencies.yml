@@ -3,4 +3,3 @@
 require:
     - play
     - play -> secure
-    - jlibdiff -> jlibdiff 1.01

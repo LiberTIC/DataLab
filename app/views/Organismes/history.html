@@ -1,0 +1,36 @@
+#{extends 'admin.html' /}
+#{set title:'Admin - Organisme' /}
+
+<h1>Historique des versions de ${master.getLastVersion().nom}</h1>
+
+#{form @Organismes.compare(), class:"form-horizontal", method:"GET"}
+    <table class="table table-hover table-striped sortable">
+        <thead>
+            <tr>
+                <th class="span1" data-defaultsort="asc">Id</th>
+                <th class="span8">Date</th>
+                <th class="span3">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            %{int i = 0;}%
+            #{list items:master.getVersions(), as:'organisme' }
+                %{i++;}%
+                <tr>
+                    <td>${i}</td>
+                    <td>${organisme.created.format("dd/MM/yyyy")}</td>
+                    <td>
+                        <input type="radio" name="from" value="${organisme.id}"/>
+                        <input type="radio" name="to" value="${organisme.id}"/>
+                        <a class="btn btn-info pull-right" href="@{Organismes.version(organisme.id)}" title="View">
+                            <i class="icon-eye-open"></i>
+                        </a>
+                    </td>
+                </tr>
+            #{/list}
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary pull-right" type="submit">Comparer</button>
+
+#{/form}

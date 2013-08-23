@@ -90,10 +90,52 @@ public class Organismes extends AbstractController {
      * @param id
      */
     public static void history(Long id) {
-        // retrieve organisme master or create it
-        OrganismeMaster master = new OrganismeMaster();
+        // only for admin
+        isAdminUser();
+
+        // retrieve organisme master
+        OrganismeMaster master = OrganismeMaster.findById(id);
         notFoundIfNull(master);
+
         render(master);
+    }
+
+    /**
+     * Display the version of the organisme.
+     *
+     * @param id
+     */
+    public static void version(Long id) {
+        // only for admin
+        isAdminUser();
+
+        // retrive organisme
+        Organisme organisme = Organisme.findById(id);
+        notFoundIfNull(organisme);
+
+        render("@show", organisme, organisme.master.id);
+    }
+
+    /**
+     * Compare two version
+     *
+     * @param from
+     * @param to
+     */
+    public static void compare(Long from, Long to) {
+        // only for admin
+        isAdminUser();
+
+        // retrive organisme
+        Organisme organismeFrom = Organisme.findById(from);
+        Organisme organismeTo = Organisme.findById(to);
+
+        // depends objects
+        List<OrganismeType> types = OrganismeType.findAll();
+        List<OrganismeActivite> activites = OrganismeActivite.findAll();
+        List<OrganismeNbSalarie> nbSalaries = OrganismeNbSalarie.findAll();
+
+        render(organismeFrom, organismeTo, types, activites, nbSalaries);
     }
 
     /**
@@ -132,6 +174,10 @@ public class Organismes extends AbstractController {
     }
 
     public static void search(String query, List<Long> typologies, List<String> deps, Integer page) {
+
+        if(page == null){
+            page = 1;
+        }
 
         Map<String, Object> result = OrganismeMaster.search(query, typologies, deps, page);
         List<OrganismeMaster> organismes = (List<OrganismeMaster>) result.get(OrganismeMaster.MAP_RESULT_LIST);
