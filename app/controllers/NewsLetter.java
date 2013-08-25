@@ -13,7 +13,7 @@ public class NewsLetter extends AbstractController {
     /**
      * Page to register to the newsletter.
      */
-    public static void register(){
+    public static void register() {
         render();
     }
 
@@ -22,16 +22,18 @@ public class NewsLetter extends AbstractController {
      *
      * @param email
      */
-    public static void registerSave(@Required @Email String email, @Required Boolean cgu){
+    public static void registerSave(@Required @Email String email, @Required Boolean cgu) {
         // is it valid ?
         if (validation.hasErrors()) {
             params.flash();
             validation.keep();
             register();
         }
-        NewsLetterMember member = new NewsLetterMember();
-        member.email = email;
-        member.save();
+        NewsLetterMember member = NewsLetterMember.findById(email);
+        if (member == null) {
+            member.email = email;
+            member.save();
+        }
         flash.success("Votre inscription est validée. Vous allez recevoir un email de confirmation");
         Mails.newsletterRegister(email);
         register();
@@ -40,14 +42,14 @@ public class NewsLetter extends AbstractController {
     /**
      * Page to unregister to the newsletter.
      */
-    public static void unregister(){
+    public static void unregister() {
         render();
     }
 
     /**
      * Action to save the unregistration.
      */
-    public static void unregisterSave(@Required @Email String email){
+    public static void unregisterSave(@Required @Email String email) {
         // is it valid ?
         if (validation.hasErrors()) {
             params.flash();
@@ -56,7 +58,7 @@ public class NewsLetter extends AbstractController {
         }
 
         NewsLetterMember member = NewsLetterMember.findById(email);
-        if(member != null) {
+        if (member != null) {
             member.delete();
             Mails.newsletterUnregister(email);
         }

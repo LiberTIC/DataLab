@@ -6,4 +6,4 @@ A bientôt
 --
 DataLab
 
-PS: Si vous souhaitez vous désinscrire, veuillez suivre le lien suivant : @@{NewsLetter.unregister(email)}
+PS: Si vous souhaitez vous désinscrire, veuillez suivre le lien suivant : @@{NewsLetter.unregister()}?email=${email}

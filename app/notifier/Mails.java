@@ -88,6 +88,7 @@ public class Mails extends Mailer {
         setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] Votre inscription à la newsletter");
         setFrom(Play.configuration.getProperty("application.mail.noreply"));
         setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
+        addRecipient(email);
         send(email);
     }
 
@@ -98,6 +99,7 @@ public class Mails extends Mailer {
         setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] Votre désinscription à la newsletter");
         setFrom(Play.configuration.getProperty("application.mail.noreply"));
         setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
+        addRecipient(email);
         send(email);
     }
 
