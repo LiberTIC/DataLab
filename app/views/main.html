@@ -52,7 +52,7 @@
                                 <a href="#" title="Newsletter"><i class="icon-envelope-alt"></i></a>
                             </li>
                             <li class="icone">
-                                <a href="http://www.twitter.com/libertic" title="Twitter: @datalab"><i class="icon-twitter"></i></a>
+                                <a href="${play.Play.configuration.getProperty("application.twitter")}" title="Twitter: @datalab"><i class="icon-twitter"></i></a>
                             </li>
                             <li class="icone">
                                 <a href="@{cms.Frontend.show('rss')}" title="Les flux RSS du site"><i class="icon-rss"></i></a>
@@ -110,17 +110,17 @@
                                 </li>
                                 <li>|</li>
                                 <li>
-                                    <a href="#" title="Nos documents">
+                                    <a href="${play.Play.configuration.getProperty("application.documents")}" title="Nos documents">
                                         Nos documents
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" title="Nos images">
+                                    <a href="${play.Play.configuration.getProperty("application.images")}" title="Nos images">
                                         Nos images
                                     </a>
                                 </li>
                                 <li class="last">
-                                    <a href="#" title="Nos vidéos">
+                                    <a href="${play.Play.configuration.getProperty("application.videos")}" title="Nos vidéos">
                                         Nos vidéos
                                     </a>
                                 </li>
