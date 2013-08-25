@@ -33,6 +33,7 @@ public class NewsLetter extends AbstractController {
         }
         NewsLetterMember member = NewsLetterMember.findById(email);
         if (member == null) {
+            member = new NewsLetterMember();
             member.email = email;
             member.save();
         }
