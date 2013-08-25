@@ -52,7 +52,7 @@ GET     /admin/agenda/image/{<[0-9]+>id}                       Agendas.image
 POST    /admin/agenda/{<[0-9]+>id}                             Agendas.save
 GET     /admin/agenda/{<[0-9]+>id}/delete                      Agendas.delete
 GET     /admin/agenda/new                                      Agendas.edit
-POST    /admin/agenda/new                                      Agendas.save
+POST    /admin/agenda/save                                     Agendas.save
 
 #
 # Modules routes
