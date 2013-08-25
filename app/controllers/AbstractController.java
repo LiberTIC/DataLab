@@ -26,6 +26,20 @@ public class AbstractController extends Controller {
     }
 
     /**
+     * Return the current user connected.
+     *
+     * @return
+     */
+    public static models.User getCurrentUser(){
+        SocialUser user = SecureSocial.getCurrentUser();
+        if(user != null) {
+            models.User member = UserService.findUser(user.id);
+            return member;
+        }
+        return null;
+    }
+
+    /**
      * Check if there is a logged user ? Else we redirect to login page.
      */
     protected static void isValidUser() {

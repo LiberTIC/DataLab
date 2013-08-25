@@ -16,6 +16,7 @@
  */
 package notifier;
 
+import models.OrganismeMaster;
 import models.User;
 import play.Logger;
 import play.Play;
@@ -59,6 +60,25 @@ public class Mails extends Mailer {
             }
         }
         send(type, author, message, structure, telephone, email);
+    }
+
+    /**
+     * Method that send a mail to the admin to alert it when there is a modification on an organisme.
+     */
+    public static void organisme(OrganismeMaster master, User user){
+        // prepare the mail
+        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] Modification de ", master.getLastVersion().nom);
+        setFrom(Play.configuration.getProperty("application.mail.noreply"));
+        setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
+        List<User> admins = User.find("SELECT u FROM User u WHERE isAdmin = true").fetch();
+        for (User admin : admins) {
+            if (admin.email != null && admin.email.contains("@")) {
+                addRecipient(admin.email);
+            }
+        }
+
+        // send the mail !
+        send(master, user);
     }
 
 }

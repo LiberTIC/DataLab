@@ -1,0 +1,15 @@
+Bonjour,
+
+#{if master.getVersions().size() > 1}
+La fiche "${master.getLastVersion().nom}" vient d'être modifiée par ${user.displayName} (@@{User.view(user.id)}).
+
+Vous pouvez comparer avec la précédente précédente en vous rendant à l'adresse suivante : @@{Organismes.compare(master.getVersions().get(master.getVersions().size()-1).id ,master.getLastVersion().id)}
+#{/if}
+#{else}
+La fiche "${master.getLastVersion().nom}" vient d'être ajoutée par ${user.displayName} (@@{User.view(user.id)}).
+
+Vous pouvez la consulter en vous rendant à l'adresse suivante : @@{Organismes.show(master.id)}
+#{/else}
+
+--
+DataLab

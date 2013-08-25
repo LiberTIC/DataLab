@@ -1,6 +1,7 @@
 package controllers;
 
 import models.*;
+import notifier.Mails;
 import play.Logger;
 import play.data.validation.Required;
 import play.data.validation.Valid;
@@ -76,9 +77,17 @@ public class Organismes extends AbstractController {
         if (id != null) {
             master = OrganismeMaster.findById(id);
         }
+        else{
+            master.save();
+        }
         organisme.master = master;
         organisme.save();
         master.save();
+
+        // send alert for admin
+        if(!hasAdminRight()){
+            Mails.organisme(master, getCurrentUser());
+        }
 
         // redirect user to show
         show(master.id);
