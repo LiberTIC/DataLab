@@ -145,7 +145,7 @@
                 </label>
                 <div class="controls">
                     <div class="input-append date datepicker" >
-                        <input  id="creation" data-date-format="dd-mm-yyyy" name="organisme.creation" class="span2" size="16" type="date" value="#{if flash['organisme.creation']}${flash['organisme.creation']}#{/if}#{else}${_organisme?.creation?.format('dd-MM-yyyy')}#{/else}" #{if _disabled}disabled="disabled"#{/if}>
+                        <input  id="creation" data-date-format="dd-mm-yyyy" data-date-weekStart="1" name="organisme.creation" class="span2" size="16" type="date" value="#{if flash['organisme.creation']}${flash['organisme.creation']}#{/if}#{else}${_organisme?.creation?.format('dd-MM-yyyy')}#{/else}" #{if _disabled}disabled="disabled"#{/if}>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
                     #{ifError 'organisme.creation'}

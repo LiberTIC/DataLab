@@ -1,6 +1,8 @@
 package models;
 
+import play.data.validation.Email;
 import play.data.validation.Required;
+import play.data.validation.URL;
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
 import play.modules.search.Field;
@@ -29,10 +31,12 @@ public class Organisme extends Model {
     public String telephone;
 
     @Field
+    @Email
     public String email;
 
     @Field
     @Required
+    @URL
     public String siteweb;
 
     @Field
@@ -60,8 +64,10 @@ public class Organisme extends Model {
 
     public String interlocuteur;
 
+    @URL
     public String twitter;
 
+    @URL
     public String facebook;
 
     @Field(sortable=true)

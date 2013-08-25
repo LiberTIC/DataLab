@@ -1,4 +1,9 @@
 #
+# page home
+#
+page.home.ensavoirplus = En savoir plus sur "%s"
+
+#
 # page organisme search
 #
 page.organisme.search.title                      = Annuaire
@@ -124,6 +129,29 @@ organisme.save                       = Enregistrer
 organisme.fieldset.identite          = Identité
 organsime.fieldset.activites         = Activités
 organisme.fieldset.contact           = Contact
+
+#
+# Agenda
+#
+agenda.edit.title                    = %s
+agenda.new.title                     = Ajout d'un agenda
+agenda.date                          = Date
+agenda.date.placeholder              = 01-01-1970
+agenda.date.help                     = La date de l'évènement
+agenda.name                          = Nom
+agenda.name.placeholder              = Semaine de l'opendata
+agenda.name.help                     = Le nom de l'évènement
+agenda.description                   = Description
+agenda.description.placeholder       =
+agenda.description.help              = La description de l'évènement
+agenda.image                         = Image
+agenda.image.placeholder             =
+agenda.image.help                    = Image de l'évènement
+agenda.save                          = Enregistrer
+agenda.delete                        = Supprimer
+agenda.edit                          = Modifier
+agenda.action                        = Action
+agenda.new                           = Créer nouveau
 
 #
 # page contact

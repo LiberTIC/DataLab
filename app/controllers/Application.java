@@ -1,7 +1,11 @@
 package controllers;
 
 import controllers.cms.Admin;
+import models.Agenda;
 import models.cms.CMSPage;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Controller that managed principal page of the site.
@@ -12,7 +16,8 @@ public class Application extends AbstractController {
      * Home page.
      */
     public static void index() {
-        render();
+        List<Agenda> agendas = Agenda.find("date > ? ORDER BY DATE ASC", new Date()).fetch(5);
+        render(agendas);
     }
 
     /**

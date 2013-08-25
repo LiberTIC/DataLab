@@ -1,7 +1,7 @@
 # --- !Ups
 
 -- User data
-INSERT INTO member VALUES (1,	NULL,	'http://a0.twimg.com/profile_images/1248011807/bsimard-logo_normal.png', 'Benoît Simard',	'bsimard@yopmail.com',	TRUE,	TRUE,	null,	'XXXXXXXX', 'http://wwww.bsimard.com',	'XXXXXXXX');
+INSERT INTO member VALUES (1,	NULL,	'http://a0.twimg.com/profile_images/1248011807/bsimard-logo_normal.png', 'Benoît Simard',	'bsimard@yopmail.com',	FALSE,	TRUE,	null,	'XXXXXXXX', 'http://wwww.bsimard.com',	'XXXXXXXX');
 INSERT INTO useraccount VALUES (1, 'twitter', '197173482');
 INSERT INTO member_useraccount VALUES (1, 1);
 INSERT INTO useraccount VALUES (2, 'linkedin', 'QNK2UhSM7G');

@@ -162,11 +162,39 @@
 </div>
 
 <!-- Agenda -->
-<div class="blockEven" id="agenda">
+<div class="blockDark" id="agenda">
     <div class="container">
-        #{cms.display 'home_agenda' }
-            <h2>Agenda</h2>
-        #{/cms.display}
+        <h2>Agenda</h2>
+        <div class="agendas">
+            #{list items:agendas, as:'agenda'}
+                <div class="agenda clearfix">
+                    <div class="description">
+                        #{if agenda.link}
+                            <h3>
+                                <a href="${agenda.link}" title="&{'page.home.ensavoirplus', agenda.name}">
+                                    ${agenda.name}
+                                </a>
+                            </h3>
+                            <a href="${agenda.link}" title="&{'page.home.ensavoirplus', agenda.name}">
+                                <p>${agenda.description}</p>
+                            </a>
+                        #{/if}
+                        #{else}
+                            <h3>${agenda.name}</h3>
+                            <p>${agenda.description}</p>
+                        #{/else}
+                    </div>
+                    <img src="@{Agendas.image(agenda.id)}" alt="${agenda.description}" />
+                    <div class="date">
+                        <div class="datecontainer">
+                            <span class="day">${agenda.date.format("dd")}</span>
+                            <span class="month">${agenda.date.format("MMM")}</span>
+                        </div>
+                        <div class="arrow-down"></div>
+                    </div>
+                </div>
+            #{/list}
+        </div>
     </div>
 </div>
 
