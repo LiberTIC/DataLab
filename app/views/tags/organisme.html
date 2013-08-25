@@ -62,8 +62,7 @@
             <!-- Field nom -->
             <div class="control-group #{ifError 'organisme.nom'}error#{/ifError}">
                 <label class="control-label" for="nom">
-                    &{'organisme.nom'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.nom.help'}"><i class="icon-info-sign"></i></a>
+                    &{'organisme.nom'} *
                 </label>
                 <div class="controls">
                     <input type="text" id="nom" name="organisme.nom" placeholder="&{'organisme.nom.placeholder'}" value="#{if flash['organisme.nom']}${flash['organisme.nom']}#{/if}#{else}${_organisme?.nom}#{/else}" #{if _disabled}disabled="disabled"#{/if}/>
@@ -76,8 +75,7 @@
             <!-- Field type -->
             <div class="control-group #{ifError 'organisme.type'}error#{/ifError}">
                 <label class="control-label" for="type">
-                    &{'organisme.type'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.type.help'}"><i class="icon-info-sign"></i></a>
+                    &{'organisme.type'} *
                 </label>
                 <div class="controls">
                     #{if _disabled}
@@ -96,7 +94,6 @@
             <div class="control-group #{ifError 'organisme.logo'}error#{/ifError}">
                 <label class="control-label" for="logo">
                     &{'organisme.logo'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.logo.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     #{if _organisme?.logo != null && _organisme?.logo?.type != null}
@@ -114,8 +111,7 @@
             <!-- Field site internet -->
             <div class="control-group #{ifError 'organisme.siteweb'}error#{/ifError}">
                 <label class="control-label" for="siteweb">
-                    &{'organisme.siteweb'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.siteweb.help'}"><i class="icon-info-sign"></i></a>
+                    &{'organisme.siteweb'} *
                 </label>
                 <div class="controls">
                     <input type="text" id="siteweb" name="organisme.siteweb" placeholder="&{'organisme.siteweb.placeholder'}" value="#{if flash['organisme.siteweb']}${flash['organisme.siteweb']}#{/if}#{else}${_organisme?.siteweb}#{/else}" #{if _disabled}disabled="disabled"#{/if}/>
@@ -143,7 +139,6 @@
             <div class="control-group #{ifError 'organisme.creation'}error#{/ifError}">
                 <label class="control-label" for="creation">
                     &{'organisme.creation'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.creation.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     <div class="input-append date datepicker" >
@@ -160,7 +155,6 @@
             <div class="control-group #{ifError 'organisme.nbSalarie'}error#{/ifError}">
                 <label class="control-label" for="nbSalarie">
                     &{'organisme.nbSalarie'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.nbSalarie.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     #{if _disabled}
@@ -184,7 +178,7 @@
             <!-- Field activite -->
             <div class="control-group #{ifError 'organisme.activite'}error#{/ifError}">
                 <label class="control-label" for="activites">
-                    &{'organisme.activite'}
+                    &{'organisme.activite'} *
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.activite.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
@@ -203,7 +197,7 @@
             <!-- Field produit -->
             <div class="control-group #{ifError 'organisme.produit'}error#{/ifError}">
                 <label class="control-label" for="produit">
-                    &{'organisme.produit'}
+                    &{'organisme.produit'} *
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.produit.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
@@ -218,7 +212,6 @@
             <div class="control-group #{ifError 'organisme.description'}error#{/ifError}">
                 <label class="control-label" for="description">
                     &{'organisme.description'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.description.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     <textarea id="description" name="organisme.description" placeholder="&{'organisme.description.placeholder'}" rows="3" #{if _disabled}disabled="disabled"#{/if}>#{if flash['organisme.description']}${flash['organisme.description']}#{/if}#{else}${_organisme?.description}#{/else}</textarea>
@@ -231,7 +224,7 @@
             <!-- Field tags -->
             <div class="control-group #{ifError 'organisme.tags'}error#{/ifError}">
                 <label class="control-label" for="tags">
-                    &{'organisme.tags'}
+                    &{'organisme.tags'} *
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.tags.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
@@ -251,7 +244,6 @@
             <div class="control-group #{ifError 'organisme.interlocuteur'}error#{/ifError}">
                 <label class="control-label" for="interlocuteur">
                     &{'organisme.interlocuteur'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.interlocuteur.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     <input type="text" id="interlocuteur" name="organisme.interlocuteur" placeholder="&{'organisme.interlocuteur.placeholder'}" value="#{if flash['organisme.interlocuteur']}${flash['organisme.interlocuteur']}#{/if}#{else}${_organisme?.interlocuteur}#{/else}" #{if _disabled}disabled="disabled"#{/if}/>
@@ -264,8 +256,7 @@
             <!-- Field telephone -->
             <div class="control-group #{ifError 'organisme.telephone'}error#{/ifError}">
                 <label class="control-label" for="telephone">
-                &{'organisme.telephone'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.telephone.help'}"><i class="icon-info-sign"></i></a>
+                    &{'organisme.telephone'}
                 </label>
                 <div class="controls">
                     <input type="text" id="telephone" name="organisme.telephone" placeholder="&{'organisme.telephone.placeholder'}" value="#{if flash['organisme.telephone']}${flash['organisme.telephone']}#{/if}#{else}${_organisme?.telephone}#{/else}" #{if _disabled}disabled="disabled"#{/if}/>
@@ -278,7 +269,7 @@
             <!-- Field email -->
             <div class="control-group #{ifError 'organisme.email'}error#{/ifError}">
                 <label class="control-label" for="email">
-                &{'organisme.email'}
+                    &{'organisme.email'}
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.email.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
@@ -292,8 +283,7 @@
             <!-- Field adresse -->
             <div class="control-group #{ifError 'organisme.adresse'}error#{/ifError}">
                 <label class="control-label" for="adresse">
-                &{'organisme.adresse'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.adresse.help'}"><i class="icon-info-sign"></i></a>
+                    &{'organisme.adresse'}
                 </label>
                 <div class="controls">
                     <input type="text" id="adresse" name="organisme.adresse" placeholder="&{'organisme.adresse.placeholder'}" value="#{if flash['organisme.adresse']}${flash['organisme.adresse']}#{/if}#{else}${_organisme?.adresse}#{/else}" #{if _disabled}disabled="disabled"#{/if}/>
@@ -306,8 +296,7 @@
             <!-- Field ville -->
             <div class="control-group #{ifError 'organisme.ville'}error#{/ifError}">
                 <label class="control-label" for="ville">
-                &{'organisme.ville'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.ville.help'}"><i class="icon-info-sign"></i></a>
+                    &{'organisme.ville'}
                 </label>
                 <div class="controls">
                     <input type="text" id="ville" name="organisme.ville" placeholder="&{'organisme.ville.placeholder'}" value="#{if flash['organisme.ville']}${flash['organisme.ville']}#{/if}#{else}${_organisme?.ville}#{/else}" #{if _disabled}disabled="disabled"#{/if}/>
@@ -320,8 +309,7 @@
             <!-- Field codePostal -->
             <div class="control-group #{ifError 'organisme.codePostal'}error#{/ifError}">
                 <label class="control-label" for="codePostal">
-                &{'organisme.codePostal'}
-                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.codePostal.help'}"><i class="icon-info-sign"></i></a>
+                    &{'organisme.codePostal'}
                 </label>
                 <div class="controls">
                     <input type="text" id="codePostal" name="organisme.codePostal" placeholder="&{'organisme.codePostal.placeholder'}" value="#{if flash['organisme.codePostal']}${flash['organisme.codePostal']}#{/if}#{else}${_organisme?.codePostal}#{/else}" #{if _disabled}disabled="disabled"#{/if}/>
@@ -348,7 +336,7 @@
             <!-- Field facebook -->
             <div class="control-group #{ifError 'organisme.facebook'}error#{/ifError}">
                 <label class="control-label" for="facebook">
-                 &{'organisme.facebook'}
+                    &{'organisme.facebook'}
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.facebook.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
