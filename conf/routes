@@ -38,6 +38,7 @@ POST    /newsletter                                            NewsLetter.regist
 GET     /newsletter/unregister                                 NewsLetter.unregister
 POST    /newsletter/unregister                                 NewsLetter.unregisterSave
 GET     /admin/newsletter                                      NewsLetter.admin
+GET     /admin/newsletter/delete                               NewsLetter.delete
 
 #
 # Admin route

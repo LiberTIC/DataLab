@@ -12,11 +12,11 @@
     </tr>
     </thead>
     <tbody>
-        #{list items:members, as:'email' }
+        #{list items:members, as:'member' }
             <tr>
-                <td>${email}</td>
+                <td>${member.email}</td>
                 <td>
-                    <a class="btn btn-danger pull-right" href="@{NewsLetter.delete(email)}" title="Delete">
+                    <a class="btn btn-danger pull-right" href="@{NewsLetter.delete()}?email=${member.email}" title="Delete">
                         <i class="icon-remove"></i>
                     </a>
                 </td>
