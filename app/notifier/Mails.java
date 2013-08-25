@@ -81,4 +81,31 @@ public class Mails extends Mailer {
         send(master, user);
     }
 
+    /**
+     * Mail to informed the inscription to the newsletter.
+     */
+    public static void newsletterRegister(String email){
+        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] Votre inscription à la newsletter");
+        setFrom(Play.configuration.getProperty("application.mail.noreply"));
+        setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
+        send(email);
+    }
+
+    /**
+     * Mail to informed the desinscription to the newsletter.
+     */
+    public static void newsletterUnregister(String email){
+        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] Votre désinscription à la newsletter");
+        setFrom(Play.configuration.getProperty("application.mail.noreply"));
+        setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
+        send(email);
+    }
+
+    /**
+     * Mail to send the newsletter.
+     */
+    public static void newsletterSend(){
+
+    }
+
 }

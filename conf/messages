@@ -57,7 +57,7 @@ page.organisme.show.contact         = Contact
 page.organisme.edit.title     = Annuaire //
 page.organisme.edit.stitle    = Créer une fiche
 page.organisme.edit.baseline  = Avant de soumettre une fiche, assurez-vous qu'il s'agit bien d'une structure implantée en Pays de la Loire et travaillant sur le thème des données et de l'opendata.
-page.organisme.edit.condition = Les informations sont destinées à être publiées librement en ligne. Acceptez-vous ces conditions d'utilisation ?
+page.organisme.edit.condition = Les informations sont destinées à être publiées librement en ligne. Acceptez-vous les <a href="/cgu" title="Conditions Générales d'utilisation">conditions d'utilisation </a>?
 
 #
 # page organisme partenaire
@@ -190,6 +190,17 @@ page.participez.email.placeholder     = pierre.dupont@yopmail.com
 page.participez.email.help            = Veuillez saisir votre adresse email
 page.participez.message               = Votre proposition
 page.participez.message.help          = Veuillez saisir votre votre proposition ou besoin
+
+#
+# Newsletter
+#
+page.newsletter.register.title        = S'inscrire à la newsletter
+page.newsletter.email                 = Votre email
+page.newsletter.email.placeholder     = martin.dupond@yopmail.com
+page.newsletter.cgu                   = Ces informations seront utilisées uniquement pour l'envoie de la newsletter. Acceptez-vous les <a href="/cgu" title="Conditions Générales d'utilisation">conditions d'utilisation</a>?
+page.newsletter.register              = S'inscrire
+page.newsletter.unregister            = Se désinscrire
+page.newsletter.unregister.title      = Se désinscrire à la newsletter
 
 #
 # CMS
