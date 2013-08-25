@@ -5,6 +5,8 @@ import notifier.Mails;
 import play.data.validation.Email;
 import play.data.validation.Required;
 
+import java.util.List;
+
 /**
  * Newsletter controller.
  */
@@ -64,6 +66,30 @@ public class NewsLetter extends AbstractController {
         }
         flash.success("Votre desinscription est enregistrée. Vous allez recevoir un email de confirmation.");
         unregister();
+    }
+
+    /**
+     * Page to register to the newsletter.
+     */
+    public static void admin() {
+        List<NewsLetterMember> members = NewsLetterMember.findAll();
+        render(members);
+    }
+
+    /**
+     * Delete a member without notification.
+     *
+     * @param email
+     */
+    public static void delete(String email){
+        // only admin can do this action
+        isAdminUser();
+
+        NewsLetterMember member = NewsLetterMember.findById(email);
+        if(member != null){
+            member.delete();
+        }
+        admin();
     }
 
 }
