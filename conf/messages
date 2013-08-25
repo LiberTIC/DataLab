@@ -147,11 +147,16 @@ agenda.description.help              = La description de l'évènement
 agenda.image                         = Image
 agenda.image.placeholder             =
 agenda.image.help                    = Image de l'évènement
+agenda.link                          = Liens vers le contenu
+agenda.link.help                     = Mettre les liens internes en relatif (ex: /les-flux-rss), et ne pas oublier 'http://' pour les liens externes.
+agenda.link.placeholder              =
 agenda.save                          = Enregistrer
 agenda.delete                        = Supprimer
 agenda.edit                          = Modifier
 agenda.action                        = Action
 agenda.new                           = Créer nouveau
+agenda.caption                       = %s agenda(s) trouvé(s)
+agenda.title                         = Agenda
 
 #
 # page contact
