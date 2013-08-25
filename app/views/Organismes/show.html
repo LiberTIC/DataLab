@@ -84,7 +84,9 @@
                             <img src="@{Organismes.logo(organisme.master.id)}" alt="&{'page.organisme.show.logo.alt',organisme.nom}"/>
                         #{/if}
                         #{else}
-                            <img src="http://lorempixel.com/200/220/" title="Loremp Pixel"/>
+                            #{if play.mode.isDev()}
+                                <img src="http://lorempixel.com/200/220/" title="Loremp Pixel"/>
+                            #{/if}
                         #{/else}
                     </div>
                 </div>

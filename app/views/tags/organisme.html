@@ -28,9 +28,11 @@
                     </a>
                 #{/if}
                 #{else}
-                    <a href="@{Organismes.show(_organisme?.master?.id)}" title="&{'page.organisme.search.item.show', _organisme.nom }">
-                        <img src="http://lorempixel.com/200/220/" title="Lorem Pixel"/>
-                    </a>
+                    #{if play.mode.isDev()}
+                        <a href="@{Organismes.show(_organisme?.master?.id)}" title="&{'page.organisme.search.item.show', _organisme.nom }">
+                            <img src="http://lorempixel.com/200/220/" title="Lorem Pixel"/>
+                        </a>
+                    #{/if}
                 #{/else}
             </div>
         </div>
@@ -411,7 +413,9 @@
                 <img src="@{Organismes.logo(_organisme.id)}" title="Logo de ${_organisme.getLastVersion().nom}" />
             #{/if}
             #{else}
-                <img src="http://lorempixel.com/200/220/" title="Loremp Pixel"/>
+                #{if play.mode.isDev()}
+                    <img src="http://lorempixel.com/200/220/" title="Loremp Pixel"/>
+                #{/if}
             #{/else}
         </div>
         <div class="flap">
