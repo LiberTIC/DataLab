@@ -208,6 +208,16 @@ page.newsletter.unregister            = Se désinscrire
 page.newsletter.unregister.title      = Se désinscrire à la newsletter
 
 #
+# Page user
+#
+page.user.addAccount       = Lier votre compte
+page.user.addAccount.help  = Vous pouvez lier votre compte avec plusieurs site de réseaux sociaux
+page.user.displayname      = Votre nom
+page.user.email            = Votre email
+page.user.site             = Votre site internet
+page.user.save             = Enregistrer
+
+#
 # CMS
 #
 cms.blog.post.previous = Post précédent : %s
