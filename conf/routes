@@ -62,6 +62,7 @@ POST    /admin/agenda/save                                     Agendas.save
 GET		/user/{<[0-9]+>userId}                                 User.view
 GET		/user/me                                               User.myProfile
 GET		/user/me/edit                                          User.edit
+GET     /user/save                                             User.save
 *       /                                                      module:search
 *       /                                                      module:cms
 
