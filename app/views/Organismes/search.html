@@ -49,7 +49,7 @@
                             #{organisme organisme:organisme.getLastVersion(), as:'list' /}
                         #{/list}
 
-                        #{if organismes.size() >0}
+                        #{if nbItems > models.OrganismeMaster.ITEM_PER_PAGE}
                             <div id="pagination" class="blockDefault">
                                 <div class="span12 pagination">
                                     <ul>
