@@ -47,7 +47,7 @@ body.home {
 
       li {
         width: 112px;
-        padding: 0 11px;
+        padding: 0 10px;
         div {
           span {
             display: block;
@@ -68,7 +68,7 @@ body.home {
           padding-left: 0 !important;
         }
         &:last-child {
-          padding-left: 0 !important;
+          padding-right: 0 !important;
         }
       }
     }
@@ -141,9 +141,21 @@ body.home {
           }
           .appelTitle {
             background: url('/public/images/pictos/appel.png') no-repeat 100% 2% @secondary;
+            a {
+              text-decoration: none;
+              &:hover p {
+                text-decoration: underline;
+              }
+            }
           }
           .annuaireTitle {
             background: url('/public/images/pictos/annuaire.png') no-repeat 100% 8% @secondary;
+            a {
+              text-decoration: none;
+              &:hover p {
+                text-decoration: underline;
+              }
+            }
           }
         }
       }
@@ -171,7 +183,7 @@ body.home {
       padding: 10px;
       background-color: @white;
       position: relative;
-      float:left;
+      float: left;
       margin-left: 50px;
       margin-bottom: 50px;
 
