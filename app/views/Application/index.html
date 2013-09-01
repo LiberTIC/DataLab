@@ -168,30 +168,28 @@
         <div class="agendas">
             #{list items:agendas, as:'agenda'}
                 <div class="agenda clearfix">
-                    <div class="description">
-                        #{if agenda.link}
-                            <h3>
-                                <a href="${agenda.link}" title="&{'page.home.ensavoirplus', agenda.name}">
+                    <a href="${agenda.link}" title="&{'page.home.ensavoirplus', agenda.name}">
+                        <div class="description">
+                            #{if agenda.link}
+                                <h3>
                                     ${agenda.name}
-                                </a>
-                            </h3>
-                            <a href="${agenda.link}" title="&{'page.home.ensavoirplus', agenda.name}">
+                                </h3>
                                 <p>${agenda.description}</p>
-                            </a>
-                        #{/if}
-                        #{else}
-                            <h3>${agenda.name}</h3>
-                            <p>${agenda.description}</p>
-                        #{/else}
-                    </div>
-                    <img src="@{Agendas.image(agenda.id)}" alt="${agenda.description}" />
-                    <div class="date">
-                        <div class="datecontainer">
-                            <span class="day">${agenda.date.format("dd")}</span>
-                            <span class="month">${agenda.date.format("MMM")}</span>
+                            #{/if}
+                            #{else}
+                                <h3>${agenda.name}</h3>
+                                <p>${agenda.description}</p>
+                            #{/else}
                         </div>
-                        <div class="arrow-down"></div>
-                    </div>
+                        <img src="@{Agendas.image(agenda.id)}" alt="${agenda.description}" />
+                        <div class="date">
+                            <div class="datecontainer">
+                                <span class="day">${agenda.date.format("dd")}</span>
+                                <span class="month">${agenda.date.format("MMM")}</span>
+                            </div>
+                            <div class="arrow-down"></div>
+                        </div>
+                    </a>
                 </div>
             #{/list}
         </div>
