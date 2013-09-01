@@ -20,9 +20,11 @@ public class Newsletter extends Job {
     @Override
     public void doJob() throws Exception {
         List<CMSPage> posts = CMSPage.find("created > ?1 and template = ?2 order by created asc", today(), "blog").fetch();
-        List<NewsLetterMember> members = NewsLetterMember.findAll();
-        for(NewsLetterMember member : members){
-            Mails.newsletterSend(posts, member.email);
+        if(posts.size() > 0) {
+            List<NewsLetterMember> members = NewsLetterMember.findAll();
+            for(NewsLetterMember member : members){
+                Mails.newsletterSend(posts, member.email);
+            }
         }
     }
 

@@ -108,7 +108,7 @@ public class Mails extends Mailer {
      * Mail to send the newsletter.
      */
     public static void newsletterSend(List<CMSPage> posts, String email){
-        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + " - Newsletter]: " + posts.size() + " nouveau(s) entrée de blog" );
+        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + " - Newsletter]: " + posts.size() + " nouveau(x) blog(s)" );
         setFrom(Play.configuration.getProperty("application.mail.noreply"));
         setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
         addRecipient(email);
