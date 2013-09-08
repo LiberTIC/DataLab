@@ -8,7 +8,7 @@ page.home.ensavoirplus = En savoir plus sur : %s
 #
 page.organisme.search.title                      = Annuaire
 page.organisme.search.accroche                   = Vous pouvez modifier et rajouter des informations afin de nous <strong>aider à compléter cet annuaire</strong>
-page.organisme.search.create                     = Créer une fiche acteur
+page.organisme.search.create                     = Créer une fiche
 page.organisme.search.search                     = Rechercher dans l'annuaire
 page.organisme.search.keyword                    = Mots clés
 page.organisme.search.search.target              = Recherche ciblé
