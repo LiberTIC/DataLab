@@ -120,11 +120,11 @@ organisme.description                = Description
 organisme.description.help           = Description help
 organisme.description.placeholder    = Saisir ici la description
 organisme.facebook                   = Facebook
-organisme.facebook.help              = Facebook help
-organisme.facebook.placeholder       =
+organisme.facebook.help              = Renseignez le lien vers la page du profil
+organisme.facebook.placeholder       = https://facebook.com/Datalab_PDL
 organisme.twitter                    = Twitter
-organisme.twitter.help               = Twitter help
-organisme.twitter.placeholder        =
+organisme.twitter.help               = Renseignez le lien vers la page du profil
+organisme.twitter.placeholder        = https://twitter.com/Datalab_PDL
 organisme.save                       = Enregistrer
 organisme.fieldset.identite          = Identité
 organsime.fieldset.activites         = Activités
@@ -183,18 +183,23 @@ page.contact.send                  = Envoyer
 #
 # page participez
 #
-page.participez.title                 = Participez
-page.participez.author                = Votre nom
-page.participez.author.placeholder    = Pierre Dupont
-page.participez.author.help           = Veuillez saisir votre nom et prénom
-page.participez.structure             = Votre structure
-page.participez.structure.placeholder = DataLab
-page.participez.structure.help        = Veuillez saisir votre structure
-page.participez.email                 = Votre email
-page.participez.email.placeholder     = pierre.dupont@yopmail.com
-page.participez.email.help            = Veuillez saisir votre adresse email
-page.participez.message               = Votre proposition
-page.participez.message.help          = Veuillez saisir votre votre proposition ou besoin
+page.participez.title                      = Participez
+page.participez.author                     = Votre nom
+page.participez.author.placeholder         = Pierre Dupont
+page.participez.author.help                = Veuillez saisir votre nom et prénom
+page.participez.structure                  = Votre structure
+page.participez.structure.placeholder      = DataLab
+page.participez.structure.help             = Veuillez saisir votre structure
+page.participez.type                       = Type
+page.participez.codePostal                 = Code postal
+page.participez.codePostal.help            = Code postal help
+page.participez.codePostal.placeholder     = 44000
+page.participez.email                      = Votre email
+page.participez.email.placeholder          = pierre.dupont@yopmail.com
+page.participez.email.help                 = Veuillez saisir votre adresse email
+page.participez.message                    = Votre proposition
+page.participez.message.help               = Veuillez saisir votre votre proposition ou besoin
+page.participez.public                     = Acceptez-vous que votre proposition apparaisse sur le site ?
 
 #
 # Newsletter

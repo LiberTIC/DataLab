@@ -1,12 +1,33 @@
 Bonjour,
 
-#{if type == 'contact'}${author} souhaite vous contacter et a laissé ce message :#{/if}
-#{else}${structure} souhaite participez et à laissé la proposition suivantes : #{/else}
+#{if mode == 'contact'}${author} souhaite vous contacter et a laissé ce message :#{/if}
+#{else}
+${structure} souhaite participez et à laissé la proposition suivantes :
+#{/else}
 
 ${message}
 
+#{if online}
+    Sa proposition peut être publiée sur le site.
+#{/if}
+
 Voici ses coordonnées :
- * Nom       : ${author}
- * Structure : ${structure}
- * email     : ${email}
- * Tel       : ${telephone}
+#{if author}
+  * Nom         : ${author}
+#{/if}
+#{if structure}
+  * Structure   : ${structure}
+#{/if}
+#{if type}
+  * Type        : ${type.libelle}
+#{/if}
+#{if codePostal}
+  * Code postal : ${codePostal}
+#{/if}
+#{if email}
+  * email       : ${email}
+#{/if}
+#{if telephone}
+  * Tel         : ${telephone}
+#{/if}
+

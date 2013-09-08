@@ -297,7 +297,7 @@
             <!-- Field ville -->
             <div class="control-group #{ifError 'organisme.ville'}error#{/ifError}">
                 <label class="control-label" for="ville">
-                    &{'organisme.ville'}
+                    &{'organisme.ville'} *
                 </label>
                 <div class="controls">
                     <input type="text" id="ville" name="organisme.ville" placeholder="&{'organisme.ville.placeholder'}" value="#{if flash['organisme.ville']}${flash['organisme.ville']}#{/if}#{else}${_organisme?.ville}#{/else}" #{if _disabled}disabled="disabled"#{/if}/>

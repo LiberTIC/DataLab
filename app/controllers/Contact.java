@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.securesocial.SecureSocial;
+import models.OrganismeType;
 import notifier.Mails;
 import play.Play;
 import play.cache.Cache;
@@ -10,6 +11,7 @@ import play.libs.Codec;
 import play.libs.Images;
 import securesocial.provider.SocialUser;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -40,7 +42,9 @@ public class Contact extends AbstractController {
             params.put("author", user.displayName);
             params.put("email", user.email);
         }
-        render(randomID);
+
+        List<OrganismeType> types = OrganismeType.findAll();
+        render(randomID, types);
     }
 
     /**
@@ -70,7 +74,7 @@ public class Contact extends AbstractController {
      * @throws InterruptedException
      * @throws ExecutionException
      */
-    public static void send(String type, @Required String author, @Required String message, @Required @Email String email, String structure, String telephone,  @Required String code, String randomID) throws InterruptedException, ExecutionException {
+    public static void send(String mode, @Required OrganismeType type, String codePostal, Boolean online, @Required String author, @Required String message, @Required @Email String email, String structure, String telephone,  @Required String code, String randomID) throws InterruptedException, ExecutionException {
         if (!Play.id.equals("test")) {
             validation.equals(code, Cache.get(randomID)).message("Invalid code. Please type it again");
         }
@@ -78,9 +82,15 @@ public class Contact extends AbstractController {
             params.flash();
             validation.keep();
             randomID = Codec.UUID();
+            if(type.equals("contact")) {
             render("@index", randomID);
+            }
+            else{
+                List<OrganismeType> types = OrganismeType.findAll();
+                render("@participez", randomID, types);
+            }
         }
-        Mails.contact(type, author, message, email, structure, telephone);
+        Mails.contact(mode, type, codePostal, online, author, message, email, structure, telephone);
         flash.success("Merci pour votre intéret %s", author);
 
         if(type.equals("contact")) {

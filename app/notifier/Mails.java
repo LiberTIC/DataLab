@@ -17,6 +17,7 @@
 package notifier;
 
 import models.OrganismeMaster;
+import models.OrganismeType;
 import models.User;
 import models.cms.CMSPage;
 import play.Logger;
@@ -44,9 +45,9 @@ public class Mails extends Mailer {
      *
      * @throws InterruptedException
      */
-    public static void contact(String type, String author, String message, String email, String structure, String telephone) throws InterruptedException, ExecutionException {
+    public static void contact(String mode, OrganismeType type, String codePostal, Boolean online,  String author, String message, String email, String structure, String telephone) throws InterruptedException, ExecutionException {
         Logger.debug("A mail is about to be sent by " + author + "(" + email + ")");
-        if(type.equals("contact")) {
+        if(mode.equals("contact")) {
             setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] %s souhaite vous contacter", author);
         }
         else {

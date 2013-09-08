@@ -12,7 +12,7 @@
 
     #{form @Contact.send("participez"), class:"form-horizontal contact"}
 
-        <input type="hidden" name="type" value="participez" />
+        <input type="hidden" name="mode" value="participez" />
 
         #{ifErrors}
             <div class="alert alert-error">
@@ -50,6 +50,32 @@
                     #{if errors.forKey('structure')}
                         <span class="help-inline">#{error 'structure' /}</span>
                     #{/if}
+                </div>
+            </div>
+
+            <!-- Field type -->
+            <div class="control-group #{ifError 'type'}error#{/ifError}">
+                <label class="control-label" for="type">
+                &{'page.participez.type'} *
+                </label>
+                <div class="controls">
+                    #{select 'type', items:types, value:(flash['type'])?flash['type']:type, id:'type'/}
+                    #{ifError 'type'}
+                        <span class="help-inline">#{error 'type' /}</span>
+                    #{/ifError}
+                </div>
+            </div>
+
+            <!-- Field codePostal -->
+            <div class="control-group #{ifError 'codePostal'}error#{/ifError}">
+                <label class="control-label" for="codePostal">
+                &{'page.participez.codePostal'}
+                </label>
+                <div class="controls">
+                    <input type="text" id="codePostal" name="codePostal" placeholder="&{'page.participez.codePostal.placeholder'}" value="#{if flash['codePostal']}${flash['codePostal']}#{/if}#{else}${codePostal}#{/else}"/>
+                    #{ifError 'codePostal'}
+                        <span class="help-inline">#{error 'codePostal' /}</span>
+                    #{/ifError}
                 </div>
             </div>
 
@@ -97,6 +123,16 @@
                     </div>
                     <input type="hidden" name="randomID" value="${randomID}" />
                 </div>
+            </div>
+
+            <div class="control-group #{ifError 'online'}errorBlock error#{/ifError}">
+                <label class="online" for="online">
+                    &{'page.participez.public'}
+                    <input id="online" type="checkbox" name="online" value="1" checked="checked"/>
+                    #{ifError 'online'}
+                        <span class="help-inline">#{error 'online' /}</span>
+                    #{/ifError}
+                </label>
             </div>
 
             <div class="form-actions">
