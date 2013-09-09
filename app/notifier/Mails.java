@@ -61,7 +61,7 @@ public class Mails extends Mailer {
                 addRecipient(admin.email);
             }
         }
-        send(type, author, message, structure, telephone, email);
+        send(mode, type, codePostal, online, author, message, structure, telephone, email);
     }
 
     /**

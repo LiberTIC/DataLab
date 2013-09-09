@@ -8,7 +8,7 @@ ${structure} souhaite participez et à laissé la proposition suivantes :
 ${message}
 
 #{if online}
-    Sa proposition peut être publiée sur le site.
+Sa proposition peut être publiée sur le site.
 #{/if}
 
 Voici ses coordonnées :

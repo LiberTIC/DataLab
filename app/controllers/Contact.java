@@ -74,7 +74,7 @@ public class Contact extends AbstractController {
      * @throws InterruptedException
      * @throws ExecutionException
      */
-    public static void send(String mode, @Required OrganismeType type, String codePostal, Boolean online, @Required String author, @Required String message, @Required @Email String email, String structure, String telephone,  @Required String code, String randomID) throws InterruptedException, ExecutionException {
+    public static void send(String mode, Long type, String codePostal, boolean online, @Required String author, @Required String message, @Required @Email String email, String structure, String telephone,  @Required String code, String randomID) throws InterruptedException, ExecutionException {
         if (!Play.id.equals("test")) {
             validation.equals(code, Cache.get(randomID)).message("Invalid code. Please type it again");
         }
@@ -90,7 +90,11 @@ public class Contact extends AbstractController {
                 render("@participez", randomID, types);
             }
         }
-        Mails.contact(mode, type, codePostal, online, author, message, email, structure, telephone);
+        OrganismeType organismeType = null;
+        if(type != null){
+            organismeType = OrganismeType.findById(type);
+        }
+        Mails.contact(mode, organismeType, codePostal, online, author, message, email, structure, telephone);
         flash.success("Merci pour votre intéret %s", author);
 
         if(type.equals("contact")) {
