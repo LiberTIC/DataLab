@@ -12,7 +12,7 @@ Vous pouvez la consulter en vous rendant à l'adresse suivante : @@{Organismes.s
 #{/else}
 
 #{if participez}
-${user.displayName} enviseage de rejoindre le réseaux et de participer aux évènements du Datalab.
+${user.displayName} envisage de rejoindre le réseaux et de participer aux évènements du Datalab.
 #{/if}
 --
 DataLab

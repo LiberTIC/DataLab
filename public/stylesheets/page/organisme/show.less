@@ -129,7 +129,7 @@
   height: 220px;
   div {
     padding: 0;
-    max-width: 260px;
+    width: 260px;
     height: 220px;
     display: table-cell;
     vertical-align: middle;
@@ -138,6 +138,7 @@
   img {
     margin: 0 auto;
     display: inline;
+    max-height: 200px;
   }
 }
 
@@ -156,6 +157,7 @@
       color: @black;
       text-decoration: none;
       word-wrap: break-word;
+      .clearfix;
       &:hover {
         text-decoration: underline;
         i {
@@ -169,6 +171,14 @@
         vertical-align: middle;
         width: 40px;
         display: inline-block;
+        width: 15%;
+        float: left;
+      }
+      span {
+        display: inline-block;
+        width: 85%;
+        float: right;
+        margin-top: 8px;
       }
     }
   }

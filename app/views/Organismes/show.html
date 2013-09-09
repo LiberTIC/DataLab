@@ -105,37 +105,40 @@
                             #{if organisme.siteweb}
                                 <li>
                                     <a href="${organisme.siteweb}" title="&{'page.organisme.show.site.title',organisme.nom}">
-                                        <i>@</i> ${organisme.siteweb}
+                                        <i>@</i>
+                                        <span>${organisme.siteweb}</span>
                                     </a>
                                 </li>
                             #{/if}
                             #{if organisme.email}
                                 <li>
                                     <a href="mailto:${organisme.email}" title="&{'page.organisme.show.mail.title',organisme.nom}">
-                                        <i class="icon-envelope-alt"></i> ${organisme.email}
+                                        <i class="icon-envelope-alt"></i>
+                                        <span>${organisme.email}</span>
                                     </a>
                                 </li>
                             #{/if}
                             #{if organisme.telephone}
                                 <li>
                                     <a href="tel:${organisme.telephone}" title="&{'page.organisme.show.telephone.title',organisme.nom}">
-                                        <i class="icon-phone"></i> ${organisme.telephone}
+                                        <i class="icon-phone"></i>
+                                        <span>${organisme.telephone}</span>
                                     </a>
                                 </li>
                             #{/if}
                             #{if organisme.twitter}
                                 <li>
-                                    <i class="icon-twitter"></i>
                                     <a href="http://www.twitter.com/${organisme.twitter}" title="&{'page.organisme.show.twitter.title',organisme.nom}">
-                                        ${organisme.twitter}
+                                        <i class="icon-twitter"></i>
+                                        <span>${organisme.twitter}</span>
                                     </a>
                                 </li>
                             #{/if}
                             #{if organisme.facebook}
                                 <li>
-                                    <i class="icon-facebook"></i>
                                     <a href="http://www.facebook.com/${organisme.facebook}" title="&{'page.organisme.show.facebook.title',organisme.nom}">
-                                        ${organisme.facebook}
+                                        <i class="icon-facebook"></i>
+                                        <span>${organisme.facebook}</span>
                                     </a>
                                 </li>
                             #{/if}

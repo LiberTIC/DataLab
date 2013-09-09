@@ -24,7 +24,7 @@
             <div class="span6">
                 #{if _organisme?.logo?.type}
                     <a href="@{Organismes.show(_organisme?.master?.id)}" title="&{'page.organisme.search.item.show', _organisme.nom }">
-                        <img src="@{Organismes.logo(_organisme?.id)}" title="&{'page.organisme.search.logo.alt', _organisme.nom }" />
+                        <img src="@{Organismes.logo(_organisme?.master.id)}" title="&{'page.organisme.search.logo.alt', _organisme.nom }" />
                     </a>
                 #{/if}
                 #{else}
