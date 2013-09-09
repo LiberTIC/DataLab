@@ -11,5 +11,8 @@ La fiche "${master.getLastVersion().nom}" vient d'être ajoutée par ${user.disp
 Vous pouvez la consulter en vous rendant à l'adresse suivante : @@{Organismes.show(master.id)}
 #{/else}
 
+#{if participez}
+${user.displayName} enviseage de rejoindre le réseaux et de participer aux évènements du Datalab.
+#{/if}
 --
 DataLab

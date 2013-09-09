@@ -351,6 +351,18 @@
         </fieldset>
 
         #{if !_disabled}
+
+            <!-- participez -->
+            <div class="control-group #{ifError 'cgu'}errorBlock error#{/ifError}">
+                <label class="participez" for="participez">
+                &{'page.organisme.edit.participez'}
+                    <input id="participez" type="checkbox" name="participez" value="1" checked="checked"/>
+                    #{ifError 'participez'}
+                        <span class="help-inline">#{error 'participez' /}</span>
+                    #{/ifError}
+                </label>
+            </div>
+
             <!-- CGU -->
             <div class="control-group #{ifError 'cgu'}errorBlock error#{/ifError}">
                 <label class="cgu" for="cgu">

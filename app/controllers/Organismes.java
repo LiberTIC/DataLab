@@ -61,7 +61,7 @@ public class Organismes extends AbstractController {
      * @param id
      * @param organisme
      */
-    public static void save(Long id, @Valid Organisme organisme, @Required Boolean cgu) {
+    public static void save(Long id, @Valid Organisme organisme, @Required Boolean cgu, Boolean participez) {
         // only authenticated user can save
         isValidUser();
 
@@ -86,7 +86,7 @@ public class Organismes extends AbstractController {
 
         // send alert for admin
         if(!hasAdminRight()){
-            Mails.organisme(master, getCurrentUser());
+            Mails.organisme(master, getCurrentUser(), participez);
         }
 
         // redirect user to show

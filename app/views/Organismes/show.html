@@ -104,25 +104,22 @@
                         <ul class="unstyled">
                             #{if organisme.siteweb}
                                 <li>
-                                    <i>@</i>
                                     <a href="${organisme.siteweb}" title="&{'page.organisme.show.site.title',organisme.nom}">
-                                        ${organisme.siteweb}
+                                        <i>@</i> ${organisme.siteweb}
                                     </a>
                                 </li>
                             #{/if}
                             #{if organisme.email}
                                 <li>
-                                    <i class="icon-envelope-alt"></i>
                                     <a href="mailto:${organisme.email}" title="&{'page.organisme.show.mail.title',organisme.nom}">
-                                        ${organisme.email}
+                                        <i class="icon-envelope-alt"></i> ${organisme.email}
                                     </a>
                                 </li>
                             #{/if}
                             #{if organisme.telephone}
                                 <li>
-                                    <i class="icon-phone"></i>
                                     <a href="tel:${organisme.telephone}" title="&{'page.organisme.show.telephone.title',organisme.nom}">
-                                        ${organisme.telephone}
+                                        <i class="icon-phone"></i> ${organisme.telephone}
                                     </a>
                                 </li>
                             #{/if}

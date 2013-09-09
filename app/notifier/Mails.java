@@ -67,7 +67,7 @@ public class Mails extends Mailer {
     /**
      * Method that send a mail to the admin to alert it when there is a modification on an organisme.
      */
-    public static void organisme(OrganismeMaster master, User user){
+    public static void organisme(OrganismeMaster master, User user, Boolean participez){
         // prepare the mail
         setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] Modification de ", master.getLastVersion().nom);
         setFrom(Play.configuration.getProperty("application.mail.noreply"));
@@ -80,7 +80,7 @@ public class Mails extends Mailer {
         }
 
         // send the mail !
-        send(master, user);
+        send(master, user, participez);
     }
 
     /**
