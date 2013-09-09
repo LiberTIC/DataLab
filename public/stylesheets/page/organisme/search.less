@@ -133,12 +133,19 @@
           }
           &:last-child {
             border-left: 10px solid @white;
-          }
-          img {
-            max-height: 200px;
-            vertical-align: middle;
-            display: block;
-            margin: 0 auto;
+            a {
+              display: table-cell;
+              vertical-align: middle;
+              text-align: center;
+              height: 200px;
+              width: 265px;
+              img {
+                max-height: 200px;
+                max-width: 265px;
+                display: inline;
+                margin: 0 auto;
+              }
+            }
           }
         }
       }
