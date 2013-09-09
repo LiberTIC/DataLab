@@ -56,7 +56,7 @@
         #{/if}
 
         <!-- Fieldset Identitté -->
-        <fieldset class="blockLight">
+        <fieldset class="blockLight clearfix">
             <label>&{'organisme.fieldset.identite'}</label>
 
             <!-- Field nom -->
@@ -173,7 +173,7 @@
         </fieldset>
 
         <!-- Fieldset Activites -->
-        <fieldset class="blockLight">
+        <fieldset class="blockLight clearfix">
             <label>&{'organsime.fieldset.activites'}</label>
 
             <!-- Field activite -->
@@ -238,7 +238,7 @@
 
         </fieldset>
 
-        <fieldset class="blockLight">
+        <fieldset class="blockLight clearfix">
             <label>&{'organisme.fieldset.contact'}</label>
 
             <!-- Field interlocuteur -->
@@ -353,7 +353,7 @@
         #{if !_disabled}
 
             <!-- participez -->
-            <div class="control-group #{ifError 'cgu'}errorBlock error#{/ifError}">
+            <div class="control-group cac#{ifError 'cgu'}errorBlock error#{/ifError}">
                 <label class="participez" for="participez">
                 &{'page.organisme.edit.participez'}
                     <input id="participez" type="checkbox" name="participez" value="1" checked="checked"/>
@@ -364,7 +364,7 @@
             </div>
 
             <!-- CGU -->
-            <div class="control-group #{ifError 'cgu'}errorBlock error#{/ifError}">
+            <div class="control-group cac last#{ifError 'cgu'}errorBlock error#{/ifError}">
                 <label class="cgu" for="cgu">
                     &{'page.organisme.edit.condition'}
                     <input id="cgu" type="checkbox" name="cgu" value="1" />
