@@ -98,7 +98,7 @@
                     <label class="control-label" for="code">
                         &{'page.contact.security'}
                         <span class="required">*</span>
-                        <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'page.contact.message.help'}"><i class="icon-info-sign"></i></a>
+                        <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'page.contact.security.help'}"><i class="icon-info-sign"></i></a>
                     </label>
                     <div class="controls">
                         <input type="text" name="code" id="code" size="18" value="" />
@@ -120,3 +120,9 @@
         #{/form}
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.form-tooltip').tooltip();
+    });
+</script>
