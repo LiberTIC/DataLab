@@ -204,23 +204,8 @@ public class Organismes extends AbstractController {
     public static void admin(String search) {
         isAdminUser();
 
-        String query = "*:*";
-
-        // only if there is no search params, we take the session search.
-        if (search == null && Scope.Session.current().contains("admin.query")) {
-            query = Scope.Session.current().get("admin.query");
-        }
-
-        if(search != null && search.trim().length() > 0) {
-            query =  "nom:" + search + "*";
-        }
-
-        Logger.debug("Search query is " + query);
-        Query q = Search.search(query, OrganismeMaster.class);
-
-        List<OrganismeMaster> organismes = q.fetch();
-        Scope.Session.current().put("admin.query", query);
-        render(organismes, search);
+        List<OrganismeMaster> organismes = OrganismeMaster.findAll();
+        render(organismes);
     }
 
     /**
