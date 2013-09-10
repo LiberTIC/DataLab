@@ -57,7 +57,7 @@ page.organisme.show.contact         = Contact
 page.organisme.edit.title      = Annuaire //
 page.organisme.edit.stitle     = Créer une fiche
 page.organisme.edit.baseline   = Avant de soumettre une fiche, assurez-vous qu'il s'agit bien d'une structure implantée en Pays de la Loire et travaillant sur le thème des données et de l'opendata.
-page.organisme.edit.participez = Envisagez-vous de participer aux évènements du Datalab et souhaitez-vous rejoindre le réseau ?
+page.organisme.edit.participez = Cochez cette case si vous envisagez de participer aux événements du Datalab et souhaitez rejoindre le réseau
 page.organisme.edit.condition  = Les informations du formulaire sont destinées à être publiées en ligne. Acceptez-vous ces conditions d'utilisation ?
 
 #
