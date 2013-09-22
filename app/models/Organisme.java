@@ -1,6 +1,7 @@
 package models;
 
 import play.data.validation.Email;
+import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.data.validation.URL;
 import play.db.jpa.Blob;
@@ -51,9 +52,11 @@ public class Organisme extends Model {
 
     @Field
     @Required
+    @MaxSize(255)
     public String produit;
 
     @Field
+    @MaxSize(255)
     public String description;
 
     @Field
