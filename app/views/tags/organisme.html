@@ -94,6 +94,7 @@
             <div class="control-group #{ifError 'organisme.logo'}error#{/ifError}">
                 <label class="control-label" for="logo">
                     &{'organisme.logo'}
+                        <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.logo.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     #{if _organisme?.logo != null && _organisme?.logo?.type != null}
