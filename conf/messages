@@ -58,7 +58,7 @@ page.organisme.edit.title      = Annuaire //
 page.organisme.edit.stitle     = Créer une fiche
 page.organisme.edit.baseline   = Avant de soumettre une fiche, assurez-vous qu'il s'agit bien d'une structure implantée en Pays de la Loire et travaillant sur le thème des données et de l'opendata.
 page.organisme.edit.participez = Cochez cette case si vous envisagez de participer aux événements du Datalab et souhaitez rejoindre le réseau
-page.organisme.edit.condition  = Les informations du formulaire sont destinées à être publiées en ligne. Cochez cette case si vous accepté ces <a href="/cgu" title="Les conditions générales d'utilisation">conditions d'utilisation ?</a>
+page.organisme.edit.condition  = Les informations du formulaire sont destinées à être publiées en ligne. Cochez cette pour accepter les <a href="/cgu" title="Les conditions générales d'utilisation">conditions d'utilisation ?</a>
 
 #
 # page organisme partenaire
@@ -91,7 +91,7 @@ organisme.activite                   = Activités
 organisme.activite.help              = Ce champs renseigne le thème principal de l'activité, formateur, producteur de données, créateur de services ou approche usages et grand public, etc
 organisme.activite.placeholder       = Activité placeholder
 organisme.logo                       = Logo
-organisme.logo.help                  = Téléchargez le logo de la structure
+organisme.logo.help                  = Uploader le logo de la structure. Attention à la taille en Mo de l'image, il ne faut pas dépasser 1Mo
 organisme.logo.placeholder           = Logo
 organisme.siret                      = Numéro Siret
 organisme.siret.help                 = Le numéro siret est l'identifiant de la structure, il se compose de 14 chiffres
