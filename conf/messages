@@ -57,8 +57,8 @@ page.organisme.show.contact         = Contact
 page.organisme.edit.title      = Annuaire //
 page.organisme.edit.stitle     = Créer une fiche
 page.organisme.edit.baseline   = Avant de soumettre une fiche, assurez-vous qu'il s'agit bien d'une structure implantée en Pays de la Loire et travaillant sur le thème des données et de l'opendata.
-page.organisme.edit.participez = Cochez cette case si vous envisagez de participer aux événements du Datalab et souhaitez rejoindre le réseau
-page.organisme.edit.condition  = Les informations du formulaire sont destinées à être publiées en ligne. Cochez cette pour accepter les <a href="/cgu" title="Les conditions générales d'utilisation">conditions d'utilisation ?</a>
+page.organisme.edit.participez = Uniquement si vous êtes habilité par la structure, cochez cette case si vous souhaitez soutenir le Datalab en apparaissant dans les membres
+page.organisme.edit.condition  = Les informations du formulaire sont destinées à être publiées en ligne. Cochez cette case pour accepter les <a href="/cgu" title="Les conditions générales d'utilisation">conditions d'utilisation ?</a>
 
 #
 # page organisme partenaire
@@ -200,7 +200,7 @@ page.participez.email.placeholder          = pierre.dupont@yopmail.com
 page.participez.email.help                 = Veuillez saisir votre adresse email
 page.participez.message                    = Votre proposition
 page.participez.message.help               = veuillez saisir votre offre ou demande en essayant d'être le plus précis possible
-page.participez.public                     = Acceptez-vous que votre proposition apparaisse sur le site ?
+page.participez.public                     = Cochez la case si vous accepté que votre proposition apparaisse sur le site
 
 #
 # Newsletter
