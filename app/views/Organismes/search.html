@@ -65,7 +65,7 @@
                                             #{/if}
                                             #{else}
                                                 *{ Start from the end }*
-                                                %{for (int i=((nbItems/models.OrganismeMaster.ITEM_PER_PAGE)-5); i <= (nbItems/models.OrganismeMaster.ITEM_PER_PAGE); i++){}%
+                                                %{for (int i=((nbItems/models.OrganismeMaster.ITEM_PER_PAGE)-5); i <= ((nbItems/models.OrganismeMaster.ITEM_PER_PAGE) +1); i++){}%
                                                     #{if i > 0}
                                                         <li><a #{if i==page}class="current"#{/if} href="@{Organismes.search(query, typologies, deps, i)}" title="Page n° ${i}">${i}</a></li>
                                                     #{/if}
