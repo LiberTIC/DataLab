@@ -34,7 +34,6 @@
                                 <label id="query" class="control-label pull-left">&{'page.organisme.search.keyword'}</label>
                             </div>
                             <div class="input-append span10 pull-right">
-                                <input type="hidden" name="page" value="${page}" />
                                 <input id="query" type="text" name="query" value="${query}" />
                                 <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
                             </div>
@@ -166,6 +165,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $(":checkbox").click(function(){
+
                 $("#form").submit();
                 $(":checkbox").attr("disabled", true);
             });
