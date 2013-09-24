@@ -69,7 +69,7 @@ public class Mails extends Mailer {
      */
     public static void organisme(OrganismeMaster master, User user, Boolean participez){
         // prepare the mail
-        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] Modification de ", master.getLastVersion().nom);
+        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + "] Modification de " + master.getLastVersion().nom);
         setFrom(Play.configuration.getProperty("application.mail.noreply"));
         setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
         List<User> admins = User.find("SELECT u FROM User u WHERE isAdmin = true").fetch();
