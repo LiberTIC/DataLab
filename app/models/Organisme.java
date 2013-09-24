@@ -22,32 +22,40 @@ public class Organisme extends Model {
 
     @Field(sortable=true)
     @Required
+    @MaxSize(255)
     public String nom;
 
     public Blob logo;
 
+    @MaxSize(255)
     public String siret;
 
     @Field
+    @MaxSize(255)
     public String telephone;
 
     @Field
     @Email
+    @MaxSize(255)
     public String email;
 
     @Field
     @Required
     @URL
+    @MaxSize(255)
     public String siteweb;
 
     @Field
+    @MaxSize(255)
     public String adresse;
 
     @Field
     @Required
+    @MaxSize(255)
     public String ville;
 
     @Field
+    @MaxSize(255)
     public String codePostal;
 
     @Field
@@ -61,16 +69,20 @@ public class Organisme extends Model {
 
     @Field
     @Required
+    @MaxSize(255)
     public String tags;
 
     public Date creation;
 
+    @MaxSize(255)
     public String interlocuteur;
 
     @URL
+    @MaxSize(255)
     public String twitter;
 
     @URL
+    @MaxSize(255)
     public String facebook;
 
     @Field(sortable=true)
