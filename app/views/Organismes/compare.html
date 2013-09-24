@@ -5,9 +5,9 @@
 
 <div id="compare" class="row">
     <div class="span6">
-        #{organisme organisme:organismeFrom, types:types, activites:activites, nbSalaries:nbSalaries, id:id, as:'form', disabled:'true' /}
+        #{organisme organisme:organismeFrom, types:types, activites:activites, nbSalaries:nbSalaries, id:organismeFrom.master.id, as:'form', disabled:'true' /}
     </div>
     <div class="span6">
-        #{organisme organisme:organismeTo, types:types, activites:activites, nbSalaries:nbSalaries, id:id, as:'form', disabled:'true' /}
+        #{organisme organisme:organismeTo, types:types, activites:activites, nbSalaries:nbSalaries, id:organismeFrom.master.id, as:'form', disabled:'true' /}
     </div>
 </div>
