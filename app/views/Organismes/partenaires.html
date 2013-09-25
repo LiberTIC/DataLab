@@ -11,7 +11,12 @@
 
 %{int i=1}%
 #{list items:partenaires, as:'organisme'}
-    #{organisme organisme:organisme , i:i%16, as:'partenaire' /}
+    #{if i >= 16}
+        #{organisme organisme:organisme , i:((i%16)+1), as:'partenaire' /}
+    #{/if}
+    #{else}
+        #{organisme organisme:organisme , i:((i%16)+1, as:'partenaire' /}
+    #{/else}
     %{i++}%
 #{/list}
 
