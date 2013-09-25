@@ -11,7 +11,7 @@
 
 %{int i=1}%
 #{list items:partenaires, as:'organisme'}
-    #{if i >= 16}
+    #{if i > 16}
         #{organisme organisme:organisme , i:((i%16)+1), as:'partenaire' /}
     #{/if}
     #{else}
@@ -20,14 +20,26 @@
     %{i++}%
 #{/list}
 
-<div id="partenaire" class="partenaire${i}">
+#{if i > 16}
+<div id="partenaire" class="partenaire${((i%16)+1)}">
     <div class="flap">
         <a href="@{cms.Frontend.show("devenez-partenaire")}" title="&{'page.organisme.partenaire.devenez'}">
             <div>+</div>
-            &{'page.organisme.partenaire.devenez'}
+        &{'page.organisme.partenaire.devenez'}
         </a>
     </div>
 </div>
+#{/if}
+#{else}
+    <div id="partenaire" class="partenaire${(i%16)}">
+        <div class="flap">
+            <a href="@{cms.Frontend.show("devenez-partenaire")}" title="&{'page.organisme.partenaire.devenez'}">
+                <div>+</div>
+            &{'page.organisme.partenaire.devenez'}
+            </a>
+        </div>
+    </div>
+#{/else}
 
 #{set 'moreScripts'}
     <script type="text/javascript">
