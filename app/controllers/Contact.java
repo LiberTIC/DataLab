@@ -97,7 +97,7 @@ public class Contact extends AbstractController {
         Mails.contact(mode, organismeType, codePostal, online, author, message, email, structure, telephone);
         flash.success("Merci pour votre intéret %s", author);
 
-        if(type.equals("contact")) {
+        if(mode.equals("contact")) {
             index();
         }
         else {
