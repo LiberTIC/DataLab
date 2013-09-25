@@ -83,7 +83,7 @@ public class Contact extends AbstractController {
             validation.keep();
             randomID = Codec.UUID();
             if(type == null || type.equals("contact")) {
-	      render("@index", randomID);
+	             render("@index", randomID);
             }
             else{
                 List<OrganismeType> types = OrganismeType.findAll();
