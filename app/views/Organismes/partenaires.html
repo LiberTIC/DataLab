@@ -11,17 +11,17 @@
 
 %{int i=1}%
 #{list items:partenaires, as:'organisme'}
-    #{if i > 16}
-        #{organisme organisme:organisme , i:((i%16)+1), as:'partenaire' /}
+    #{if i == 17}
+        %{i = 1}%
     #{/if}
-    #{else}
-        #{organisme organisme:organisme , i:(i%16), as:'partenaire' /}
-    #{/else}
+    #{organisme organisme:organisme , i:i, as:'partenaire' /}
     %{i++}%
 #{/list}
 
-#{if i > 16}
-<div id="partenaire" class="partenaire${((i%16)+1)}">
+#{if i == 17}
+    %{i = 1}%
+#{/if}
+<div id="partenaire" class="partenaire${i}">
     <div class="flap">
         <a href="@{cms.Frontend.show("devenez-partenaire")}" title="&{'page.organisme.partenaire.devenez'}">
             <div>+</div>
