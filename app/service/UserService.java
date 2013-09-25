@@ -59,10 +59,12 @@ public class UserService implements securesocial.provider.UserServiceDelegate {
     @Override
     public boolean activate(String uuid) {
         SocialUser socialUser = (SocialUser) Cache.get(uuid);
-        User user = this.findUser(socialUser.id);
-        user.isEmailVerified = true;
-        user.save();
-        Cache.delete(uuid);
+        if(socialUser != null) {
+	  User user = this.findUser(socialUser.id);
+	  user.isEmailVerified = true;
+	  user.save();
+	  Cache.delete(uuid);
+	}
         return true;
     }
 
