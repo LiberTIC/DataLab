@@ -24,7 +24,8 @@ public class Application extends AbstractController {
      * Home page.
      */
     public static void blog() {
-        CMSPage page = CMSPage.getLastest("blog");
+        CMSPage page = CMSPage.getLastest("blog", Boolean.TRUE);
+        notFoundIfNull(page);
         render("cms/blog.html", page);
     }
 
