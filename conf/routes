@@ -1,6 +1,7 @@
 #
 # Home page
 #
+
 GET     /                                                      Application.index
 GET     /blog                                                  Application.blog
 GET     /partenaires                                           Organismes.partenaires
@@ -56,23 +57,19 @@ GET     /admin/agenda/new                                      Agendas.edit
 POST    /admin/agenda/save                                     Agendas.save
 
 #
-# Map static resources from the /app/public folder to the /public path
-#
-GET     /public/                                               staticDir:public
-
-#
-# Modules routes
-#
-GET		/user/{<[0-9]+>userId}                                 User.view
-GET		/user/me                                               User.myProfile
-GET		/user/me/edit                                          User.edit
-GET     /user/save                                             User.save
-*       /                                                      module:search
-*       /                                                      module:cms
-*		/auth                                                  module:securesocial
-
-#
 # Ignore favicon requests
 #
 GET     /favicon.ico                                           404
 
+#
+# Modules routes
+#
+GET     /user/{<[0-9]+>userId}                                 User.view
+GET     /user/me                                               User.myProfile
+GET     /user/me/edit                                          User.edit
+GET     /user/save                                             User.save
+*       /auth                                                  module:securesocial
+*       /                                                      module:cms
+*       /                                                      module:search
+
+GET     /public/                                               staticDir:public
