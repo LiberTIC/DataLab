@@ -101,7 +101,7 @@
                         <img src="@{Organismes.logo(_id)}" /> <br/>
                     #{/if}
                     #{if !_disabled}
-                        <input type="file" id="logo" name="organisme.logo" placeholder="&{'organisme.logo.placeholder'}" value="${_organisme?.logo}"/>
+                        <input type="file" id="logo" name="organisme.logo" placeholder="&{'organisme.logo.placeholder'}" value="${_organisme?.logo.UUID}"/>
                     #{/if}
                     #{ifError 'organisme.logo'}
                         <span class="help-inline">#{error 'organisme.logo' /}</span>
