@@ -56,6 +56,11 @@ GET     /admin/agenda/new                                      Agendas.edit
 POST    /admin/agenda/save                                     Agendas.save
 
 #
+# Map static resources from the /app/public folder to the /public path
+#
+GET     /public/                                               staticDir:public
+
+#
 # Modules routes
 #
 *		/auth                                                  module:securesocial
@@ -71,7 +76,3 @@ GET     /user/save                                             User.save
 #
 GET     /favicon.ico                                           404
 
-#
-# Map static resources from the /app/public folder to the /public path
-#
-GET     /public/                                               staticDir:public
