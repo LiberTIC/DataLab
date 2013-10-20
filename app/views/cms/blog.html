@@ -4,7 +4,7 @@
 <div class="row">
     <div class="span12">
         <h1>${page?.title}</h1>
-        <div id="${page?.name}">
+        <div id="${page?.name}" #{if controllers.Security.check("admin") }contenteditable="true"#{/if}>
             ${page?.body.raw()}
         </div>
     </div>
