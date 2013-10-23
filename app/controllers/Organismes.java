@@ -83,6 +83,7 @@ public class Organismes extends AbstractController {
 
         // don't remove the old logo
         if(organisme.logo == null){
+            if(master.getLastVersion() != null)
             organisme.logo = master.getLastVersion().logo;
         }
 
