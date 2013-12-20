@@ -297,6 +297,7 @@ securesocial.changeSuccessTitle         = Changement de password réussi
 #
 # Password reset
 #
+securesocial.resetPassword       = Vous avez oublié votre password ? Vous pouvez le réinitialiser
 securesocial.resetSuccess        = Votre password a été réinitialisé
 securesocial.resetSuccessTitle   = Réinitialisation effectué
 securesocial.resetEmailSent      = L'email de réinitialisation de password, contient un password à usage unique, est envoyé à votre adresse email %s
