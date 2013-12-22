@@ -1,27 +1,44 @@
 package service;
 
-import java.util.List;
-
 import models.User;
 import models.UserAccount;
+import play.Logger;
 import play.cache.Cache;
 import play.libs.Codec;
 import play.mvc.Scope.Session;
 import securesocial.provider.SocialUser;
 import securesocial.provider.UserId;
 
+import java.util.List;
+
 /**
  * UserService class for SecureSocial plugin.
  */
 public class UserService implements securesocial.provider.UserServiceDelegate {
+
+    /**
+     * Find a user by its social Id.
+     *
+     * @param id
+     * @return
+     */
+    public static User findUser(UserId id) {
+        List<models.User> users = User.find("SELECT u FROM User u JOIN u.accounts a WHERE a.userId = ? AND a.provider = ?",
+                id.id, id.provider.toString()).fetch(1);
+        if (users.size() > 0) {
+            models.User user = users.get(0);
+            return user;
+        } else {
+            return null;
+        }
+    }
 
     @Override
     public SocialUser find(UserId id) {
         User user = this.findUser(id);
         if (user != null) {
             return user.toUserSocial();
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -38,13 +55,16 @@ public class UserService implements securesocial.provider.UserServiceDelegate {
                 account.provider = user.id.provider.toString();
                 account.save();
                 userDb.accounts.add(account);
-            }
-            else {
+            } else {
                 userDb = User.fromUserSocial(user);
                 for (UserAccount account : userDb.accounts) {
                     account.save();
                 }
             }
+            userDb.save();
+        }
+        else {
+            userDb.password = user.password;
             userDb.save();
         }
     }
@@ -59,12 +79,12 @@ public class UserService implements securesocial.provider.UserServiceDelegate {
     @Override
     public boolean activate(String uuid) {
         SocialUser socialUser = (SocialUser) Cache.get(uuid);
-        if(socialUser != null) {
-	  User user = this.findUser(socialUser.id);
-	  user.isEmailVerified = true;
-	  user.save();
-	  Cache.delete(uuid);
-	}
+        if (socialUser != null) {
+            User user = this.findUser(socialUser.id);
+            user.isEmailVerified = true;
+            user.save();
+            Cache.delete(uuid);
+        }
         return true;
     }
 
@@ -78,39 +98,38 @@ public class UserService implements securesocial.provider.UserServiceDelegate {
 
     @Override
     public SocialUser find(String email) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        Logger.debug("Trying to find social user with email : " + email);
+        User user = User.find("email = ?", email).first();
+        if(user != null) {
+            Logger.debug("Find user " + user.displayName);
+            return user.toUserSocial();
+        }
+        return null;
     }
 
     @Override
     public String createPasswordReset(SocialUser user) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        final String uuid = Codec.UUID();
+        Cache.add(uuid, user, "24h");
+        return uuid;
     }
 
     @Override
     public SocialUser fetchForPasswordReset(String username, String uuid) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        if (Cache.get(uuid) != null) {
+            SocialUser socialUser = (SocialUser) Cache.get(uuid);
+            if (socialUser.id.id.equals(username)) {
+                return socialUser;
+            }
+        }
+        return null;
     }
 
     @Override
     public void disableResetCode(String username, String uuid) {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    /**
-     * Find a user by its social Id.
-     *
-     * @param id
-     * @return
-     */
-    public static User findUser(UserId id) {
-        List<models.User> users = User.find("SELECT u FROM User u JOIN u.accounts a WHERE a.userId = ? AND a.provider = ?",
-                id.id, id.provider.toString()).fetch(1);
-        if (users.size() > 0) {
-            models.User user = users.get(0);
-            return user;
-        }
-        else {
-            return null;
+        SocialUser socialUser = fetchForPasswordReset(username, uuid);
+        if (socialUser != null) {
+            Cache.delete(uuid);
         }
     }
 

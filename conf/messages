@@ -284,13 +284,13 @@ securesocial.emailText = Suivez ce <a href="%s">lien</a> pour activer votre comp
 # Password change
 #
 securesocial.changeTitle                = Changement de password
-securesocial.changeLabel                = Saisissez votre passord courant et le nouveau
+securesocial.changeLabel                = Saisissez votre password courant et le nouveau
 securesocial.changeError                = Une erreur est survenue lors du changement du password.
 securesocial.changeCurrentPasswordError = Le password entrée est incorrect
 securesocial.wrongPassword              = Password incorrect
 securesocial.currentPassword            = Password courant
 securesocial.newPassword                = Nouveau password
-securesocial.confirmPassword            = Confirmation du nouveau password
+securesocial.confirmPassword            = Confirmation
 securesocial.changeSuccess              = Votre password est changé
 securesocial.changeSuccessTitle         = Changement de password réussi
 
@@ -303,7 +303,8 @@ securesocial.resetSuccessTitle   = Réinitialisation effectué
 securesocial.resetEmailSent      = L'email de réinitialisation de password, contient un password à usage unique, est envoyé à votre adresse email %s
 securesocial.resetEmailSentTitle = Email envoyé
 securesocial.resetTitle          = Réinitialisation du password
-securesocial.resetLabel          = Veuillez saisir l'adresse emial que vous utilisez pour vous authentifier
+securesocial.resetLabel          = Veuillez saisir l'adresse email que vous utilisez pour vous authentifier
+securesocial.resetLabel2         = Veuillez saisir votre nouveau password
 securesocial.invalidResetTitle   = Le password de réinitialisation n'est pas valide
 securesocial.invalidResetLink    = Le lien de réinitialisation de password que vous avez suivi est invalide
 securesocial.resetError          = Une erreur inattendue est survenu lors de la réinitialisation de votre password.
