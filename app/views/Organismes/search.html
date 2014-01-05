@@ -65,24 +65,33 @@
                                             #{/if}
                                             #{else}
                                                 *{ Start from the end }*
-                                                %{for (int i=((nbItems/models.OrganismeMaster.ITEM_PER_PAGE)-5); i <= ((nbItems/models.OrganismeMaster.ITEM_PER_PAGE) +1); i++){}%
-                                                    #{if i > 0}
-                                                        <li><a #{if i==page}class="current"#{/if} href="@{Organismes.search(query, typologies, deps, i)}" title="Page n° ${i}">${i}</a></li>
-                                                    #{/if}
-                                                %{}}%
+                                                #{if (nbItems % models.OrganismeMaster.ITEM_PER_PAGE) == 0}
+                                                    %{for (int i=((nbItems/models.OrganismeMaster.ITEM_PER_PAGE)-4); i<((nbItems/models.OrganismeMaster.ITEM_PER_PAGE) +1); i++){}%
+                                                        #{if i > 0}
+                                                            <li><a #{if i==page}class="current"#{/if} href="@{Organismes.search(query, typologies, deps, i)}" title="Page n° ${i}">${i}</a></li>
+                                                        #{/if}
+                                                    %{}}%
+                                                #{/if}
+                                                #{else}
+                                                    %{for (int i=((nbItems/models.OrganismeMaster.ITEM_PER_PAGE)-3); i<((nbItems/models.OrganismeMaster.ITEM_PER_PAGE) +1); i++){}%
+                                                        #{if i > 0}
+                                                            <li><a #{if i==page}class="current"#{/if} href="@{Organismes.search(query, typologies, deps, i)}" title="Page n° ${i}">${i}</a></li>
+                                                        #{/if}
+                                                    %{}}%
+                                                #{/else}
                                             #{/else}
                                         #{/if}
                                         #{else}
                                             *{ Start from 1 to 5 }*
                                             #{if (nbItems % models.OrganismeMaster.ITEM_PER_PAGE) == 0}
-                                                %{for (int i=1; i < 5; i++){}%
+                                                %{for (int i=1; i <= 5; i++){}%
                                                     #{if i <= ((nbItems/models.OrganismeMaster.ITEM_PER_PAGE))}
                                                         <li><a #{if i==page}class="current"#{/if} href="@{Organismes.search(query, typologies, deps, i)}" title="Page n° ${i}">${i}</a></li>
                                                     #{/if}
                                                 %{}}%
                                             #{/if}
                                             #{else}
-                                                %{for (int i=1; i < 5; i++){}%
+                                                %{for (int i=1; i <= 5; i++){}%
                                                     #{if i <= ((nbItems/models.OrganismeMaster.ITEM_PER_PAGE) +1)}
                                                         <li><a #{if i==page}class="current"#{/if} href="@{Organismes.search(query, typologies, deps, i)}" title="Page n° ${i}">${i}</a></li>
                                                     #{/if}
