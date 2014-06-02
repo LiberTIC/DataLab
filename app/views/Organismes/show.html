@@ -35,7 +35,7 @@
                         </div>
                         <div class="span6">
                             <h3>&{'page.organisme.show.theme'}</h3>
-                            <p>${organisme?.activites?.join(", ")}</p>
+                            <p>${organisme?.activites?.join("<br/> ").raw()}</p>
                         </div>
                     </div>
                 </div>
@@ -47,10 +47,18 @@
                         <h3>&{'page.organisme.show.description'}</h3>
                         ${organisme.description}
                     </div>
+                    #{if organisme.produit}
                     <!-- Produit -->
                     <div>
                         <h3>&{'page.organisme.show.produits'}</h3>
                         ${organisme.produit}
+                    </div>
+                    #{/if}
+
+                    <!-- data domaine -->
+                    <div>
+                        <h3>&{'page.organisme.show.datadomaines'}</h3>
+                        ${organisme?.dataDomaines?.join("<br/> ").raw()}
                     </div>
                 </div>
 
