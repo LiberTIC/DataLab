@@ -190,7 +190,7 @@
                     #{else}
                         #{list items:_activites, as:'activity'}
                             <label>
-                                <input type="checkbox" name="organisme.activites.id" value="${activity.id}" #{if _organisme.activites.contains(activity)}checked="checked"#{/if}>
+                                <input type="checkbox" name="organisme.activites.id" value="${activity.id}" #{if _organisme?.activites?.contains(activity)}checked="checked"#{/if}>
                                 ${activity.libelle}
                             </label>
                         #{/list}
@@ -204,7 +204,7 @@
             <!-- Field data domaine -->
             <div class="control-group #{ifError 'domaines'}error#{/ifError}">
                 <label class="control-label" for="activites">
-                    &{'organisme.datadomaines'} *
+                    &{'organisme.datadomaines'}
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.datadomaines.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
@@ -214,7 +214,7 @@
                     #{else}
                         #{list items:_domaines, as:'domaine'}
                             <label>
-                                <input type="checkbox" name="organisme.dataDomaines.id" value="${domaine.id}" #{if _organisme.dataDomaines.contains(domaine)}checked="checked"#{/if}>
+                                <input type="checkbox" name="organisme.dataDomaines.id" value="${domaine.id}" #{if _organisme?.dataDomaines?.contains(domaine)}checked="checked"#{/if}>
                                 ${domaine.libelle}
                             </label>
                         #{/list}

@@ -56,10 +56,12 @@
                     #{/if}
 
                     <!-- data domaine -->
+                    #{if organisme.dataDomaines?.size() > 0}
                     <div>
                         <h3>&{'page.organisme.show.datadomaines'}</h3>
                         ${organisme?.dataDomaines?.join("<br/> ").raw()}
                     </div>
+                    #{/if}
                 </div>
 
                 <div id="identity" class="blockDefault">

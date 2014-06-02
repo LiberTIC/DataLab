@@ -108,6 +108,7 @@ public class Organisme extends Model {
     public OrganismeNbSalarie nbSalarie;
 
     @Field(joinField="libelle")
+    @Required
     @ManyToMany
     public List<OrganismeActivite> activites;
 
