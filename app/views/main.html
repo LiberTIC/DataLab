@@ -57,6 +57,11 @@
                             <li class="icone">
                                 <a href="${play.Play.configuration.getProperty("application.twitter")}" title="Twitter: @Datalab_PDL"><i class="icon-twitter"></i></a>
                             </li>
+                            #{if play.Play.configuration.getProperty("application.facebook") != null}
+                            <li class="icone">
+                                <a href="${play.Play.configuration.getProperty("application.facebook")}" title="Facebook"><i class="icon-facebook"></i></a>
+                            </li>
+                            #{/if}
                             <li class="icone">
                                 <a href="@{cms.Frontend.show('les-flux-rss')}" title="Les flux RSS du site"><i class="icon-rss"></i></a>
                             </li>

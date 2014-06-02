@@ -8,7 +8,7 @@
                         ${_organisme?.nom}
                     </a>
                 </h4>
-                <p>${_organisme?.activite?.libelle}</p>
+                <p>${_organisme?.activites?.join(", ")}</p>
                 <div class="tags">
                     ${_organisme?.tags}
                 </div>
@@ -178,20 +178,49 @@
             <label>&{'organsime.fieldset.activites'}</label>
 
             <!-- Field activite -->
-            <div class="control-group #{ifError 'organisme.activite'}error#{/ifError}">
+            <div class="control-group #{ifError 'activites'}error#{/ifError}">
                 <label class="control-label" for="activites">
                     &{'organisme.activite'} *
                     <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.activite.help'}"><i class="icon-info-sign"></i></a>
                 </label>
                 <div class="controls">
                     #{if _disabled}
-                        #{select 'organisme.activite.id', items:_activites, value:(flash['organisme.activite.id'])?flash['organisme.activite.id']:_organisme?.activite?.id, id:'activite', disabled:'disabled'/}
+                        ${_organisme.activites.join(", ")}
                     #{/if}
                     #{else}
-                        #{select 'organisme.activite.id', items:_activites, value:(flash['organisme.activite.id'])?flash['organisme.activite.id']:_organisme?.activite?.id, id:'activite'/}
+                        #{list items:_activites, as:'activity'}
+                            <label>
+                                <input type="checkbox" name="organisme.activites.id" value="${activity.id}" #{if _organisme.activites.contains(activity)}checked="checked"#{/if}>
+                                ${activity.libelle}
+                            </label>
+                        #{/list}
                     #{/else}
-                    #{ifError 'organisme.activite'}
-                        <span class="help-inline">#{error 'organisme.activite' /}</span>
+                    #{ifError 'activites'}
+                        <span class="help-inline">#{error 'activites' /}</span>
+                    #{/ifError}
+                </div>
+            </div>
+
+            <!-- Field data domaine -->
+            <div class="control-group #{ifError 'domaines'}error#{/ifError}">
+                <label class="control-label" for="activites">
+                    &{'organisme.datadomaines'} *
+                    <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'organisme.datadomaines.help'}"><i class="icon-info-sign"></i></a>
+                </label>
+                <div class="controls">
+                    #{if _disabled}
+                        ${_organisme.dataDomaines.join(", ")}
+                    #{/if}
+                    #{else}
+                        #{list items:_domaines, as:'domaine'}
+                            <label>
+                                <input type="checkbox" name="organisme.dataDomaines.id" value="${domaine.id}" #{if _organisme.dataDomaines.contains(domaine)}checked="checked"#{/if}>
+                                ${domaine.libelle}
+                            </label>
+                        #{/list}
+                    #{/else}
+                    #{ifError 'domaines'}
+                        <span class="help-inline">#{error 'domaines' /}</span>
                     #{/ifError}
                 </div>
             </div>

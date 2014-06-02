@@ -2,12 +2,8 @@ package controllers;
 
 import models.*;
 import notifier.Mails;
-import play.Logger;
 import play.data.validation.Required;
 import play.data.validation.Valid;
-import play.modules.search.Query;
-import play.modules.search.Search;
-import play.mvc.Scope;
 
 import java.util.List;
 import java.util.Map;
@@ -49,10 +45,11 @@ public class Organismes extends AbstractController {
         // depends objects
         List<OrganismeType> types = OrganismeType.findAll();
         List<OrganismeActivite> activites = OrganismeActivite.findAll();
+        List<OrganismeDataDomaine> domaines = OrganismeDataDomaine.findAll();
         List<OrganismeNbSalarie> nbSalaries = OrganismeNbSalarie.findAll();
 
         // render
-        render(id, organisme, types, activites, nbSalaries);
+        render(id, organisme, types, activites, nbSalaries, domaines);
     }
 
     /**

@@ -9,9 +9,11 @@ import play.db.jpa.Model;
 import play.modules.search.Field;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "organisme")
@@ -106,8 +108,11 @@ public class Organisme extends Model {
     public OrganismeNbSalarie nbSalarie;
 
     @Field(joinField="libelle")
-    @Required
-    @ManyToOne
-    public OrganismeActivite activite;
+    @ManyToMany
+    public List<OrganismeActivite> activites;
+
+    @Field(joinField="libelle")
+    @ManyToMany
+    public List<OrganismeDataDomaine> dataDomaines;
 
 }
