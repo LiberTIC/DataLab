@@ -1,0 +1,32 @@
+#{extends 'admin.html' /}
+
+<h1>&{'formation.title', template}</h1>
+
+<table class="table table-hover table-striped sortable">
+    <caption>
+        &{'formation.caption', formations.size()}
+    </caption>
+    <thead>
+        <tr>
+            <th class="span3">&{'formation.title'}</th>
+            <th class="span2">&{'formation.action'}</th>
+        </tr>
+    </thead>
+    <tbody>
+        #{list items:formations, as:'formation' }
+            <tr>
+                <td>${formation.title}</td>
+                <td>
+                    <a class="btn btn-danger pull-right" href="@{Formations.delete(formation.id)}" title="&{'formation.delete'}">
+                        <i class="icon-remove"></i>
+                    </a>
+                    <a class="btn btn-warning pull-right" href="@{Formations.edit(formation.id)}" title="&{'formation.edit'}">
+                        <i class="icon-pencil"></i>
+                    </a>
+                </td>
+            </tr>
+        #{/list}
+    </tbody>
+</table>
+
+<a class="btn btn-success pull-right" href="@{Formations.edit(null)}">&{'formation.new'}</a>

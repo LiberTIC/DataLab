@@ -55,6 +55,16 @@ POST    /admin/agenda/{<[0-9]+>id}                             Agendas.save
 GET     /admin/agenda/{<[0-9]+>id}/delete                      Agendas.delete
 GET     /admin/agenda/new                                      Agendas.edit
 POST    /admin/agenda/save                                     Agendas.save
+# for formations
+GET     /admin/formation                                        Formations.admin
+GET     /admin/formation/{<[0-9]+>id}                           Formations.edit
+GET     /admin/formation/image/{<[0-9]+>id}                     Formations.image
+GET     /admin/formation/file/{<[0-9]+>id}                      Formations.file
+POST    /admin/formation/{<[0-9]+>id}                           Formations.save
+GET     /admin/formation/{<[0-9]+>id}/delete                    Formations.delete
+GET     /admin/formation/new                                    Formations.edit
+POST    /admin/formation/save                                   Formations.save
+
 
 #
 # Ignore favicon requests

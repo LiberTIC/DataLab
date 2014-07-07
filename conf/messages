@@ -164,6 +164,32 @@ agenda.caption                       = %s agenda(s) trouvé(s)
 agenda.title                         = Agenda
 
 #
+# Formation
+#
+formation.edit.title                    = %s
+formation.new.title                     = Ajout d'un agenda
+formation.title                         = Formation
+formation.title.placeholder             = Nom de la formation
+formation.title.help                    = Le nom de la formation
+formation.difCompliant                  = DIF ?
+formation.description                   = Description
+formation.description.placeholder       =
+formation.description.help              = La description de l'évènement
+formation.image                         = Image
+formation.image.help                    = Image de la formation
+formation.file                          = Plaquette
+formation.file.help                     = Plaquette (en pdf) de la formation
+formation.inscription                   = Lien d'inscription
+formation.inscription.help              = Mettre les liens internes en relatif (ex: /les-flux-rss), et ne pas oublier 'http://' pour les liens externes.
+formation.inscription.placeholder       =
+formation.save                          = Enregistrer
+formation.delete                        = Supprimer
+formation.edit                          = Modifier
+formation.action                        = Action
+formation.new                           = Créer nouveau
+formation.caption                       = %s formation(s) trouvée(s)
+
+#
 # page contact
 #
 page.contact.title                 = Nous contacter

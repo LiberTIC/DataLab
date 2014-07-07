@@ -1,0 +1,128 @@
+#{extends 'admin.html' /}
+
+#{if formation?.title != null && formation?.title != ""}
+    <h1>&{'formation.edit.title', formation.title}</h1>
+#{/if}
+#{else}
+    <h1>&{'formation.new.title'}</h1>
+#{/else}
+
+#{form @Formations.save(), class:"form-horizontal", enctype:'multipart/form-data'}
+
+    <input type="hidden" name="formation.id" value="${formation?.id}" />
+
+    #{ifErrors}
+    <div class="alert alert-error">
+        <strong>&{'error'}</strong> &{'error.checkform'}
+    </div>
+    #{/ifErrors}
+    #{if flash.success}
+        <div class="alert alert-success">
+            ${flash.success}
+        </div>
+    #{/if}
+
+    <!-- Field title -->
+    <div class="control-group #{ifError 'formation.title'}error#{/ifError}">
+        <label class="control-label" for="title">
+            &{'formation.title'}
+        </label>
+        <div class="controls">
+            <input class="span12" type="text" id="title" name="formation.title" placeholder="&{'formation.title.placeholder'}" value="#{if flash['formation.title']}${flash['formation.title']}#{/if}#{else}${formation?.title}#{/else}"/>
+            #{ifError 'formation.title'}
+                <span class="help-inline">#{error 'formation.title' /}</span>
+            #{/ifError}
+        </div>
+    </div>
+
+    <!-- Field DIF -->
+    <div class="control-group #{ifError 'formation.difCompliant'}error#{/ifError}">
+        <label class="control-label" for="dif">
+        &{'formation.difCompliant'}
+        </label>
+        <div class="controls">
+            <input class="span12" type="checkbox" id="dif" name="formation.difCompliant" value="#{if flash['formation.difCompliant']}${flash['formation.difCompliant']}#{/if}#{else}${formation?.difCompliant}#{/else}"/>
+            #{ifError 'formation.difCompliant'}
+                <span class="help-inline">#{error 'formation.difCompliant' /}</span>
+            #{/ifError}
+        </div>
+    </div>
+
+    <!-- Field description -->
+    <div class="control-group #{ifError 'formation.description'}error#{/ifError}">
+        <label class="control-label" for="description">
+            &{'formation.description'}
+            <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'formation.description.help'}"><i class="icon-info-sign"></i></a>
+        </label>
+        <div class="controls">
+            <textarea id="description" name="formation.description" placeholder="&{'formation.description.placeholder'}" class="span12" rows="3">#{if flash['formation.description']}${flash['formation.description']}#{/if}#{else}${formation?.description}#{/else}</textarea>
+            #{ifError 'formation.description'}
+                <span class="help-inline">#{error 'formation.description' /}</span>
+            #{/ifError}
+        </div>
+    </div>
+
+    <!-- Field link -->
+    <div class="control-group #{ifError 'formation.inscription'}error#{/ifError}">
+        <label class="control-label" for="inscription">
+            &{'formation.inscription'}
+            <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'formation.inscription.help'}"><i class="icon-info-sign"></i></a>
+        </label>
+        <div class="controls">
+            <input class="span12" type="text" id="inscription" name="formation.inscription" placeholder="&{'formation.inscription.placeholder'}" value="#{if flash['formation.inscription']}${flash['formation.inscription']}#{/if}#{else}${formation?.inscription}#{/else}"/>
+            #{ifError 'formation.inscription'}
+                <span class="help-inline">#{error 'formation.inscription' /}</span>
+            #{/ifError}
+        </div>
+    </div>
+
+    <!-- Field image -->
+    <div class="control-group #{ifError 'formation.image'}error#{/ifError}">
+        <label class="control-label" for="image">
+            &{'formation.image'}
+            <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'formation.image.help'}"><i class="icon-info-sign"></i></a>
+        </label>
+        <div class="controls">
+            #{if formation?.image != null && formation?.image?.type != null}
+                <img src="@{Formations.image(formation?.id)}" /> <br/>
+            #{/if}
+            <input type="file" id="image" name="formation.image" placeholder="&{'formation.image.placeholder'}" value="${formation?.image}"/>
+            #{ifError 'formation.image'}
+                <span class="help-inline">#{error 'formation.image' /}</span>
+            #{/ifError}
+        </div>
+    </div>
+
+    <!-- Field file -->
+    <div class="control-group #{ifError 'formation.file'}error#{/ifError}">
+        <label class="control-label" for="image">
+             &{'formation.file'}
+            <a class="form-tooltip" href="#" data-toggle="tooltip" title="&{'formation.file.help'}"><i class="icon-info-sign"></i></a>
+        </label>
+        <div class="controls">
+            #{if formation?.file != null && formation?.file?.type != null}
+                <a href="@{Formations.file(formation?.id)}" title="download">Télécharger</a>
+            #{/if}
+            <input type="file" id="image" name="formation.file" placeholder="&{'formation.file.placeholder'}" value="${formation?.file}"/>
+            #{ifError 'formation.file'}
+                <span class="help-inline">#{error 'formation.file' /}</span>
+            #{/ifError}
+        </div>
+    </div>
+
+    <!-- Form button -->
+    <div class="form-actions">
+        <button class="btn btn-primary" type="submit">&{'agenda.save'}</button>
+        #{if agenda?.id}
+            <a href="@{Formations.delete(agenda.id)}" class="btn btn-danger" name="delete" value="delete" type="submit">&{'formation.delete'}</a>
+        #{/if}
+    </div>
+
+#{/form}
+
+<script src="@{'/public/javascripts/bootstrap-datepicker.js'}" type="text/javascript"></script>
+<script type="text/javascript" >
+    $(document).ready(function () {
+        $('.form-tooltip').tooltip();
+    });
+</script >
