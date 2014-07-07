@@ -47,7 +47,10 @@ GET     /admin/newsletter/delete                               NewsLetter.delete
 GET     /admin                                                 Application.admin
 GET     /admin/organisme                                       Organismes.admin
 GET     /admin/organisme/{<[0-9]+>id}/partenaire               Organismes.partenaire
-# for agendas
+
+#
+# Agendas
+#
 GET     /admin/agenda                                          Agendas.admin
 GET     /admin/agenda/{<[0-9]+>id}                             Agendas.edit
 GET     /admin/agenda/image/{<[0-9]+>id}                       Agendas.image
@@ -55,7 +58,11 @@ POST    /admin/agenda/{<[0-9]+>id}                             Agendas.save
 GET     /admin/agenda/{<[0-9]+>id}/delete                      Agendas.delete
 GET     /admin/agenda/new                                      Agendas.edit
 POST    /admin/agenda/save                                     Agendas.save
-# for formations
+
+#
+# Formations
+#
+GET     /formation                                              Formations.list
 GET     /admin/formation                                        Formations.admin
 GET     /admin/formation/{<[0-9]+>id}                           Formations.edit
 GET     /admin/formation/image/{<[0-9]+>id}                     Formations.image

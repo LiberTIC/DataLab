@@ -1,0 +1,47 @@
+#{extends 'page.html' /}
+#{set mainClass:'formation' /}
+#{set title:messages.get('page.formation.title') /}
+
+<div class="row">
+    <div class="span12">
+        <h1>&{'page.formation.title'}</h1>
+
+        <!-- page hearder -->
+        <div class="row-fluid">
+            <div class="span8">
+                #{cms.display 'formation'}
+                    <p>Le texte de présentation des formations</p>
+                #{/cms.display}
+            </div>
+            <div class="span4">
+                #{if formations.size() > 0}
+                    <a href="#">
+                        <img src="#" />
+                        Télécharger toutes les plaquettes de formation
+                    </a>
+                #{/if}
+            </div>
+        </div>
+
+        #{if formations.size() > 0}
+            <h2>Liste des formations proposées</h2>
+
+            <!-- Formation list-->
+            #{list items:formations, as:'formation'}
+                <div class="row-fluid">
+
+                    <div class="span4">
+                        <img src="#" />
+                    </div>
+
+                    <div class="span8">
+                        <h3>${formation.title}</h3>
+                    </div>
+
+                </div>
+            #{/list}
+        #{/if}
+
+
+    </div>
+</div>

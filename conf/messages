@@ -188,6 +188,7 @@ formation.edit                          = Modifier
 formation.action                        = Action
 formation.new                           = Créer nouveau
 formation.caption                       = %s formation(s) trouvée(s)
+page.formation.title                    = Les formations
 
 #
 # page contact
